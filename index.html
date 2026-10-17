@@ -1,11 +1,12 @@
+
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#123d32">
-  <meta name="description" content="زاد المسلم: أذكار ومقالات إسلامية مختصرة مع مصادر واضحة وروابط للمراجعة.">
-  <title>زاد المسلم | أذكار ومقالات موثوقة</title>
+  <meta name="description" content="Oubaida Deen | عبيدة دين: القرآن الكريم، الأربعون النووية، الأذكار ومقالات إسلامية مع مصادر للمراجعة.">
+  <title>Oubaida Deen | عبيدة دين</title>
   <style>
     :root{--green:#123d32;--green2:#1c5a47;--gold:#d9bd78;--cream:#f7f5ee;--paper:#fffefa;--ink:#1f2c27;--muted:#68756f;--line:#e7e5dc;--shadow:0 12px 32px rgba(18,61,50,.08)}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.85} a{color:inherit} button,input{font:inherit} .wrap{width:min(1100px,92%);margin:auto}
@@ -20,25 +21,69 @@
     .notice{font-size:.86rem;color:var(--muted);margin-top:13px}.hidden{display:none!important}
     @media(max-width:800px){.hero{grid-template-columns:1fr;padding:35px 0 48px}.hero-card{max-width:520px;transform:none}.daily-grid,.articles{grid-template-columns:repeat(2,1fr)}.nav{align-items:flex-start}.navlinks{gap:10px}.adhkar{grid-template-columns:1fr}}
     @media(max-width:540px){.nav{flex-direction:column}.navlinks{font-size:.85rem}.daily-grid,.articles,.about-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.hero h1{font-size:2.2rem}.hero-card{padding:19px}.wrap{width:min(100% - 28px,1100px)}}
+
+    /* تحسين بصري آمن: يحافظ على النصوص والأزرار والبحث الحالي */
+    :root{--green:#103b30;--green2:#24634d;--gold:#d8b96f;--cream:#f5f4ed;--paper:#fffefa;--ink:#1d2c25;--muted:#65736b;--line:#e3e5da;--shadow:0 14px 36px rgba(16,59,48,.09)}
+    body{background:radial-gradient(ellipse at top right,#e8eee5 0,transparent 34rem),var(--cream);letter-spacing:0}
+    header{background:linear-gradient(135deg,#0b2f26 0%,#154c3c 58%,#1c5b46 100%)}
+    header:after{content:"";position:absolute;inset:auto -8% -125px auto;width:360px;height:260px;border:1px solid rgba(216,185,111,.18);border-radius:50%;transform:rotate(-22deg);pointer-events:none}
+    .nav{padding:19px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+    .brand-mark{box-shadow:inset 0 0 0 4px rgba(216,185,111,.07);background:rgba(255,255,255,.035)}
+    .navlinks a{padding:7px 10px;border-radius:9px;transition:background .2s,color .2s}
+    .navlinks a:hover{background:rgba(255,255,255,.09);color:#f0d99c}
+    .hero{padding-top:58px;padding-bottom:76px;gap:44px}
+    .hero h1{letter-spacing:-.035em;text-wrap:balance}
+    .hero p{line-height:2.05}
+    .btn{transition:transform .18s,box-shadow .18s,background .18s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.13)}
+    .btn-gold{background:linear-gradient(135deg,#e8d39a,#d3b365)}
+    .hero-card{border:1px solid rgba(216,185,111,.45);box-shadow:0 24px 60px rgba(0,0,0,.2);transform:rotate(-1.2deg)}
+    .hero-card blockquote{line-height:2.15;background:linear-gradient(135deg,#f8f5e9,#f1eddd);border-right-width:4px}
+    main{padding-top:52px}
+    .section{scroll-margin-top:18px;margin-bottom:58px}
+    .section-head{margin-bottom:23px}
+    .section-head h2{letter-spacing:-.02em}
+    .pill{background:#e8eee6;color:#1c503d;padding:5px 12px}
+    .card{position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .card:before{content:"";position:absolute;top:0;right:0;width:58px;height:3px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.85}
+    .card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(18,61,50,.12);border-color:#d2dccc}
+    .card-icon{box-shadow:inset 0 0 0 1px rgba(18,61,50,.05)}
+    .dhikr-text{font-size:1.3rem;line-height:2.25;background:#fbfaf4;border-radius:12px;padding:14px 16px;border:1px solid #efeee4}
+    .copy-btn{transition:background .2s,transform .2s}
+    .copy-btn:hover{transform:translateY(-1px);background:#e4eee1}
+    .searchbar input{box-shadow:0 4px 14px rgba(18,61,50,.035)}
+    .searchbar input:focus{border-color:#83a28d;box-shadow:0 0 0 3px rgba(36,99,77,.1)}
+    .article-card h3{margin-top:12px}
+    .source-note{background:linear-gradient(135deg,#eef3e9,#f7f6ed);box-shadow:var(--shadow)}
+    .about-box{background:linear-gradient(145deg,#103b30,#1c5b46);box-shadow:var(--shadow)}
+    .plain-box{box-shadow:var(--shadow)}
+    footer{background:linear-gradient(120deg,#092820,#103b30)}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #d8b96f;outline-offset:3px}
+    @media(max-width:800px){.hero{padding-top:40px;padding-bottom:54px;gap:28px}}
+    @media(max-width:540px){.navlinks{gap:5px}.navlinks a{padding:6px 8px}.hero h1{font-size:2.05rem}.hero-card{transform:none}.section{margin-bottom:42px}.card{padding:19px}}
+    .hadith-card .pill{white-space:nowrap}.hadith-card h3{min-height:3.2em}.section-head>.btn{flex-shrink:0}
+    @media(max-width:800px){.section-head>.btn{align-self:flex-start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
   </style>
 </head>
 <body>
 <header id="home">
   <div class="wrap">
     <nav class="nav" aria-label="القائمة الرئيسية">
-      <a class="brand" href="#home" aria-label="زاد المسلم - الرئيسية"><span class="brand-mark">۞</span><span><strong>زاد المسلم</strong><small>ذكرٌ نافع، وعلمٌ موثّق</small></span></a>
-      <div class="navlinks"><a href="#adhkar">الأذكار</a><a href="#articles">المقالات</a><a href="#sources">المصادر</a><a href="#about">عن الموقع</a></div>
+      <a class="brand" href="#home" aria-label="Oubaida Deen - الرئيسية"><span class="brand-mark">۞</span><span><strong>Oubaida Deen</strong><small>عبيدة دين · علمٌ نافع ومصادر موثوقة</small></span></a>
+      <div class="navlinks"><a href="#quran">القرآن</a><a href="#nawawi">الأربعون النووية</a><a href="#adhkar">الأذكار</a><a href="#articles">المقالات</a><a href="#sources">المصادر</a></div>
     </nav>
     <section class="hero">
       <div>
         <span class="eyebrow">بسم الله الرحمن الرحيم</span>
-        <h1>زادٌ لقلبك، ومعرفةٌ تثق بمصدرها</h1>
-        <p>مساحة عربية هادئة للأذكار والمقالات الإيمانية، نحرص فيها على وضوح المصادر والتثبّت قبل النشر. خذ من وقتك دقائق، واجعلها بداية خير.</p>
-        <div class="actions"><a class="btn btn-gold" href="#adhkar">ابدأ بالأذكار <span aria-hidden="true">←</span></a><a class="btn btn-outline" href="#articles">تصفّح المقالات</a></div>
+        <h1>Oubaida Deen<br><span style="color:var(--gold)">عبيدة دين</span></h1>
+        <p>رفيقك إلى القرآن الكريم، والأربعين النووية، والأذكار والمقالات النافعة. واجهة عربية بسيطة، ومصادر واضحة تساعدك على التحقق قبل النشر.</p>
+        <div class="actions"><a class="btn btn-gold" href="#quran">اقرأ القرآن <span aria-hidden="true">←</span></a><a class="btn btn-outline" href="#nawawi">تصفّح الأربعين النووية</a></div>
       </div>
       <aside class="hero-card" aria-label="آية قرآنية">
         <div class="ornament">﴿ ﴾</div>
-        <h2>وقفة مع آية</h2>
+        <h2>آية اليوم</h2>
         <blockquote>فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ</blockquote>
         <small>سورة البقرة، الآية 152</small>
       </aside>
@@ -47,12 +92,70 @@
 </header>
 <main class="wrap">
   <section class="section" aria-labelledby="start-title">
-    <div class="section-head"><div><span class="pill">ابدأ من هنا</span><h2 id="start-title">أبواب الموقع</h2><p>محتوى بسيط ومنظم لتصل إلى ما تبحث عنه بسهولة.</p></div></div>
+    <div class="section-head"><div><span class="pill">ابدأ من هنا</span><h2 id="start-title">اكتشف محتوى الموقع</h2><p>محتوى بسيط ومنظم لتصل إلى ما تبحث عنه بسهولة.</p></div></div>
     <div class="daily-grid">
       <article class="card"><div class="card-icon" aria-hidden="true">☀</div><h3>الأذكار</h3><p>أذكار مختارة مع النصوص والمراجع، لتراجعها وتعمل بها.</p><a class="text-link" href="#adhkar">اذهب إلى الأذكار ←</a></article>
       <article class="card"><div class="card-icon" aria-hidden="true">✎</div><h3>مقالات إيمانية</h3><p>موضوعات قصيرة عن العبادة والأخلاق وطلب العلم، بعيدًا عن المبالغة.</p><a class="text-link" href="#articles">اقرأ المقالات ←</a></article>
       <article class="card"><div class="card-icon" aria-hidden="true">⌕</div><h3>مصادر موثوقة</h3><p>روابط للرجوع إلى القرآن الكريم والتحقق من المعلومات قبل مشاركتها.</p><a class="text-link" href="#sources">تعرّف على المصادر ←</a></article>
     </div>
+  </section>
+
+  <section class="section" id="quran" aria-labelledby="quran-title">
+    <div class="section-head"><div><span class="pill">كلام الله</span><h2 id="quran-title">القرآن الكريم</h2><p>اقرأ السور، واستمع للتلاوات، وارجع إلى التفسير من مصدر متخصص.</p></div><a class="btn btn-gold" href="https://quran.com/" target="_blank" rel="noopener noreferrer">فتح المصحف الإلكتروني ↗</a></div>
+    <div class="daily-grid">
+      <article class="card"><div class="card-icon" aria-hidden="true">۞</div><h3>قراءة القرآن</h3><p>تصفّح سور القرآن الكريم وآياته عبر المصحف الإلكتروني.</p><a class="text-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">ابدأ القراءة ←</a></article>
+      <article class="card"><div class="card-icon" aria-hidden="true">♫</div><h3>استماع وتلاوة</h3><p>اختر قارئًا واستمع إلى التلاوة من منصة القرآن.</p><a class="text-link" href="https://quran.com/reciters" target="_blank" rel="noopener noreferrer">استمع للتلاوات ←</a></article>
+      <article class="card"><div class="card-icon" aria-hidden="true">ت</div><h3>التفسير والمعاني</h3><p>راجع معاني الآيات وتفسيرها، ولا تعتمد على اقتباس بلا سياق.</p><a class="text-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">تدبّر الآيات ←</a></article>
+    </div>
+    <p class="notice">تنبيه: هذا القسم يفتح المصحف في موقع Quran.com؛ لا يستضيف الموقع نص القرآن كاملًا محليًا، مما يساعد على الرجوع إلى مصدر مخصص للقراءة والتلاوة.</p>
+  </section>
+
+  <section class="section" id="nawawi" aria-labelledby="nawawi-title">
+    <div class="section-head"><div><span class="pill">الأربعون النووية</span><h2 id="nawawi-title">أحاديث جامعة من السنة</h2><p>اختر رقم الحديث لقراءة نصه وشرحه في مصدر خارجي، وتحقق من اللفظ والترجمة قبل الاقتباس.</p></div><a class="btn btn-gold" href="https://sunnah.com/nawawi40" target="_blank" rel="noopener noreferrer">فتح مجموعة الأربعين ↗</a></div>
+    <div class="searchbar"><input type="search" id="hadithSearch" placeholder="ابحث برقم الحديث أو موضوعه..." aria-label="ابحث في الأربعين النووية"><span class="pill" id="hadithCount">40 حديثًا</span></div>
+    <div class="articles" id="hadithList">
+      <article class="card article-card hadith-card" data-search="1 الأعمال بالنيات النية والإخلاص"><div class="article-top"><span class="pill">الحديث 1</span><span class="ref">الأربعون النووية</span></div><h3>الأعمال بالنيات</h3><p>النية والإخلاص</p><a class="text-link" href="https://sunnah.com/nawawi40/1" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="2 مراتب الدين الإسلام والإيمان والإحسان"><div class="article-top"><span class="pill">الحديث 2</span><span class="ref">الأربعون النووية</span></div><h3>مراتب الدين</h3><p>الإسلام والإيمان والإحسان</p><a class="text-link" href="https://sunnah.com/nawawi40/2" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="3 أركان الإسلام بني الإسلام على خمس"><div class="article-top"><span class="pill">الحديث 3</span><span class="ref">الأربعون النووية</span></div><h3>أركان الإسلام</h3><p>بني الإسلام على خمس</p><a class="text-link" href="https://sunnah.com/nawawi40/3" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="4 مراحل الخلق والقدر الخلق والقدر"><div class="article-top"><span class="pill">الحديث 4</span><span class="ref">الأربعون النووية</span></div><h3>مراحل الخلق والقدر</h3><p>الخلق والقدر</p><a class="text-link" href="https://sunnah.com/nawawi40/4" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="5 النهي عن الابتداع ردّ المحدثات"><div class="article-top"><span class="pill">الحديث 5</span><span class="ref">الأربعون النووية</span></div><h3>النهي عن الابتداع</h3><p>ردّ المحدثات</p><a class="text-link" href="https://sunnah.com/nawawi40/5" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="6 الحلال والحرام الحلال بيّن والحرام بيّن"><div class="article-top"><span class="pill">الحديث 6</span><span class="ref">الأربعون النووية</span></div><h3>الحلال والحرام</h3><p>الحلال بيّن والحرام بيّن</p><a class="text-link" href="https://sunnah.com/nawawi40/6" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="7 الدين النصيحة النصيحة"><div class="article-top"><span class="pill">الحديث 7</span><span class="ref">الأربعون النووية</span></div><h3>الدين النصيحة</h3><p>النصيحة</p><a class="text-link" href="https://sunnah.com/nawawi40/7" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="8 حرمة المسلم الشهادتان وعصمة الدم والمال"><div class="article-top"><span class="pill">الحديث 8</span><span class="ref">الأربعون النووية</span></div><h3>حرمة المسلم</h3><p>الشهادتان وعصمة الدم والمال</p><a class="text-link" href="https://sunnah.com/nawawi40/8" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="9 اجتناب النواهي ما نهيتكم عنه فاجتنبوه"><div class="article-top"><span class="pill">الحديث 9</span><span class="ref">الأربعون النووية</span></div><h3>اجتناب النواهي</h3><p>ما نهيتكم عنه فاجتنبوه</p><a class="text-link" href="https://sunnah.com/nawawi40/9" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="10 طيب الكسب إن الله طيب لا يقبل إلا طيبًا"><div class="article-top"><span class="pill">الحديث 10</span><span class="ref">الأربعون النووية</span></div><h3>طيب الكسب</h3><p>إن الله طيب لا يقبل إلا طيبًا</p><a class="text-link" href="https://sunnah.com/nawawi40/10" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="11 اترك ما يريبك دع ما يريبك إلى ما لا يريبك"><div class="article-top"><span class="pill">الحديث 11</span><span class="ref">الأربعون النووية</span></div><h3>اترك ما يريبك</h3><p>دع ما يريبك إلى ما لا يريبك</p><a class="text-link" href="https://sunnah.com/nawawi40/11" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="12 الاشتغال بما ينفع من حسن إسلام المرء"><div class="article-top"><span class="pill">الحديث 12</span><span class="ref">الأربعون النووية</span></div><h3>الاشتغال بما ينفع</h3><p>من حسن إسلام المرء</p><a class="text-link" href="https://sunnah.com/nawawi40/12" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="13 محبة الخير للآخرين لا يؤمن أحدكم حتى يحب لأخيه"><div class="article-top"><span class="pill">الحديث 13</span><span class="ref">الأربعون النووية</span></div><h3>محبة الخير للآخرين</h3><p>لا يؤمن أحدكم حتى يحب لأخيه</p><a class="text-link" href="https://sunnah.com/nawawi40/13" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="14 حرمة الدم لا يحل دم امرئ مسلم"><div class="article-top"><span class="pill">الحديث 14</span><span class="ref">الأربعون النووية</span></div><h3>حرمة الدم</h3><p>لا يحل دم امرئ مسلم</p><a class="text-link" href="https://sunnah.com/nawawi40/14" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="15 إكرام الضيف والجار فليكرم جاره وضيفه"><div class="article-top"><span class="pill">الحديث 15</span><span class="ref">الأربعون النووية</span></div><h3>إكرام الضيف والجار</h3><p>فليكرم جاره وضيفه</p><a class="text-link" href="https://sunnah.com/nawawi40/15" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="16 لا تغضب الوصية بضبط الغضب"><div class="article-top"><span class="pill">الحديث 16</span><span class="ref">الأربعون النووية</span></div><h3>لا تغضب</h3><p>الوصية بضبط الغضب</p><a class="text-link" href="https://sunnah.com/nawawi40/16" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="17 الإحسان في كل شيء كتب الإحسان على كل شيء"><div class="article-top"><span class="pill">الحديث 17</span><span class="ref">الأربعون النووية</span></div><h3>الإحسان في كل شيء</h3><p>كتب الإحسان على كل شيء</p><a class="text-link" href="https://sunnah.com/nawawi40/17" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="18 حسن الخلق اتق الله حيثما كنت"><div class="article-top"><span class="pill">الحديث 18</span><span class="ref">الأربعون النووية</span></div><h3>حسن الخلق</h3><p>اتق الله حيثما كنت</p><a class="text-link" href="https://sunnah.com/nawawi40/18" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="19 احفظ حدود الله احفظ الله يحفظك"><div class="article-top"><span class="pill">الحديث 19</span><span class="ref">الأربعون النووية</span></div><h3>احفظ حدود الله</h3><p>احفظ الله يحفظك</p><a class="text-link" href="https://sunnah.com/nawawi40/19" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="20 الحياء إذا لم تستح فاصنع ما شئت"><div class="article-top"><span class="pill">الحديث 20</span><span class="ref">الأربعون النووية</span></div><h3>الحياء</h3><p>إذا لم تستح فاصنع ما شئت</p><a class="text-link" href="https://sunnah.com/nawawi40/20" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="21 الاستقامة قل آمنت بالله ثم استقم"><div class="article-top"><span class="pill">الحديث 21</span><span class="ref">الأربعون النووية</span></div><h3>الاستقامة</h3><p>قل آمنت بالله ثم استقم</p><a class="text-link" href="https://sunnah.com/nawawi40/21" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="22 الطريق إلى الجنة الفرائض والنوافل"><div class="article-top"><span class="pill">الحديث 22</span><span class="ref">الأربعون النووية</span></div><h3>الطريق إلى الجنة</h3><p>الفرائض والنوافل</p><a class="text-link" href="https://sunnah.com/nawawi40/22" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="23 أبواب الخير الصدقة والتسبيح والأمر بالمعروف"><div class="article-top"><span class="pill">الحديث 23</span><span class="ref">الأربعون النووية</span></div><h3>أبواب الخير</h3><p>الصدقة والتسبيح والأمر بالمعروف</p><a class="text-link" href="https://sunnah.com/nawawi40/23" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="24 تحريم الظلم يا عبادي إني حرمت الظلم"><div class="article-top"><span class="pill">الحديث 24</span><span class="ref">الأربعون النووية</span></div><h3>تحريم الظلم</h3><p>يا عبادي إني حرمت الظلم</p><a class="text-link" href="https://sunnah.com/nawawi40/24" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="25 فضل الذكر كل سلامى من الناس عليه صدقة"><div class="article-top"><span class="pill">الحديث 25</span><span class="ref">الأربعون النووية</span></div><h3>فضل الذكر</h3><p>كل سلامى من الناس عليه صدقة</p><a class="text-link" href="https://sunnah.com/nawawi40/25" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="26 الجمع بين البر والتقوى البر حسن الخلق"><div class="article-top"><span class="pill">الحديث 26</span><span class="ref">الأربعون النووية</span></div><h3>الجمع بين البر والتقوى</h3><p>البر حسن الخلق</p><a class="text-link" href="https://sunnah.com/nawawi40/26" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="27 اتباع السيئة بالحسنة اتق الله حيثما كنت"><div class="article-top"><span class="pill">الحديث 27</span><span class="ref">الأربعون النووية</span></div><h3>اتباع السيئة بالحسنة</h3><p>اتق الله حيثما كنت</p><a class="text-link" href="https://sunnah.com/nawawi40/27" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="28 التمسك بالسنة أوصيكم بتقوى الله والسمع والطاعة"><div class="article-top"><span class="pill">الحديث 28</span><span class="ref">الأربعون النووية</span></div><h3>التمسك بالسنة</h3><p>أوصيكم بتقوى الله والسمع والطاعة</p><a class="text-link" href="https://sunnah.com/nawawi40/28" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="29 أبواب البر أخبرني بعمل يدخلني الجنة"><div class="article-top"><span class="pill">الحديث 29</span><span class="ref">الأربعون النووية</span></div><h3>أبواب البر</h3><p>أخبرني بعمل يدخلني الجنة</p><a class="text-link" href="https://sunnah.com/nawawi40/29" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="30 حدود الله وحقوقه فرائض وحدود ومحرمات"><div class="article-top"><span class="pill">الحديث 30</span><span class="ref">الأربعون النووية</span></div><h3>حدود الله وحقوقه</h3><p>فرائض وحدود ومحرمات</p><a class="text-link" href="https://sunnah.com/nawawi40/30" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="31 الزهد في الدنيا ازهد في الدنيا يحبك الله"><div class="article-top"><span class="pill">الحديث 31</span><span class="ref">الأربعون النووية</span></div><h3>الزهد في الدنيا</h3><p>ازهد في الدنيا يحبك الله</p><a class="text-link" href="https://sunnah.com/nawawi40/31" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="32 لا ضرر ولا ضرار قاعدة رفع الضرر"><div class="article-top"><span class="pill">الحديث 32</span><span class="ref">الأربعون النووية</span></div><h3>لا ضرر ولا ضرار</h3><p>قاعدة رفع الضرر</p><a class="text-link" href="https://sunnah.com/nawawi40/32" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="33 البينة على المدعي لو يعطى الناس بدعواهم"><div class="article-top"><span class="pill">الحديث 33</span><span class="ref">الأربعون النووية</span></div><h3>البينة على المدعي</h3><p>لو يعطى الناس بدعواهم</p><a class="text-link" href="https://sunnah.com/nawawi40/33" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="34 تغيير المنكر من رأى منكم منكرًا"><div class="article-top"><span class="pill">الحديث 34</span><span class="ref">الأربعون النووية</span></div><h3>تغيير المنكر</h3><p>من رأى منكم منكرًا</p><a class="text-link" href="https://sunnah.com/nawawi40/34" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="35 أخوة المسلم لا تحاسدوا ولا تباغضوا"><div class="article-top"><span class="pill">الحديث 35</span><span class="ref">الأربعون النووية</span></div><h3>أخوة المسلم</h3><p>لا تحاسدوا ولا تباغضوا</p><a class="text-link" href="https://sunnah.com/nawawi40/35" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="36 قضاء الحوائج من نفس عن مؤمن كربة"><div class="article-top"><span class="pill">الحديث 36</span><span class="ref">الأربعون النووية</span></div><h3>قضاء الحوائج</h3><p>من نفس عن مؤمن كربة</p><a class="text-link" href="https://sunnah.com/nawawi40/36" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="37 فضل الأعمال إن الله كتب الحسنات والسيئات"><div class="article-top"><span class="pill">الحديث 37</span><span class="ref">الأربعون النووية</span></div><h3>فضل الأعمال</h3><p>إن الله كتب الحسنات والسيئات</p><a class="text-link" href="https://sunnah.com/nawawi40/37" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="38 ولاية الله من عادى لي وليًا"><div class="article-top"><span class="pill">الحديث 38</span><span class="ref">الأربعون النووية</span></div><h3>ولاية الله</h3><p>من عادى لي وليًا</p><a class="text-link" href="https://sunnah.com/nawawi40/38" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="39 التجاوز عن الخطأ إن الله تجاوز عن أمتي"><div class="article-top"><span class="pill">الحديث 39</span><span class="ref">الأربعون النووية</span></div><h3>التجاوز عن الخطأ</h3><p>إن الله تجاوز عن أمتي</p><a class="text-link" href="https://sunnah.com/nawawi40/39" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+      <article class="card article-card hadith-card" data-search="40 كن في الدنيا كالغريب كن في الدنيا كأنك غريب"><div class="article-top"><span class="pill">الحديث 40</span><span class="ref">الأربعون النووية</span></div><h3>كن في الدنيا كالغريب</h3><p>كن في الدنيا كأنك غريب</p><a class="text-link" href="https://sunnah.com/nawawi40/40" target="_blank" rel="noopener noreferrer">اقرأ الحديث ومصدره ↗</a></article>
+    </div>
+    <p class="notice">العناوين هنا فهرس موضوعي مختصر وليست نصوص الأحاديث. تُعرف المجموعة باسم الأربعين النووية، وتضم في النسخة المشهورة 42 حديثًا؛ يعرض هذا الفهرس أول 40 رقمًا فقط. افتح المصدر لقراءة النص الكامل والتحقق منه، ولا تنشر حديثًا من هذا الفهرس وحده دون مراجعة.</p>
   </section>
 
   <section class="section" id="adhkar" aria-labelledby="adhkar-title">
@@ -80,11 +183,11 @@
   </section>
 
   <section class="section" id="about" aria-labelledby="about-title">
-    <div class="section-head"><div><span class="pill">رسالتنا</span><h2 id="about-title">عن زاد المسلم</h2></div></div>
-    <div class="about-grid"><div class="about-box"><h3>هدف الموقع</h3><p>نشر محتوى إسلامي عربي نافع، سهل القراءة، مع توضيح المصادر وتجنب نشر المعلومات غير المتحققة. الموقع مشروع تعليمي مستقل، وليس جهة إفتاء.</p></div><div class="plain-box"><h3>تواصل واقتراح موضوع</h3><p>يمكنك إضافة بريد تواصل خاص بالموقع هنا بعد إنشائه. لا تضع بياناتك الشخصية أو عنوانك الخاص علنًا؛ وإذا كنت قاصرًا، فاستشر ولي أمرك قبل نشر معلومات التواصل.</p></div></div>
+    <div class="section-head"><div><span class="pill">رسالتنا</span><h2 id="about-title">عن Oubaida Deen</h2></div></div>
+    <div class="about-grid"><div class="about-box"><h3>هدف الموقع</h3><p>نشر محتوى إسلامي عربي نافع يشمل القرآن الكريم والأربعين النووية والأذكار والمقالات، مع توضيح المصادر وتجنب نشر المعلومات غير المتحققة. الموقع مشروع تعليمي مستقل، وليس جهة إفتاء.</p></div><div class="plain-box"><h3>تواصل واقتراح موضوع</h3><p>يمكنك إضافة بريد تواصل خاص بالموقع هنا بعد إنشائه. لا تضع بياناتك الشخصية أو عنوانك الخاص علنًا؛ وإذا كنت قاصرًا، فاستشر ولي أمرك قبل نشر معلومات التواصل.</p></div></div>
   </section>
 </main>
-<footer><div class="wrap footer-inner"><div><strong>زاد المسلم</strong><p>محتوى نافع، ومصادر واضحة.</p><p class="tiny">© <span id="year"></span> زاد المسلم — يُرجى مراجعة النصوص والمراجع قبل إعادة النشر.</p></div><div class="footer-links"><a href="#home">الرئيسية</a><a href="#adhkar">الأذكار</a><a href="#articles">المقالات</a><a href="#sources">المصادر</a></div></div></footer>
+<footer><div class="wrap footer-inner"><div><strong>Oubaida Deen | عبيدة دين</strong><p>قرآن · سنة · أذكار · معرفة نافعة</p><p class="tiny">© <span id="year"></span> Oubaida Deen — راجع النصوص والمراجع قبل إعادة النشر.</p></div><div class="footer-links"><a href="#home">الرئيسية</a><a href="#quran">القرآن</a><a href="#nawawi">الأربعون النووية</a><a href="#adhkar">الأذكار</a><a href="#sources">المصادر</a></div></div></footer>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
   document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
@@ -93,6 +196,14 @@
     catch { button.textContent = 'تعذر النسخ — حدّد النص وانسخه'; }
     setTimeout(() => button.textContent = 'نسخ النص', 2200);
   }));
+  const hadithSearch = document.getElementById('hadithSearch');
+  const hadithCards = [...document.querySelectorAll('.hadith-card')];
+  const hadithCount = document.getElementById('hadithCount');
+  hadithSearch.addEventListener('input', () => {
+    const q = hadithSearch.value.trim().toLowerCase(); let visible = 0;
+    hadithCards.forEach(card => { const match = (card.innerText + ' ' + card.dataset.search).toLowerCase().includes(q); card.classList.toggle('hidden', !match); if(match) visible++; });
+    hadithCount.textContent = visible + ' حديثًا';
+  });
   const search = document.getElementById('articleSearch');
   const cards = [...document.querySelectorAll('.article-card')];
   const count = document.getElementById('resultCount');
