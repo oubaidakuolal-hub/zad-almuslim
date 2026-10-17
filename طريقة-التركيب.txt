@@ -1,0 +1,18 @@
+ملفات جاهزة لموقع Oubaida Deen
+
+1) ارفع sitemap.xml إلى جذر مستودع GitHub:
+https://github.com/oubaidakoulal-hub/zad-almuslim
+من Add file > Upload files ثم Commit changes.
+
+2) ارفع favicon.svg إلى جذر المستودع بالطريقة نفسها.
+
+3) لربط الشعار بصفحة الموقع:
+افتح index.html ثم Edit، وأضف السطر التالي داخل <head> قبل </head>:
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+4) في Google Search Console افتح خرائط الموقع، وأدخل sitemap.xml ثم اضغط إرسال.
+
+رابط خريطة الموقع بعد رفع الملف:
+https://oubaidakuolal-hub.github.io/zad-almuslim/sitemap.xml
+
+مهم: تنزيل هذه الملفات لا ينشرها تلقائيًا؛ يجب رفعها إلى GitHub وحفظ التغييرات.
