@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -97,6 +96,26 @@
       object-fit: contain;
       border-radius: 12px;
       flex-shrink: 0;
+    }
+
+    /* بديل للشعار إذا لم يتم تحميل ملف الصورة */
+    .logo-fallback {
+      display: inline-grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      border: 1px solid rgba(217,189,120,.7);
+      background: var(--green2);
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .zad-logo-hadith .logo-fallback {
+      margin: auto;
     }
 
     .language-switch {
@@ -642,12 +661,14 @@
 
       .wrap { width: min(100% - 28px,1100px); }
 
-      .brand-logo {
+      .brand-logo, .brand .logo-fallback {
         width: 44px;
         height: 44px;
       }
 
-      .zad-hadith-logo, .zad-logo {
+      .zad-hadith-logo, .zad-logo,
+      .zad-logo-hadith .logo-fallback,
+      .hadith-title-row .logo-fallback {
         width: 52px;
         height: 52px;
       }
@@ -924,6 +945,31 @@
   // السنة الحالية في التذييل
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // إصلاح عرض الشعار عند تعذر تحميل الصورة
+  document.querySelectorAll(
+    '.brand-logo, .zad-logo, .zad-hadith-logo'
+  ).forEach(img => {
+    img.addEventListener('error', function () {
+      if (this.dataset.fallbackShown === 'true') return;
+
+      this.dataset.fallbackShown = 'true';
+      this.hidden = true;
+
+      const fallback = document.createElement('span');
+      fallback.className = 'logo-fallback';
+      fallback.setAttribute('role', 'img');
+      fallback.setAttribute('aria-label', 'شعار زاد المسلم');
+      fallback.textContent = 'زاد';
+
+      this.insertAdjacentElement('afterend', fallback);
+
+      console.warn(
+        'تعذر تحميل الشعار. تحقق من اسم الملف ومساره:',
+        this.getAttribute('src')
+      );
+    }, { once: true });
+  });
+
   // نسخ الأذكار
   document.querySelectorAll('[data-copy]').forEach(button => {
     button.addEventListener('click', async () => {
@@ -1003,6 +1049,7 @@
 
   function getHadithText(item) {
     if (typeof item === 'string') return item;
+    if (!item || typeof item !== 'object') return '';
 
     const candidates = [
       item.hadith,
@@ -1024,6 +1071,7 @@
   function getHadithTitle(item, index) {
     if (item && typeof item === 'object') {
       const title = item.title || item.name;
+
       if (typeof title === 'string' && title.trim()) {
         return title.trim();
       }
@@ -1121,9 +1169,10 @@
               []
             );
 
-        // دعم الملفات التي تضع الأحاديث داخل خاصية أخرى
         if (!Array.isArray(records) || records.length < 40) {
-          throw new Error('بيانات الأحاديث غير مكتملة أو بتنسيق غير متوقع');
+          throw new Error(
+            'بيانات الأحاديث غير مكتملة أو بتنسيق غير متوقع'
+          );
         }
 
         nawawiHadiths = records.slice(0, 40);
@@ -1147,7 +1196,10 @@
     hadithModal.hidden = true;
     document.body.style.overflow = '';
 
-    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    if (
+      lastFocusedElement &&
+      typeof lastFocusedElement.focus === 'function'
+    ) {
       lastFocusedElement.focus();
     }
   }
@@ -1195,9 +1247,9 @@
     const value = language === 'ar' ? '/ar/ar' : '/ar/' + language;
 
     document.cookie =
-      'googtrans=' + value + ';path=/;max-age=31536000;SameSite=Lax';
+      'googtrans=' + value +
+      ';path=/;max-age=31536000;SameSite=Lax';
 
-    // محاولة تعيين ملف تعريف الارتباط على النطاق الحالي
     document.cookie =
       'googtrans=' + value +
       ';path=/;domain=' + location.hostname +
@@ -1227,7 +1279,6 @@
         : 'جارٍ تطبيق الترجمة...';
 
     if (language === 'ar') {
-      // إزالة ملفات الترجمة السابقة للعودة إلى الصفحة الأصلية
       document.cookie = 'googtrans=;path=/;max-age=0';
       document.cookie =
         'googtrans=;path=/;domain=' + location.hostname + ';max-age=0';
