@@ -4,1299 +4,302 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#123d32">
-  <meta name="description" content="زاد  عبيدة: أذكار ومقالات إسلامية مختصرة مع مصادر واضحة وروابط للمراجعة.">
+  <meta name="description" content="زاد عبيدة: أذكار ومقالات إسلامية مختصرة مع مصادر واضحة وروابط للمراجعة.">
   <meta name="google-site-verification" content="vu1Grx9Kn0mioZbtk1KvI9SMEc0w1ELpfju5QRV_ULs">
-  <title>زاد  عبيدة| أذكار ومقالات من مصادر موثوقة</title>
-
+  <title>زاد عبيدة | أذكار ومقالات من مصادر موثوقة</title>
   <style>
-    :root {
-      --green: #123d32;
-      --green2: #1c5a47;
-      --gold: #d9bd78;
-      --cream: #f7f5ee;
-      --paper: #fffefa;
-      --ink: #1f2c27;
-      --muted: #68756f;
-      --line: #e7e5dc;
-      --shadow: 0 12px 32px rgba(18,61,50,.08);
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 20px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.85;
-    }
-
-    a { color: inherit; }
-    button, input, select { font: inherit; }
-
-    .wrap {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
-
-    header {
-      background: var(--green);
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header:before {
-      content: "۞";
-      position: absolute;
-      left: 4%;
-      top: -55px;
-      font-size: 250px;
-      color: rgba(255,255,255,.045);
-      pointer-events: none;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 22px 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      min-width: 0;
-    }
-
-    .brand strong {
-      font-size: 1.18rem;
-      display: block;
-    }
-
-    .brand small {
-      color: #d6e1db;
-      display: block;
-      font-size: .76rem;
-    }
-
-    .brand-logo {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 12px;
-      flex-shrink: 0;
-    }
-
-    /* بديل للشعار إذا لم يتم تحميل ملف الصورة */
-    .logo-fallback {
-      display: inline-grid;
-      place-items: center;
-      flex-shrink: 0;
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      border: 1px solid rgba(217,189,120,.7);
-      background: var(--green2);
-      color: var(--gold);
-      font-weight: bold;
-      font-size: 1rem;
-      line-height: 1.2;
-    }
-
-    .zad-logo-hadith .logo-fallback {
-      margin: auto;
-    }
-
-    .language-switch {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .language-switch label {
-      color: #e5eee9;
-      font-size: .85rem;
-    }
-
-    .language-switch select {
-      font: inherit;
-      padding: 7px 10px;
-      border-radius: 10px;
-      border: 1px solid #b9a36a;
-      background: var(--paper);
-      color: var(--green);
-      max-width: 100%;
-    }
-
-    .language-status {
-      display: block;
-      color: #e5eee9;
-      font-size: .72rem;
-      min-height: 1.2em;
-      margin-top: 3px;
-    }
-
-    .hero {
-      padding: 48px 0 66px;
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 35px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      font-size: .9rem;
-      font-weight: bold;
-      letter-spacing: .02em;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.1rem,5vw,3.8rem);
-      line-height: 1.3;
-      margin: 12px 0 18px;
-      max-width: 680px;
-    }
-
-    .hero p {
-      color: #dbe6e0;
-      max-width: 620px;
-      font-size: 1.05rem;
-      margin: 0 0 26px;
-    }
-
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: 0;
-      border-radius: 12px;
-      padding: 11px 18px;
-      text-decoration: none;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: #18372d;
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,.35);
-      color: #fff;
-      background: transparent;
-    }
-
-    .hero-card {
-      background: var(--paper);
-      color: var(--ink);
-      border-radius: 22px;
-      padding: 25px;
-      box-shadow: 0 20px 45px rgba(0,0,0,.13);
-      transform: rotate(-1deg);
-    }
-
-    .hero-card .ornament {
-      color: #a7833b;
-      font-size: 1.5rem;
-    }
-
-    .hero-card h2 {
-      margin: 8px 0;
-      font-size: 1.25rem;
-    }
-
-    .hero-card blockquote {
-      margin: 0;
-      padding: 14px;
-      border-right: 3px solid var(--gold);
-      background: #f7f4e9;
-      border-radius: 8px;
-      font-size: 1.12rem;
-    }
-
-    .hero-card small {
-      display: block;
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    main { padding: 42px 0 60px; }
-
-    .section { margin-bottom: 46px; }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      margin-bottom: 20px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: 1.65rem;
-      color: var(--green);
-    }
-
-    .section-head p {
-      margin: 4px 0 0;
-      color: var(--muted);
-    }
-
-    .pill {
-      display: inline-block;
-      background: #e8eee8;
-      color: var(--green);
-      border-radius: 999px;
-      padding: 4px 11px;
-      font-size: .78rem;
-      font-weight: bold;
-    }
-
-    .daily-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 21px;
-      box-shadow: var(--shadow);
-      min-width: 0;
-    }
-
-    .card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: #e9efe7;
-      color: var(--green);
-      display: grid;
-      place-items: center;
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      color: var(--green);
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin: 0 0 14px;
-    }
-
-    .card a.text-link {
-      color: var(--green2);
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .adhkar {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .dhikr-text {
-      font-size: 1.25rem;
-      line-height: 2.1;
-      margin: 10px 0;
-      color: #263e33;
-    }
-
-    .ref {
-      font-size: .83rem;
-      color: var(--muted);
-    }
-
-    .copy-btn {
-      border: 1px solid #cdd8ce;
-      background: #f4f7f1;
-      color: var(--green);
-      border-radius: 9px;
-      padding: 7px 12px;
-      cursor: pointer;
-      margin-top: 13px;
-    }
-
-    .copy-btn:hover { background: #e5eee4; }
-
-    .searchbar {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .searchbar input {
-      flex: 1;
-      min-width: 0;
-      padding: 12px 15px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: var(--paper);
-      outline-color: var(--green2);
-    }
-
-    .articles {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 16px;
-    }
-
-    .article-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
-
-    .article-card h3 {
-      font-size: 1.12rem;
-      line-height: 1.6;
-    }
-
-    .article-card p { font-size: .93rem; }
-
-    .source-note {
-      background: #eef2e9;
-      border: 1px solid #dce5d8;
-      padding: 18px 20px;
-      border-radius: 16px;
-      color: #3c4d43;
-    }
-
-    .source-note h3 {
-      margin: 0 0 6px;
-      color: var(--green);
-    }
-
-    .source-note p { margin: 0; }
-
-    .source-note a {
-      color: var(--green2);
-      font-weight: bold;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .about-box {
-      background: var(--green);
-      color: white;
-      border-radius: 18px;
-      padding: 25px;
-    }
-
-    .about-box h3 {
-      margin: 0 0 8px;
-      color: var(--gold);
-    }
-
-    .about-box p {
-      margin: 0;
-      color: #e0e9e3;
-    }
-
-    .plain-box {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 25px;
-    }
-
-    .plain-box h3 {
-      margin: 0 0 8px;
-      color: var(--green);
-    }
-
-    .plain-box p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .zad-logo-hadith {
-      width: min(1100px,92%);
-      margin: 24px auto;
-      text-align: center;
-    }
-
-    .zad-logo {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      border-radius: 12px;
-    }
-
-    .zad-hadith-logo {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .hadith-title-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .hadith-grid {
-      display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap: 16px;
-    }
-
-    .hadith-card .hadith-preview {
-      color: var(--muted);
-      margin: 8px 0 14px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .hadith-open {
-      border: 0;
-      border-radius: 10px;
-      padding: 9px 14px;
-      background: var(--green2);
-      color: #fff;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .hadith-open:hover { background: var(--green); }
-
-    .hadith-status {
-      color: var(--muted);
-      padding: 12px 0;
-    }
-
-    .hadith-modal[hidden] { display: none !important; }
-
-    .hadith-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(0,0,0,.62);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .hadith-dialog {
-      background: var(--paper);
-      color: var(--ink);
-      width: min(760px,100%);
-      max-height: 88vh;
-      overflow: auto;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 20px 70px rgba(0,0,0,.3);
-    }
-
-    .hadith-dialog-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 12px;
-    }
-
-    .hadith-dialog h3 {
-      margin: 0;
-      color: var(--green);
-    }
-
-    .hadith-close {
-      border: 0;
-      border-radius: 9px;
-      background: #e8eee8;
-      color: var(--green);
-      padding: 7px 12px;
-      cursor: pointer;
-    }
-
-    .hadith-full {
-      font-size: 1.13rem;
-      line-height: 2.15;
-      white-space: pre-line;
-      overflow-wrap: anywhere;
-      margin: 18px 0;
-    }
-
-    .hadith-source {
-      color: var(--green2);
-      font-weight: bold;
-    }
-
-    .google-translate-hidden {
-      position: fixed;
-      left: -10000px;
-      top: 0;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .notice {
-      font-size: .86rem;
-      color: var(--muted);
-      margin-top: 13px;
-    }
-
-    .hidden { display: none !important; }
-
-    footer {
-      background: #0d2e26;
-      color: #dce7e0;
-      padding: 28px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-inner p {
-      margin: 4px 0;
-      font-size: .88rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #e9d59d;
-      text-decoration: none;
-      font-size: .88rem;
-    }
-
-    .tiny {
-      font-size: .78rem !important;
-      color: #b7c9bf;
-    }
-
-    @media (max-width:800px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 35px 0 48px;
-      }
-
-      .hero-card {
-        max-width: 520px;
-        transform: none;
-      }
-
-      .daily-grid, .articles {
-        grid-template-columns: repeat(2,1fr);
-      }
-
-      .adhkar { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width:600px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .language-switch { width: 100%; }
-
-      .language-switch select { max-width: 100%; }
-
-      .daily-grid, .articles, .about-grid, .hadith-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero h1 { font-size: 2.2rem; }
-
-      .hero-card { padding: 19px; }
-
-      .wrap { width: min(100% - 28px,1100px); }
-
-      .brand-logo, .brand .logo-fallback {
-        width: 44px;
-        height: 44px;
-      }
-
-      .zad-hadith-logo, .zad-logo,
-      .zad-logo-hadith .logo-fallback,
-      .hadith-title-row .logo-fallback {
-        width: 52px;
-        height: 52px;
-      }
-
-      .hadith-dialog { padding: 16px; }
-
-      .hadith-full { font-size: 1.03rem; }
-
-      .searchbar { flex-wrap: wrap; }
-
-      .searchbar input { width: 100%; }
-    }
+    :root{--green:#123d32;--green2:#1c5a47;--gold:#d9bd78;--cream:#f7f5ee;--paper:#fffefa;--ink:#1f2c27;--muted:#68756f;--line:#e7e5dc;--shadow:0 12px 32px rgba(18,61,50,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:var(--cream);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.85}a{color:inherit}button,input,select{font:inherit}.wrap{width:min(1100px,92%);margin:auto}
+    header{background:var(--green);color:#fff;position:relative;overflow:hidden}header:before{content:"۞";position:absolute;left:4%;top:-55px;font-size:250px;color:rgba(255,255,255,.045);pointer-events:none}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;position:relative;z-index:2}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}.brand strong{font-size:1.18rem;display:block}.brand small{color:#d6e1db;display:block;font-size:.76rem}.brand-logo{width:52px;height:52px;object-fit:contain;border-radius:12px;flex-shrink:0}
+    .logo-fallback{display:inline-grid;place-items:center;flex-shrink:0;width:52px;height:52px;border-radius:12px;border:1px solid rgba(217,189,120,.7);background:var(--green2);color:var(--gold);font-weight:bold;font-size:1rem;line-height:1.2}.language-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.language-switch label{color:#e5eee9;font-size:.85rem}.language-switch select{padding:7px 10px;border-radius:10px;border:1px solid #b9a36a;background:var(--paper);color:var(--green);max-width:100%}.language-status{display:block;color:#e5eee9;font-size:.72rem;min-height:1.2em;margin-top:3px}
+    .hero{padding:48px 0 66px;display:grid;grid-template-columns:1.3fr .7fr;gap:35px;align-items:center;position:relative;z-index:1}.eyebrow{color:var(--gold);font-size:.9rem;font-weight:bold}.hero h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.3;margin:12px 0 18px;max-width:680px}.hero p{color:#dbe6e0;max-width:620px;font-size:1.05rem;margin:0 0 26px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:11px 18px;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px;cursor:pointer;font-weight:bold}.btn-gold{background:var(--gold);color:#18372d}.btn-outline{border:1px solid rgba(255,255,255,.35);color:#fff;background:transparent}.hero-card{background:var(--paper);color:var(--ink);border-radius:22px;padding:25px;box-shadow:0 20px 45px rgba(0,0,0,.13);transform:rotate(-1deg)}.hero-card .ornament{color:#a7833b;font-size:1.5rem}.hero-card h2{margin:8px 0;font-size:1.25rem}.hero-card blockquote{margin:0;padding:14px;border-right:3px solid var(--gold);background:#f7f4e9;border-radius:8px;font-size:1.12rem}.hero-card small{display:block;color:var(--muted);margin-top:12px}
+    main{padding:42px 0 60px}.section{margin-bottom:46px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:20px}.section-head h2{margin:0;font-size:1.65rem;color:var(--green)}.section-head p{margin:4px 0 0;color:var(--muted)}.pill{display:inline-block;background:#e8eee8;color:var(--green);border-radius:999px;padding:4px 11px;font-size:.78rem;font-weight:bold}
+    .daily-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:21px;box-shadow:var(--shadow);min-width:0}.card-icon{width:44px;height:44px;border-radius:14px;background:#e9efe7;color:var(--green);display:grid;place-items:center;font-size:1.35rem;margin-bottom:12px}.card h3{margin:0 0 8px;color:var(--green);font-size:1.1rem}.card p{color:var(--muted);margin:0 0 14px}.card a.text-link{color:var(--green2);font-weight:bold;text-decoration:none}
+    .adhkar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.dhikr-card{display:flex;flex-direction:column}.dhikr-text{font-size:1.2rem;line-height:2.1;margin:10px 0;color:#263e33;white-space:pre-line}.ref{font-size:.83rem;color:var(--muted)}.dhikr-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:12px}.copy-btn,.count-btn,.reset-btn{border:1px solid #cdd8ce;background:#f4f7f1;color:var(--green);border-radius:9px;padding:7px 12px;cursor:pointer}.copy-btn:hover,.count-btn:hover,.reset-btn:hover{background:#e5eee4}.count-value{font-weight:bold;color:var(--green);min-width:60px;text-align:center}.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.filter-btn{border:1px solid #cdd8ce;background:var(--paper);color:var(--green);border-radius:999px;padding:7px 13px;cursor:pointer}.filter-btn[aria-pressed="true"]{background:var(--green);color:white;border-color:var(--green)}
+    .searchbar{display:flex;gap:10px;margin-bottom:18px;align-items:center}.searchbar input{flex:1;min-width:0;padding:12px 15px;border:1px solid var(--line);border-radius:12px;background:var(--paper);outline-color:var(--green2)}.articles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.article-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}.article-card h3{font-size:1.12rem;line-height:1.6}.article-card p{font-size:.93rem}.source-note{background:#eef2e9;border:1px solid #dce5d8;padding:18px 20px;border-radius:16px;color:#3c4d43}.source-note h3{margin:0 0 6px;color:var(--green)}.source-note p{margin:0}.source-note a{color:var(--green2);font-weight:bold}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.about-box{background:var(--green);color:white;border-radius:18px;padding:25px}.about-box h3{margin:0 0 8px;color:var(--gold)}.about-box p{margin:0;color:#e0e9e3}.plain-box{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:25px}.plain-box h3{margin:0 0 8px;color:var(--green)}.plain-box p{margin:0;color:var(--muted)}
+    .zad-logo-hadith{width:min(1100px,92%);margin:24px auto;text-align:center}.zad-logo,.zad-hadith-logo{width:64px;height:64px;object-fit:contain;border-radius:12px;flex-shrink:0}.hadith-title-row{display:flex;align-items:center;gap:14px}.hadith-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.hadith-card .hadith-preview{color:var(--muted);margin:8px 0 14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.hadith-open{border:0;border-radius:10px;padding:9px 14px;background:var(--green2);color:#fff;cursor:pointer;font-weight:bold}.hadith-open:hover{background:var(--green)}.hadith-status{color:var(--muted);padding:12px 0}.hadith-modal[hidden]{display:none!important}.hadith-modal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px}.hadith-dialog{background:var(--paper);color:var(--ink);width:min(760px,100%);max-height:88vh;overflow:auto;border-radius:18px;padding:22px;box-shadow:0 20px 70px rgba(0,0,0,.3)}.hadith-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px}.hadith-dialog h3{margin:0;color:var(--green)}.hadith-close{border:0;border-radius:9px;background:#e8eee8;color:var(--green);padding:7px 12px;cursor:pointer}.hadith-full{font-size:1.13rem;line-height:2.15;white-space:pre-line;overflow-wrap:anywhere;margin:18px 0}.hadith-source{color:var(--green2);font-weight:bold}.notice{font-size:.86rem;color:var(--muted);margin-top:13px}.hidden{display:none!important}
+    footer{background:#0d2e26;color:#dce7e0;padding:28px 0}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-inner p{margin:4px 0;font-size:.88rem}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a{color:#e9d59d;text-decoration:none;font-size:.88rem}.tiny{font-size:.78rem!important;color:#b7c9bf}.google-translate-hidden{position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding:35px 0 48px}.hero-card{max-width:520px;transform:none}.daily-grid,.articles{grid-template-columns:repeat(2,1fr)}.adhkar{grid-template-columns:1fr}}
+    @media(max-width:600px){.nav{align-items:flex-start;flex-direction:column}.language-switch{width:100%}.language-switch select{max-width:100%}.daily-grid,.articles,.about-grid,.hadith-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.hero h1{font-size:2.2rem}.hero-card{padding:19px}.wrap{width:min(100% - 28px,1100px)}.brand-logo,.brand .logo-fallback{width:44px;height:44px}.zad-hadith-logo,.zad-logo,.zad-logo-hadith .logo-fallback,.hadith-title-row .logo-fallback{width:52px;height:52px}.hadith-dialog{padding:16px}.hadith-full{font-size:1.03rem}.searchbar{flex-wrap:wrap}.searchbar input{width:100%}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   </style>
 </head>
-
 <body>
 <header id="home">
   <div class="wrap">
     <div class="nav">
-      <a class="brand" href="#home" aria-label="زاد عبيدة- الرئيسية">
+      <a class="brand" href="#home" aria-label="زاد عبيدة - الرئيسية">
         <img class="brand-logo" src="logo-zad-almuslim.webp.png" alt="شعار زاد المسلم">
-        <span>
-          <strong>زادعبيدة</strong>
-          <small>ذكرٌ نافع، وعلمٌ موثّق</small>
-        </span>
+        <span><strong>زاد عبيدة</strong><small>ذكرٌ نافع، وعلمٌ موثّق</small></span>
       </a>
-
       <div>
-        <div class="language-switch">
-          <label for="siteLanguage">لغة الموقع:</label>
+        <div class="language-switch"><label for="siteLanguage">لغة الموقع:</label>
           <select id="siteLanguage" aria-label="اختر لغة الموقع">
-            <option value="ar">العربية</option>
-            <option value="en">English</option>
-            <option value="fr">Français</option>
+            <option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option>
           </select>
         </div>
         <span id="languageStatus" class="language-status" aria-live="polite"></span>
       </div>
     </div>
-
     <section class="hero">
-      <div>
-        <span class="eyebrow">بسم الله الرحمن الرحيم</span>
+      <div><span class="eyebrow">بسم الله الرحمن الرحيم</span>
         <h1>زادٌ لقلبك، ومعرفةٌ تثق بمصدرها</h1>
         <p>مساحة عربية هادئة للأذكار والمقالات الإيمانية، نحرص فيها على وضوح المصادر والتثبّت قبل النشر. خذ من وقتك دقائق، واجعلها بداية خير.</p>
-        <div class="actions">
-          <a class="btn btn-gold" href="#adhkar">ابدأ بالأذكار <span aria-hidden="true">←</span></a>
-          <a class="btn btn-outline" href="#articles">تصفّح المقالات</a>
-        </div>
+        <div class="actions"><a class="btn btn-gold" href="#adhkar">ابدأ بالأذكار <span aria-hidden="true">←</span></a><a class="btn btn-outline" href="#articles">تصفّح المقالات</a></div>
       </div>
-
-      <aside class="hero-card" aria-label="آية قرآنية">
-        <div class="ornament">﴿ ﴾</div>
-        <h2>وقفة مع آية</h2>
-        <blockquote>فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ</blockquote>
-        <small>سورة البقرة، الآية 152</small>
-      </aside>
+      <aside class="hero-card" aria-label="آية قرآنية"><div class="ornament">﴿ ﴾</div><h2>وقفة مع آية</h2><blockquote>فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ</blockquote><small>سورة البقرة، الآية 152</small></aside>
     </section>
   </div>
 </header>
 
-<div class="zad-logo-hadith">
-  <img src="logo-zad-almuslim.webp.png" alt="شعار زاد المسلم" class="zad-logo">
-</div>
+<div class="zad-logo-hadith"><img src="logo-zad-almuslim.webp.png" alt="شعار زاد المسلم" class="zad-logo"></div>
 
 <main class="wrap">
-
   <section class="section" aria-labelledby="start-title">
-    <div class="section-head">
-      <div>
-        <span class="pill">ابدأ من هنا</span>
-        <h2 id="start-title">أبواب الموقع</h2>
-        <p>محتوى بسيط ومنظم لتصل إلى ما تبحث عنه بسهولة.</p>
-      </div>
-    </div>
-
+    <div class="section-head"><div><span class="pill">ابدأ من هنا</span><h2 id="start-title">أبواب الموقع</h2><p>محتوى بسيط ومنظم لتصل إلى ما تبحث عنه بسهولة.</p></div></div>
     <div class="daily-grid">
-      <article class="card">
-        <div class="card-icon" aria-hidden="true">☀</div>
-        <h3>الأذكار</h3>
-        <p>أذكار مختارة مع النصوص والمراجع، لتراجعها وتعمل بها.</p>
-        <a class="text-link" href="#adhkar">اذهب إلى الأذكار ←</a>
-      </article>
-
-      <article class="card">
-        <div class="card-icon" aria-hidden="true">✎</div>
-        <h3>مقالات إيمانية</h3>
-        <p>موضوعات قصيرة عن العبادة والأخلاق وطلب العلم، بعيدًا عن المبالغة.</p>
-        <a class="text-link" href="#articles">اقرأ المقالات ←</a>
-      </article>
-
-      <article class="card">
-        <div class="card-icon" aria-hidden="true">⌕</div>
-        <h3>مصادر موثوقة</h3>
-        <p>روابط للرجوع إلى القرآن الكريم والتحقق من المعلومات قبل مشاركتها.</p>
-        <a class="text-link" href="#sources">تعرّف على المصادر ←</a>
-      </article>
+      <article class="card"><div class="card-icon" aria-hidden="true">☀</div><h3>الأذكار</h3><p>أذكار مختارة مع النصوص والمراجع، لتراجعها وتعمل بها.</p><a class="text-link" href="#adhkar">اذهب إلى الأذكار ←</a></article>
+      <article class="card"><div class="card-icon" aria-hidden="true">✎</div><h3>مقالات إيمانية</h3><p>موضوعات قصيرة عن العبادة والأخلاق وطلب العلم، بعيدًا عن المبالغة.</p><a class="text-link" href="#articles">اقرأ المقالات ←</a></article>
+      <article class="card"><div class="card-icon" aria-hidden="true">⌕</div><h3>مصادر موثوقة</h3><p>روابط للرجوع إلى القرآن الكريم والتحقق من المعلومات قبل مشاركتها.</p><a class="text-link" href="#sources">تعرّف على المصادر ←</a></article>
     </div>
   </section>
 
   <section class="section" id="nawawi" aria-labelledby="nawawi-title">
-    <div class="section-head">
-      <div class="hadith-title-row">
-        <img class="zad-hadith-logo" src="logo-zad-almuslim.webp.png" alt="شعار زاد المسلم">
-        <div>
-          <span class="pill">السنة النبوية</span>
-          <h2 id="nawawi-title">الأربعون النووية</h2>
-          <p>اضغط على أي حديث لقراءة نصه كاملًا داخل هذه الصفحة، دون الانتقال إلى موقع آخر.</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="hadithStatus" class="hadith-status" role="status" aria-live="polite">
-      جارٍ تحميل الأحاديث...
-    </div>
-    <div class="hadith-grid" id="hadithGrid"></div>
+    <div class="section-head"><div class="hadith-title-row"><img class="zad-hadith-logo" src="logo-zad-almuslim.webp.png" alt="شعار زاد المسلم"><div><span class="pill">السنة النبوية</span><h2 id="nawawi-title">الأربعون النووية</h2><p>اضغط على أي حديث لقراءة نصه كاملًا داخل هذه الصفحة، دون الانتقال إلى موقع آخر.</p></div></div></div>
+    <div id="hadithStatus" class="hadith-status" role="status" aria-live="polite">جارٍ تحميل الأحاديث...</div><div class="hadith-grid" id="hadithGrid"></div>
   </section>
 
   <section class="section" id="adhkar" aria-labelledby="adhkar-title">
-    <div class="section-head">
-      <div>
-        <span class="pill">ذكر اليوم</span>
-        <h2 id="adhkar-title">آيات وأذكار</h2>
-        <p>اقرأ النص، وتحقق من مرجعه، ثم انسخه عند الحاجة.</p>
-      </div>
+    <div class="section-head"><div><span class="pill">ذكر اليوم</span><h2 id="adhkar-title">آيات وأذكار</h2><p>اختر التصنيف، واقرأ الذكر ومصدره، واستخدم العداد للتكرار عند الحاجة.</p></div></div>
+    <div class="filter-row" id="dhikrFilters" aria-label="تصنيف الأذكار">
+      <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">الكل</button>
+      <button class="filter-btn" type="button" data-filter="quran" aria-pressed="false">من القرآن</button>
+      <button class="filter-btn" type="button" data-filter="morning" aria-pressed="false">الصباح والمساء</button>
+      <button class="filter-btn" type="button" data-filter="prayer" aria-pressed="false">بعد الصلاة</button>
+      <button class="filter-btn" type="button" data-filter="daily" aria-pressed="false">أذكار يومية</button>
     </div>
-
-    <div class="adhkar">
-      <article class="card">
-        <h3>ذكر من القرآن الكريم</h3>
-        <p class="dhikr-text" id="dhikr1">رَبِّ زِدْنِي عِلْمًا</p>
-        <div class="ref">سورة طه، الآية 114</div>
-        <button class="copy-btn" type="button" data-copy="dhikr1">نسخ النص</button>
-      </article>
-
-      <article class="card">
-        <h3>دعاء مأثور في طلب العلم</h3>
-        <p class="dhikr-text" id="dhikr2">اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا.</p>
-        <div class="ref">رواه الترمذي (3599)، ويُراجع تخريج اللفظ ودرجته قبل إعادة النشر.</div>
-        <button class="copy-btn" type="button" data-copy="dhikr2">نسخ النص</button>
-        <p class="notice">تنبيه: راجع تخريج الدعاء ولفظه في مصدر حديثي موثوق قبل اعتماده نهائيًا.</p>
-      </article>
+    <div class="adhkar" id="adhkarList">
+      <article class="card dhikr-card" data-category="quran" data-target="1"><h3>دعاء طلب العلم</h3><p class="dhikr-text">رَبِّ زِدْنِي عِلْمًا</p><div class="ref">القرآن الكريم: سورة طه، الآية 114.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button" aria-label="زيادة عداد الذكر">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="quran" data-target="1"><h3>دعاء الهداية والثبات</h3><p class="dhikr-text">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ</p><div class="ref">القرآن الكريم: سورة آل عمران، الآية 8.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="morning" data-target="3"><h3>سيد الاستغفار</h3><p class="dhikr-text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.</p><div class="ref">صحيح البخاري، حديث 6306. من أذكار الصباح والمساء.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 3</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="morning" data-target="100"><h3>ذكر عظيم الأجر</h3><p class="dhikr-text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</p><div class="ref">ورد فضل قولها مئة مرة في صحيح البخاري (6405) وصحيح مسلم (2691).</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 100</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="prayer" data-target="33"><h3>التسبيح بعد الصلاة</h3><p class="dhikr-text">سُبْحَانَ اللَّهِ</p><div class="ref">من صيغ الذكر بعد الصلاة: التسبيح ثلاثًا وثلاثين. صحيح مسلم، حديث 597.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 33</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="prayer" data-target="33"><h3>التحميد بعد الصلاة</h3><p class="dhikr-text">الْحَمْدُ لِلَّهِ</p><div class="ref">من صيغ الذكر بعد الصلاة: التحميد ثلاثًا وثلاثين. صحيح مسلم، حديث 597.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 33</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="prayer" data-target="33"><h3>التكبير بعد الصلاة</h3><p class="dhikr-text">اللَّهُ أَكْبَرُ</p><div class="ref">من صيغ الذكر بعد الصلاة: التكبير ثلاثًا وثلاثين. صحيح مسلم، حديث 597.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 33</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="daily" data-target="1"><h3>دعاء الاستعانة</h3><p class="dhikr-text">اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ</p><div class="ref">سنن أبي داود، حديث 1522؛ وسنن النسائي، حديث 1303.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="daily" data-target="1"><h3>دعاء الكرب</h3><p class="dhikr-text">لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ</p><div class="ref">صحيح البخاري، حديث 6346؛ وصحيح مسلم، حديث 2730.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="daily" data-target="1"><h3>دعاء نافع</h3><p class="dhikr-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى</p><div class="ref">صحيح مسلم، حديث 2721.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="daily" data-target="1"><h3>ذكر جامع</h3><p class="dhikr-text">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</p><div class="ref">ثبت فضلها في صحيح البخاري (6384) وصحيح مسلم (2694).</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ تسبيحة</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
+      <article class="card dhikr-card" data-category="daily" data-target="1"><h3>الصلاة على النبي ﷺ</h3><p class="dhikr-text">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</p><div class="ref">صيغة دعاء بالصلاة والسلام على النبي ﷺ؛ لا يُقصد بهذا العرض تحديد عدد مخصوص.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ النص</button><button class="count-btn" type="button">+ مرة</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
     </div>
+    <p class="notice">تنبيه: العدّاد وسيلة تنظيم شخصية فقط، ولا يعني أن لكل ذكر عددًا مخصوصًا إلا حيث ذُكر ذلك في المرجع. راجع المصدر قبل نشر نص أو حكم شرعي.</p>
   </section>
 
   <section class="section" id="articles" aria-labelledby="articles-title">
-    <div class="section-head">
-      <div>
-        <span class="pill">مكتبة الموقع</span>
-        <h2 id="articles-title">مقالات مختارة</h2>
-        <p>نماذج أولية قابلة للتوسيع. أضف مقالاتك الأصلية بعد التحقق من الأدلة.</p>
-      </div>
-    </div>
-
-    <div class="searchbar">
-      <input type="search" id="articleSearch" placeholder="ابحث في عناوين المقالات..." aria-label="ابحث في المقالات">
-      <span class="pill" id="resultCount" aria-live="polite">3 مقالات</span>
-    </div>
-
+    <div class="section-head"><div><span class="pill">مكتبة الموقع</span><h2 id="articles-title">مقالات مختارة</h2><p>نماذج أولية قابلة للتوسيع. أضف مقالاتك الأصلية بعد التحقق من الأدلة.</p></div></div>
+    <div class="searchbar"><input type="search" id="articleSearch" placeholder="ابحث في عناوين المقالات ومحتواها..." aria-label="ابحث في المقالات"><span class="pill" id="resultCount" aria-live="polite">3 مقالات</span></div>
     <div class="articles" id="articleList">
-      <article class="card article-card" data-search="الورد اليومي القرآن قراءة تدبر">
-        <div class="article-top">
-          <span class="pill">القرآن</span>
-          <span class="ref">دليل عملي</span>
-        </div>
-        <h3>كيف تبدأ وردًا يوميًا من القرآن؟</h3>
-        <p>ابدأ بقدر تستطيع المحافظة عليه، واختر وقتًا مناسبًا، واجعل الاستمرار أهم من كثرة البداية. راجع الآيات وتفسيرها من مصادر موثوقة.</p>
-        <a class="text-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">تصفّح القرآن الكريم ←</a>
-      </article>
-
-      <article class="card article-card" data-search="التثبت الحديث المصدر النشر المعلومات">
-        <div class="article-top">
-          <span class="pill">طلب العلم</span>
-          <span class="ref">منهج التحقق</span>
-        </div>
-        <h3>لماذا نتثبت قبل نشر حديث؟</h3>
-        <p>نسبة الكلام إلى النبي ﷺ أمر عظيم؛ لذلك ينبغي التحقق من اللفظ والمصدر والدرجة، وعدم الاكتفاء بصورة متداولة أو منشور مجهول.</p>
-        <a class="text-link" href="https://dorar.net/hadith" target="_blank" rel="noopener noreferrer">البحث في الموسوعة الحديثية ←</a>
-      </article>
-
-      <article class="card article-card" data-search="الصدق الأخلاق التعامل المسلم">
-        <div class="article-top">
-          <span class="pill">الأخلاق</span>
-          <span class="ref">مقالة تمهيدية</span>
-        </div>
-        <h3>الصدق في الحياة اليومية</h3>
-        <p>يمكن أن يظهر الصدق في الحديث والوعد والدراسة والعمل. اكتب أمثلة عملية، واستشهد بالنصوص الشرعية بعد التحقق من صحتها ودلالتها.</p>
-        <a class="text-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">الرجوع إلى القرآن الكريم ←</a>
-      </article>
+      <article class="card article-card" data-search="الورد اليومي القرآن قراءة تدبر حفظ تلاوة"><div class="article-top"><span class="pill">القرآن</span><span class="ref">دليل عملي</span></div><h3>كيف تبدأ وردًا يوميًا من القرآن؟</h3><p>ابدأ بقدر تستطيع المحافظة عليه، واختر وقتًا مناسبًا، واجعل الاستمرار أهم من كثرة البداية. راجع الآيات وتفسيرها من مصادر موثوقة.</p><a class="text-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">تصفّح القرآن الكريم ←</a></article>
+      <article class="card article-card" data-search="التثبت الحديث المصدر النشر المعلومات صحة الأحاديث"><div class="article-top"><span class="pill">طلب العلم</span><span class="ref">منهج التحقق</span></div><h3>لماذا نتثبت قبل نشر حديث؟</h3><p>نسبة الكلام إلى النبي ﷺ أمر عظيم؛ لذلك ينبغي التحقق من اللفظ والمصدر والدرجة، وعدم الاكتفاء بصورة متداولة أو منشور مجهول.</p><a class="text-link" href="https://dorar.net/hadith" target="_blank" rel="noopener noreferrer">البحث في الموسوعة الحديثية ←</a></article>
+      <article class="card article-card" data-search="الصدق الأخلاق التعامل المسلم الأمانة الوعد"><div class="article-top"><span class="pill">الأخلاق</span><span class="ref">مقالة تمهيدية</span></div><h3>الصدق في الحياة اليومية</h3><p>يمكن أن يظهر الصدق في الحديث والوعد والدراسة والعمل. اكتب أمثلة عملية، واستشهد بالنصوص الشرعية بعد التحقق من صحتها ودلالتها.</p><a class="text-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">الرجوع إلى القرآن الكريم ←</a></article>
     </div>
-
+    <p id="noArticles" class="notice hidden" role="status">لا توجد مقالات تطابق بحثك. جرّب كلمة أخرى.</p>
     <p class="notice">المقالات أعلاه مسودات تعريفية قصيرة وليست فتاوى. أضف لكل مقال أدلته وتفاصيله قبل تقديمه على أنه مادة علمية مكتملة.</p>
   </section>
 
-  <section class="section" id="sources" aria-labelledby="sources-title">
-    <div class="section-head">
-      <div>
-        <span class="pill">الأمانة العلمية</span>
-        <h2 id="sources-title">مصادر للمراجعة</h2>
-        <p>احرص على التحقق من النصوص قبل النشر، خاصة الأحاديث والأحكام الشرعية.</p>
-      </div>
-    </div>
-
-    <div class="source-note">
-      <h3>روابط نافعة للتحقق</h3>
-      <p>
-        القرآن الكريم:
-        <a href="https://quran.com/" target="_blank" rel="noopener noreferrer">Quran.com</a>
-        · البحث في الأحاديث:
-        <a href="https://dorar.net/hadith" target="_blank" rel="noopener noreferrer">الموسوعة الحديثية – الدرر السنية</a>.
-        هذه الروابط أدوات مساعدة للبحث وليست بديلًا عن الرجوع إلى أهل العلم في المسائل المتخصصة.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="about" aria-labelledby="about-title">
-    <div class="section-head">
-      <div>
-        <span class="pill">رسالتنا</span>
-        <h2 id="about-title">عن زاد المسلم</h2>
-      </div>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-box">
-        <h3>هدف الموقع</h3>
-        <p>نشر محتوى إسلامي عربي نافع، سهل القراءة، مع توضيح المصادر وتجنب نشر المعلومات غير المتحققة. الموقع مشروع تعليمي مستقل، وليس جهة إفتاء.</p>
-      </div>
-
-      <div class="plain-box">
-        <h3>تواصل واقتراح موضوع</h3>
-        <p>يمكنك التواصل معي عبر حسابي الرسمي على إنستغرام. مرحبًا بالجميع.</p>
-        <!-- ضع رابط حسابك الرسمي على إنستغرام هنا عند توفره -->
-      </div>
-    </div>
-  </section>
+  <section class="section" id="sources" aria-labelledby="sources-title"><div class="section-head"><div><span class="pill">الأمانة العلمية</span><h2 id="sources-title">مصادر للمراجعة</h2><p>احرص على التحقق من النصوص قبل النشر، خاصة الأحاديث والأحكام الشرعية.</p></div></div><div class="source-note"><h3>روابط نافعة للتحقق</h3><p>القرآن الكريم: <a href="https://quran.com/" target="_blank" rel="noopener noreferrer">Quran.com</a> · البحث في الأحاديث: <a href="https://dorar.net/hadith" target="_blank" rel="noopener noreferrer">الموسوعة الحديثية – الدرر السنية</a>. هذه الروابط أدوات مساعدة للبحث وليست بديلًا عن الرجوع إلى أهل العلم في المسائل المتخصصة.</p></div></section>
+  <section class="section" id="about" aria-labelledby="about-title"><div class="section-head"><div><span class="pill">رسالتنا</span><h2 id="about-title">عن زاد المسلم</h2></div></div><div class="about-grid"><div class="about-box"><h3>هدف الموقع</h3><p>نشر محتوى إسلامي عربي نافع، سهل القراءة، مع توضيح المصادر وتجنب نشر المعلومات غير المتحققة. الموقع مشروع تعليمي مستقل، وليس جهة إفتاء.</p></div><div class="plain-box"><h3>تواصل واقتراح موضوع</h3><p>يمكنك التواصل معي عبر حسابي الرسمي على إنستغرام. مرحبًا بالجميع.</p><!-- أضف رابط حسابك الرسمي هنا بعد التأكد منه --></div></div></section>
 </main>
 
-<div class="hadith-modal" id="hadithModal" hidden role="dialog" aria-modal="true" aria-labelledby="hadithModalTitle">
-  <div class="hadith-dialog">
-    <div class="hadith-dialog-head">
-      <h3 id="hadithModalTitle">نص الحديث</h3>
-      <button class="hadith-close" id="hadithClose" type="button">إغلاق ✕</button>
-    </div>
-    <div id="hadithModalText" class="hadith-full" dir="rtl"></div>
-    <a id="hadithSource" class="hadith-source" href="https://sunnah.com/" target="_blank" rel="noopener noreferrer">التحقق من المصدر ↗</a>
-  </div>
-</div>
-
+<div class="hadith-modal" id="hadithModal" hidden role="dialog" aria-modal="true" aria-labelledby="hadithModalTitle"><div class="hadith-dialog"><div class="hadith-dialog-head"><h3 id="hadithModalTitle">نص الحديث</h3><button class="hadith-close" id="hadithClose" type="button">إغلاق ✕</button></div><div id="hadithModalText" class="hadith-full" dir="rtl"></div><a id="hadithSource" class="hadith-source" href="https://sunnah.com/nawawi40" target="_blank" rel="noopener noreferrer">التحقق من المصدر ↗</a></div></div>
 <div id="google_translate_element" class="google-translate-hidden" aria-hidden="true"></div>
-
-<footer>
-  <div class="wrap footer-inner">
-    <div>
-      <strong>زاد المسلم</strong>
-      <p>محتوى نافع، ومصادر واضحة.</p>
-      <p class="tiny">© <span id="year"></span> زاد المسلم - جميع الحقوق محفوظة.</p>
-    </div>
-
-    <div class="footer-links">
-      <a href="#home">الرئيسية</a>
-      <a href="#nawawi">الأربعون النووية</a>
-      <a href="#adhkar">الأذكار</a>
-      <a href="#articles">المقالات</a>
-      <a href="#sources">المصادر</a>
-      <a href="#about">عن الموقع</a>
-    </div>
-  </div>
-</footer>
+<footer><div class="wrap footer-inner"><div><strong>زاد المسلم</strong><p>محتوى نافع، ومصادر واضحة.</p><p class="tiny">© <span id="year"></span> زاد المسلم - جميع الحقوق محفوظة.</p></div><div class="footer-links"><a href="#home">الرئيسية</a><a href="#nawawi">الأربعون النووية</a><a href="#adhkar">الأذكار</a><a href="#articles">المقالات</a><a href="#sources">المصادر</a><a href="#about">عن الموقع</a></div></div></footer>
 
 <script>
-  'use strict';
+'use strict';
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  // السنة الحالية في التذييل
-  document.getElementById('year').textContent = new Date().getFullYear();
+/* الشعار: نُبقي اسم الملف ومساره كما هما، ونظهر بديلًا فقط إذا فشل التحميل. */
+document.querySelectorAll('.brand-logo,.zad-logo,.zad-hadith-logo').forEach(img=>{
+  img.addEventListener('error',function(){
+    if(this.dataset.fallbackShown==='true')return;
+    this.dataset.fallbackShown='true';this.hidden=true;
+    const fallback=document.createElement('span');
+    fallback.className='logo-fallback';fallback.setAttribute('role','img');
+    fallback.setAttribute('aria-label','شعار زاد المسلم');fallback.textContent='زاد';
+    this.insertAdjacentElement('afterend',fallback);
+    console.warn('تعذر تحميل الشعار. تحقق من اسم الملف ومساره:',this.getAttribute('src'));
+  },{once:true});
+});
 
-  // إصلاح عرض الشعار عند تعذر تحميل الصورة
-  document.querySelectorAll(
-    '.brand-logo, .zad-logo, .zad-hadith-logo'
-  ).forEach(img => {
-    img.addEventListener('error', function () {
-      if (this.dataset.fallbackShown === 'true') return;
-
-      this.dataset.fallbackShown = 'true';
-      this.hidden = true;
-
-      const fallback = document.createElement('span');
-      fallback.className = 'logo-fallback';
-      fallback.setAttribute('role', 'img');
-      fallback.setAttribute('aria-label', 'شعار زاد المسلم');
-      fallback.textContent = 'زاد';
-
-      this.insertAdjacentElement('afterend', fallback);
-
-      console.warn(
-        'تعذر تحميل الشعار. تحقق من اسم الملف ومساره:',
-        this.getAttribute('src')
-      );
-    }, { once: true });
+/* نسخ الأذكار */
+async function copyText(text){
+  if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return;}
+  const temp=document.createElement('textarea');temp.value=text;temp.setAttribute('readonly','');
+  temp.style.position='fixed';temp.style.opacity='0';document.body.appendChild(temp);temp.select();
+  const ok=document.execCommand('copy');temp.remove();if(!ok)throw new Error('تعذر النسخ');
+}
+document.querySelectorAll('.dhikr-card .copy-btn').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    const card=button.closest('.dhikr-card');const text=card?.querySelector('.dhikr-text')?.textContent?.trim();if(!text)return;
+    try{await copyText(text);button.textContent='تم النسخ ✓';}
+    catch{button.textContent='تعذّر النسخ؛ حدّد النص يدويًا';}
+    window.setTimeout(()=>button.textContent='نسخ النص',2200);
   });
+});
 
-  // نسخ الأذكار
-  document.querySelectorAll('[data-copy]').forEach(button => {
-    button.addEventListener('click', async () => {
-      const target = document.getElementById(button.dataset.copy);
-      if (!target) return;
+/* عدّادات مستقلة لكل ذكر، لا تحفظ بيانات شخصية ولا تدّعي أنها عبادة ذات عدد ثابت. */
+document.querySelectorAll('.dhikr-card').forEach(card=>{
+  let count=0;const target=Math.max(1,Number(card.dataset.target)||1);
+  const value=card.querySelector('.count-value');const countBtn=card.querySelector('.count-btn');const reset=card.querySelector('.reset-btn');const originalCountLabel=countBtn.textContent;
+  const paint=()=>{value.textContent=count+' / '+target;countBtn.setAttribute('aria-label','العدد الحالي '+count+' من '+target);};
+  countBtn.addEventListener('click',()=>{count=Math.min(count+1,target);paint();if(count===target)countBtn.textContent='اكتمل ✓';});
+  reset.addEventListener('click',()=>{count=0;countBtn.textContent=originalCountLabel;paint();});
+  paint();
+});
 
-      const text = target.innerText;
-      const originalText = 'نسخ النص';
-
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(text);
-        } else {
-          const temporary = document.createElement('textarea');
-          temporary.value = text;
-          temporary.style.position = 'fixed';
-          temporary.style.opacity = '0';
-          document.body.appendChild(temporary);
-          temporary.select();
-
-          const copied = document.execCommand('copy');
-          temporary.remove();
-
-          if (!copied) throw new Error('تعذر النسخ');
-        }
-
-        button.textContent = 'تم النسخ ✓';
-      } catch (error) {
-        button.textContent = 'حدّد النص وانسخه يدويًا';
-      }
-
-      window.setTimeout(() => {
-        button.textContent = originalText;
-      }, 2200);
-    });
+/* تصنيف الأذكار */
+document.querySelectorAll('#dhikrFilters [data-filter]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const filter=button.dataset.filter;
+    document.querySelectorAll('#dhikrFilters [data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+    document.querySelectorAll('.dhikr-card').forEach(card=>card.classList.toggle('hidden',filter!=='all'&&card.dataset.category!==filter));
   });
+});
 
-  // البحث في المقالات
-  const search = document.getElementById('articleSearch');
-  const articleCards = [...document.querySelectorAll('.article-card')];
-  const resultCount = document.getElementById('resultCount');
-
-  search.addEventListener('input', () => {
-    const query = search.value.trim().toLowerCase();
-    let visible = 0;
-
-    articleCards.forEach(card => {
-      const content = (
-        card.innerText + ' ' + (card.dataset.search || '')
-      ).toLowerCase();
-
-      const matches = content.includes(query);
-      card.classList.toggle('hidden', !matches);
-
-      if (matches) visible++;
-    });
-
-    resultCount.textContent = visible + ' مقالات';
+/* بحث المقالات: يعتمد على textContent والكلمات المفتاحية، ويعرض حالة عدم وجود نتائج. */
+const search=document.getElementById('articleSearch');
+const articleCards=[...document.querySelectorAll('.article-card')];
+const resultCount=document.getElementById('resultCount');
+const noArticles=document.getElementById('noArticles');
+function normalizeArabic(value){
+  return value.toLocaleLowerCase('ar').normalize('NFD')
+    .replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').trim();
+}
+function updateArticleSearch(){
+  const query=normalizeArabic(search.value);let visible=0;
+  articleCards.forEach(card=>{
+    const content=normalizeArabic(card.textContent+' '+(card.dataset.search||''));
+    const matches=!query||content.includes(query);
+    card.classList.toggle('hidden',!matches);if(matches)visible++;
   });
+  resultCount.textContent=visible+' '+(visible===1?'مقالة':'مقالات');
+  noArticles.classList.toggle('hidden',visible!==0);
+}
+search.addEventListener('input',updateArticleSearch);
+updateArticleSearch();
 
-  // الأربعون النووية
-  const hadithGrid = document.getElementById('hadithGrid');
-  const hadithStatus = document.getElementById('hadithStatus');
-  const hadithModal = document.getElementById('hadithModal');
-  const hadithModalTitle = document.getElementById('hadithModalTitle');
-  const hadithModalText = document.getElementById('hadithModalText');
-  const hadithSource = document.getElementById('hadithSource');
-  const hadithClose = document.getElementById('hadithClose');
-
-  let nawawiHadiths = [];
-  let lastFocusedElement = null;
-
-  const datasetUrls = [
-    'https://cdn.jsdelivr.net/gh/osamayy/40-hadith-nawawi-db@main/40-hadith-nawawi.json',
-    'https://raw.githubusercontent.com/osamayy/40-hadith-nawawi-db/main/40-hadith-nawawi.json'
-  ];
-
-  function getHadithText(item) {
-    if (typeof item === 'string') return item;
-    if (!item || typeof item !== 'object') return '';
-
-    const candidates = [
-      item.hadith,
-      item.arab,
-      item.arabic,
-      item.text,
-      item.text_ar
-    ];
-
-    for (const candidate of candidates) {
-      if (typeof candidate === 'string' && candidate.trim()) {
-        return candidate.trim();
-      }
-    }
-
-    return '';
-  }
-
-  function getHadithTitle(item, index) {
-    if (item && typeof item === 'object') {
-      const title = item.title || item.name;
-
-      if (typeof title === 'string' && title.trim()) {
-        return title.trim();
-      }
-    }
-
-    const fullText = getHadithText(item);
-    const firstLine = fullText.split('\n')[0].trim();
-
-    return firstLine || ('الحديث ' + (index + 1));
-  }
-
-  function extractHadithText(item) {
-    const raw = getHadithText(item);
-
-    return raw.replace(
-      /^الحديث\s+(?:الأول|الثاني|الثالث|الرابع|الخامس|السادس|السابع|الثامن|التاسع|العاشر|الحادي عشر|الثاني عشر|الثالث عشر|الرابع عشر|الخامس عشر|السادس عشر|السابع عشر|الثامن عشر|التاسع عشر|العشرون|الحادي والعشرون|الثاني والعشرون|الثالث والعشرون|الرابع والعشرون|الخامس والعشرون|السادس والعشرون|السابع والعشرون|الثامن والعشرون|التاسع والعشرون|الثلاثون|الحادي والثلاثون|الثاني والثلاثون|الثالث والثلاثون|الرابع والثلاثون|الخامس والثلاثون|السادس والثلاثون|السابع والثلاثون|الثامن والثلاثون|التاسع والثلاثون|الأربعون|الأربعين)[^\n]*\n*/u,
-      ''
-    ).trim();
-  }
-
-  function renderHadithCards() {
-    hadithGrid.replaceChildren();
-
-    nawawiHadiths.forEach((item, index) => {
-      const fullText = extractHadithText(item);
-      const title = getHadithTitle(item, index);
-
-      const card = document.createElement('article');
-      card.className = 'card hadith-card';
-
-      const badge = document.createElement('span');
-      badge.className = 'pill';
-      badge.textContent = 'الحديث ' + (index + 1);
-
-      const heading = document.createElement('h3');
-      heading.textContent = title;
-
-      const preview = document.createElement('p');
-      preview.className = 'hadith-preview';
-      preview.textContent = fullText
-        ? fullText.slice(0, 190) + (fullText.length > 190 ? '…' : '')
-        : 'اضغط لعرض تفاصيل الحديث ومصدره.';
-
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'hadith-open';
-      button.textContent = 'اقرأ الحديث كاملًا';
-
-      button.addEventListener('click', () => {
-        lastFocusedElement = document.activeElement;
-
-        hadithModalTitle.textContent = title;
-        hadithModalText.textContent = fullText ||
-          'لم يتوفر نص الحديث في البيانات المحمّلة. يمكنك مراجعة المصدر الخارجي.';
-
-        hadithModalText.setAttribute('dir', 'rtl');
-
-        hadithSource.href =
-          'https://sunnah.com/nawawi40/' + (index + 1);
-
-        hadithModal.hidden = false;
-        document.body.style.overflow = 'hidden';
-        hadithClose.focus();
-      });
-
-      card.append(badge, heading, preview, button);
-      hadithGrid.appendChild(card);
-    });
-
-    hadithStatus.textContent =
-      'تم تحميل ' + nawawiHadiths.length + ' حديثًا.';
-  }
-
-  async function loadNawawiHadiths() {
-    let lastError = null;
-
-    for (const url of datasetUrls) {
-      try {
-        hadithStatus.textContent = 'جارٍ تحميل الأحاديث...';
-
-        const response = await fetch(url, { cache: 'no-cache' });
-
-        if (!response.ok) {
-          throw new Error('HTTP ' + response.status);
-        }
-
-        const data = await response.json();
-
-        let records = Array.isArray(data)
-          ? data
-          : (
-              data.hadiths ||
-              data.data ||
-              data.results ||
-              []
-            );
-
-        if (!Array.isArray(records) || records.length < 40) {
-          throw new Error(
-            'بيانات الأحاديث غير مكتملة أو بتنسيق غير متوقع'
-          );
-        }
-
-        nawawiHadiths = records.slice(0, 40);
-        renderHadithCards();
-        return;
-
-      } catch (error) {
-        lastError = error;
-      }
-    }
-
-    hadithGrid.replaceChildren();
-
-    hadithStatus.textContent =
-      'تعذر تحميل الأحاديث من المصدر. تحقق من اتصال الإنترنت ثم حدّث الصفحة، أو افتح المصدر الخارجي.';
-
-    console.error('Hadith loading failed:', lastError);
-  }
-
-  function closeHadithModal() {
-    hadithModal.hidden = true;
-    document.body.style.overflow = '';
-
-    if (
-      lastFocusedElement &&
-      typeof lastFocusedElement.focus === 'function'
-    ) {
-      lastFocusedElement.focus();
-    }
-  }
-
-  hadithClose.addEventListener('click', closeHadithModal);
-
-  hadithModal.addEventListener('click', event => {
-    if (event.target === hadithModal) {
-      closeHadithModal();
-    }
+/* الأربعون النووية: تحميل البيانات مع فحص البنية والتعامل مع فشل الاتصال. */
+const hadithGrid=document.getElementById('hadithGrid');
+const hadithStatus=document.getElementById('hadithStatus');
+const hadithModal=document.getElementById('hadithModal');
+const hadithModalTitle=document.getElementById('hadithModalTitle');
+const hadithModalText=document.getElementById('hadithModalText');
+const hadithSource=document.getElementById('hadithSource');
+const hadithClose=document.getElementById('hadithClose');
+let nawawiHadiths=[];let lastFocusedElement=null;
+const datasetUrls=[
+ 'https://raw.githubusercontent.com/osamayy/40-hadith-nawawi-db/main/40-hadith-nawawi.json',
+ 'https://cdn.jsdelivr.net/gh/osamayy/40-hadith-nawawi-db@main/40-hadith-nawawi.json'
+];
+function getHadithText(item){
+ if(typeof item==='string')return item;
+ if(!item||typeof item!=='object')return '';
+ for(const key of ['hadith','arab','arabic','text','text_ar']){
+  if(typeof item[key]==='string'&&item[key].trim())return item[key].trim();
+ }
+ return '';
+}
+function getHadithTitle(item,index){
+ if(item&&typeof item==='object'){
+  for(const key of ['title','name'])if(typeof item[key]==='string'&&item[key].trim())return item[key].trim();
+ }
+ const text=getHadithText(item);return text.split('\n')[0].trim()||('الحديث '+(index+1));
+}
+function extractHadithText(item){
+ return getHadithText(item).replace(/^الحديث\s+[^\n]*\n*/u,'').trim();
+}
+function renderHadithCards(){
+ hadithGrid.replaceChildren();
+ nawawiHadiths.forEach((item,index)=>{
+  const fullText=extractHadithText(item);const title=getHadithTitle(item,index);
+  const card=document.createElement('article');card.className='card hadith-card';
+  const badge=document.createElement('span');badge.className='pill';badge.textContent='الحديث '+(index+1);
+  const heading=document.createElement('h3');heading.textContent=title;
+  const preview=document.createElement('p');preview.className='hadith-preview';
+  preview.textContent=fullText?(fullText.slice(0,190)+(fullText.length>190?'…':'')):'لم يتوفر نص الحديث في البيانات المحمّلة.';
+  const button=document.createElement('button');button.type='button';button.className='hadith-open';button.textContent='اقرأ الحديث كاملًا';
+  button.addEventListener('click',()=>{
+   lastFocusedElement=document.activeElement;hadithModalTitle.textContent='الحديث '+(index+1);
+   hadithModalText.textContent=fullText||'لم يتوفر نص الحديث في البيانات المحمّلة. يمكنك مراجعة المصدر الخارجي.';
+   hadithModalText.setAttribute('dir','rtl');hadithSource.href='https://sunnah.com/nawawi40/'+(index+1);
+   hadithModal.hidden=false;document.body.style.overflow='hidden';hadithClose.focus();
   });
+  card.append(badge,heading,preview,button);hadithGrid.appendChild(card);
+ });
+ hadithStatus.textContent='تم تحميل '+nawawiHadiths.length+' حديثًا من المصدر الخارجي.';
+}
+async function loadNawawiHadiths(){
+ let lastError=null;
+ for(const url of datasetUrls){
+  try{
+   hadithStatus.textContent='جارٍ تحميل الأحاديث...';
+   const response=await fetch(url,{cache:'no-cache'});
+   if(!response.ok)throw new Error('HTTP '+response.status);
+   const data=await response.json();
+   const records=Array.isArray(data)?data:(data?.hadiths||data?.data||data?.results||[]);
+   if(!Array.isArray(records)||records.length<40)throw new Error('بيانات الأحاديث غير مكتملة');
+   const valid=records.slice(0,40).filter(item=>getHadithText(item));
+   if(valid.length<40)throw new Error('لم يتم العثور على 40 نصًا صالحًا');
+   nawawiHadiths=valid;renderHadithCards();return;
+  }catch(error){lastError=error;}
+ }
+ hadithGrid.replaceChildren();
+ hadithStatus.textContent='تعذّر تحميل الأحاديث تلقائيًا. تحقق من اتصال الإنترنت أو افتح مصدر الأحاديث عبر الرابط التالي:';
+ const link=document.createElement('a');link.href='https://sunnah.com/nawawi40';link.target='_blank';link.rel='noopener noreferrer';link.textContent='الأربعون النووية على Sunnah.com';hadithStatus.appendChild(document.createTextNode(' '));hadithStatus.appendChild(link);
+ console.error('Hadith loading failed:',lastError);
+}
+function closeHadithModal(){
+ hadithModal.hidden=true;document.body.style.overflow='';
+ if(lastFocusedElement&&typeof lastFocusedElement.focus==='function')lastFocusedElement.focus();
+}
+hadithClose.addEventListener('click',closeHadithModal);
+hadithModal.addEventListener('click',event=>{if(event.target===hadithModal)closeHadithModal();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!hadithModal.hidden)closeHadithModal();});
+loadNawawiHadiths();
 
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !hadithModal.hidden) {
-      closeHadithModal();
-    }
-  });
-
-  loadNawawiHadiths();
-
-  // الترجمة باستخدام Google Translate
-  function googleTranslateElementInit() {
-    if (
-      window.google &&
-      window.google.translate &&
-      document.getElementById('google_translate_element')
-    ) {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: 'ar',
-          includedLanguages: 'ar,en,fr',
-          autoDisplay: false
-        },
-        'google_translate_element'
-      );
-    }
-  }
-
-  window.googleTranslateElementInit = googleTranslateElementInit;
-
-  const siteLanguage = document.getElementById('siteLanguage');
-  const languageStatus = document.getElementById('languageStatus');
-
-  function setTranslateCookie(language) {
-    const value = language === 'ar' ? '/ar/ar' : '/ar/' + language;
-
-    document.cookie =
-      'googtrans=' + value +
-      ';path=/;max-age=31536000;SameSite=Lax';
-
-    document.cookie =
-      'googtrans=' + value +
-      ';path=/;domain=' + location.hostname +
-      ';max-age=31536000;SameSite=Lax';
-  }
-
-  function syncLanguageChoice() {
-    const match = document.cookie.match(
-      /(?:^|;\s*)googtrans=\/ar\/(ar|en|fr)/
-    );
-
-    if (match) {
-      siteLanguage.value = match[1];
-    }
-
-    document.documentElement.lang = siteLanguage.value;
-    document.documentElement.dir =
-      siteLanguage.value === 'ar' ? 'rtl' : 'ltr';
-  }
-
-  siteLanguage.addEventListener('change', () => {
-    const language = siteLanguage.value;
-
-    languageStatus.textContent =
-      language === 'ar'
-        ? 'جارٍ الرجوع إلى العربية...'
-        : 'جارٍ تطبيق الترجمة...';
-
-    if (language === 'ar') {
-      document.cookie = 'googtrans=;path=/;max-age=0';
-      document.cookie =
-        'googtrans=;path=/;domain=' + location.hostname + ';max-age=0';
-    } else {
-      setTranslateCookie(language);
-    }
-
-    window.setTimeout(() => {
-      location.reload();
-    }, 150);
-  });
-
-  syncLanguageChoice();
+/* ترجمة Google: لا نغيّر اتجاه الصفحة قبل أن تكون اللغة المختارة واضحة. */
+function googleTranslateElementInit(){
+ if(window.google?.translate&&document.getElementById('google_translate_element')){
+  new window.google.translate.TranslateElement({pageLanguage:'ar',includedLanguages:'ar,en,fr',autoDisplay:false},'google_translate_element');
+ }
+}
+window.googleTranslateElementInit=googleTranslateElementInit;
+const siteLanguage=document.getElementById('siteLanguage');
+const languageStatus=document.getElementById('languageStatus');
+function setTranslateCookie(language){
+ const value=language==='ar'?'/ar/ar':'/ar/'+language;
+ document.cookie='googtrans='+value+';path=/;max-age=31536000;SameSite=Lax';
+ document.cookie='googtrans='+value+';path=/;domain='+location.hostname+';max-age=31536000;SameSite=Lax';
+}
+function syncLanguageChoice(){
+ const match=document.cookie.match(/(?:^|;\s*)googtrans=\/ar\/(ar|en|fr)/);
+ if(match)siteLanguage.value=match[1];
+ document.documentElement.lang=siteLanguage.value;
+ document.documentElement.dir=siteLanguage.value==='ar'?'rtl':'ltr';
+}
+siteLanguage.addEventListener('change',()=>{
+ const language=siteLanguage.value;
+ languageStatus.textContent=language==='ar'?'جارٍ الرجوع إلى العربية...':'جارٍ تطبيق الترجمة...';
+ if(language==='ar'){
+  document.cookie='googtrans=;path=/;max-age=0';
+  document.cookie='googtrans=;path=/;domain='+location.hostname+';max-age=0';
+ }else setTranslateCookie(language);
+ window.setTimeout(()=>location.reload(),180);
+});
+syncLanguageChoice();
 </script>
-
-<script
-  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  defer>
-</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
