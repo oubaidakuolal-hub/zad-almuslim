@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d7a5f">
+  <meta name="description" content="أذكار مختارة مع مصادرها — زاد عبيدة">
+  <title>الأذكار — زاد عبيدة</title>
+  <link rel="canonical" href="https://zad-oubaida.github.io/zad-almuslim/adhkar.html">
+  <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="wrap nav-inner">
+    <a href="./index.html" class="brand" aria-label="زاد عبيدة">
+      <img src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة">
+      <span>زاد عبيدة</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./index.html">الرئيسية</a>
+      <a href="./adhkar.html" class="active">الأذكار</a>
+      <a href="./azkar-morning.html">الصباح</a>
+      <a href="./azkar-evening.html">المساء</a>
+      <a href="./nawawi.html">الأحاديث</a>
+      <a href="./quran.html">القرآن</a>
+      <a href="./articles.html">المقالات</a>
+      <a href="./about.html">عن الموقع</a>
+    </div>
+    <div class="nav-tools">
+      <select id="siteLanguage" class="lang-select" aria-label="اللغة">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="الوضع الليلي">🌙</button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="القائمة">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" style="padding:40px 0">
+  <div class="section-head">
+    <h2>📿 الأذكار المختارة</h2>
+    <p>أذكار مع نصوصها ومصادرها</p>
+  </div>
+
+  <div class="search-box">
+    <input type="search" id="azkarSearch" placeholder="ابحث في الأذكار..." aria-label="بحث">
+  </div>
+
+  <div class="filter-row" id="dhikrFilters">
+    <button class="filter-btn active" type="button" data-filter="all">الكل</button>
+    <button class="filter-btn" type="button" data-filter="quran">من القرآن</button>
+    <button class="filter-btn" type="button" data-filter="morning">الصباح والمساء</button>
+    <button class="filter-btn" type="button" data-filter="prayer">بعد الصلاة</button>
+    <button class="filter-btn" type="button" data-filter="daily">أذكار يومية</button>
+  </div>
+
+  <div class="azkar-list" id="azkarList"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div><h4>زاد عبيدة</h4><p>محتوى إسلامي نافع مع توضيح المصادر.</p></div>
+      <div><h4>روابط</h4><p><a href="./index.html">الرئيسية</a><br><a href="./quran.html">القرآن</a><br><a href="./nawawi.html">الأحاديث</a></p></div>
+      <div><h4>تواصل</h4><p>إنستغرام</p></div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> زاد عبيدة</div>
+  </div>
+</footer>
+
+<div id="google_translate_element" style="position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<button class="back-to-top" id="backToTop" type="button" aria-label="العودة للأعلى">↑</button>
+
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* بناء قائمة الأذكار */
+  (function renderAzkar(){
+    const list = document.getElementById('azkarList');
+    if(!list || typeof ADHKAR === 'undefined') return;
+    const counts = loadCounts();
+
+    ADHKAR.forEach(z => {
+      const card = document.createElement('article');
+      card.className = 'azkar-item';
+      card.dataset.id = z.id;
+      card.dataset.category = z.category;
+      card.dataset.target = z.target;
+      card.id = 'dhikr-' + z.id;
+
+      card.innerHTML = `
+        <h3>${z.title}</h3>
+        <div class="azkar-text">${z.text}</div>
+        <div class="azkar-ref">${z.ref}</div>
+        <div class="azkar-actions">
+          <button class="action-btn" data-action="copy">📋 نسخ</button>
+          <button class="action-btn" data-action="speak">🔊 استماع</button>
+          <button class="action-btn" data-action="share">📤 مشاركة</button>
+          <button class="action-btn primary" data-action="count">+ عدّ</button>
+          <span class="count-badge">${(counts[z.id]||0)} / ${z.target}</span>
+          <button class="action-btn" data-action="reset">إعادة</button>
+        </div>
+      `;
+
+      const badge = card.querySelector('.count-badge');
+      const paint = ()=>{
+        const c = counts[z.id] || 0;
+        badge.textContent = c + ' / ' + z.target;
+        if(c >= z.target) badge.classList.add('done');
+        else badge.classList.remove('done');
+      };
+
+      card.addEventListener('click', async (e)=>{
+        const btn = e.target.closest('[data-action]');
+        if(!btn) return;
+        const action = btn.dataset.action;
+        if(action === 'copy'){
+          try { await copyText(z.text); showToast('تم النسخ ✓'); } catch { showToast('تعذّر النسخ'); }
+        } else if(action === 'speak'){
+          speak(z.text);
+        } else if(action === 'share'){
+          const url = location.origin + '/adhkar.html#dhikr-' + z.id;
+          shareContent({ title: z.title, text: z.text, url });
+        } else if(action === 'count'){
+          if((counts[z.id]||0) >= z.target) return;
+          counts[z.id] = (counts[z.id]||0) + 1;
+          saveCounts(counts);
+          paint();
+          if(counts[z.id] >= z.target) showToast('اكتمل ✓');
+        } else if(action === 'reset'){
+          delete counts[z.id];
+          saveCounts(counts);
+          paint();
+        }
+      });
+
+      paint();
+      list.appendChild(card);
+    });
+
+    /* الفلترة */
+    document.querySelectorAll('#dhikrFilters .filter-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        document.querySelectorAll('#dhikrFilters .filter-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.azkar-item').forEach(card=>{
+          card.style.display = (f === 'all' || card.dataset.category === f) ? '' : 'none';
+        });
+      });
+    });
+
+    /* البحث */
+    const search = document.getElementById('azkarSearch');
+    if(search){
+      search.addEventListener('input', ()=>{
+        const q = search.value.trim().toLowerCase();
+        document.querySelectorAll('.azkar-item').forEach(card=>{
+          const txt = card.textContent.toLowerCase();
+          card.style.display = (!q || txt.includes(q)) ? '' : 'none';
+        });
+      });
+    }
+
+    /* إذا كان هناك hash، انتقل إليه */
+    if(location.hash){
+      setTimeout(()=>{
+        const target = document.querySelector(location.hash);
+        if(target){
+          target.scrollIntoView({behavior:'smooth', block:'center'});
+          target.style.boxShadow = '0 0 0 3px var(--accent)';
+          setTimeout(()=>target.style.boxShadow = '', 2600);
+        }
+      }, 300);
+    }
+  })();
+</script>
+
+</body>
+</html>
