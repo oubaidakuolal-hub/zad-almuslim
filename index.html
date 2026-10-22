@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#123d32">
+  <meta name="theme-color" content="#0d7a5f">
   <meta name="description" content="زاد عبيدة: أذكار، أحاديث، مواقيت الصلاة، قرآن، ومقالات موثوقة.">
   <meta name="robots" content="index,follow">
   <meta name="google-site-verification" content="vu1Grx9Kn0mioZbtk1KvI9SMEc0w1ELpfju5QRV_ULs">
   <meta name="author" content="زاد عبيدة">
   <link rel="canonical" href="https://zad-oubaida.github.io/zad-almuslim/">
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="زاد عبيدة">
   <meta property="og:title" content="زاد عبيدة | أذكار ومواقيت الصلاة وقرآن">
@@ -17,1003 +18,186 @@
   <meta property="og:url" content="https://zad-oubaida.github.io/zad-almuslim/">
   <meta property="og:locale" content="ar_AR">
   <meta name="twitter:card" content="summary_large_image">
+
   <link rel="manifest" href="./manifest.json">
   <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
   <link rel="apple-touch-icon" href="./logo-zad-almuslim.webp.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="./logo-zad-almuslim.webp.png">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/style.css">
+
   <title>زاد عبيدة | أذكار ومواقيت الصلاة وقرآن</title>
+
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"زاد عبيدة","url":"https://zad-oubaida.github.io/zad-almuslim/","inLanguage":"ar","description":"أذكار ومواقيت الصلاة وقرآن من مصادر موثوقة."}
   </script>
-  <style>
-    :root{--green:#123d32;--green2:#1c5a47;--gold:#d9bd78;--cream:#f7f5ee;--paper:#fffefa;--ink:#1f2c27;--muted:#68756f;--line:#e7e5dc;--shadow:0 12px 32px rgba(18,61,50,.08);--bg:var(--cream);--card-bg:var(--paper);--text:var(--ink);--text-muted:var(--muted)}
-    body.dark{--bg:#0f1a17;--card-bg:#182621;--paper:#182621;--cream:#0f1a17;--ink:#e8f0ec;--text:#e8f0ec;--muted:#9bb0a6;--text-muted:#9bb0a6;--line:#2a3a34;--shadow:0 12px 32px rgba(0,0,0,.3)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:'Noto Naskh Arabic',Tahoma,Arial,sans-serif;line-height:1.85;transition:background .3s,color .3s}
-    a{color:inherit}button,input,select{font:inherit}.wrap{width:min(1100px,92%);margin:auto}
-    header{background:var(--green);color:#fff;position:relative;overflow:hidden}
-    header:before{content:"۞";position:absolute;left:4%;top:-55px;font-size:250px;color:rgba(255,255,255,.045);pointer-events:none}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;position:relative;z-index:2;flex-wrap:wrap}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
-    .brand strong{font-size:1.18rem;display:block}.brand small{color:#d6e1db;display:block;font-size:.76rem}
-    .brand-logo{width:52px;height:52px;object-fit:contain;border-radius:12px;flex-shrink:0}
-    .logo-fallback{display:inline-grid;place-items:center;flex-shrink:0;width:52px;height:52px;border-radius:12px;border:1px solid rgba(217,189,120,.7);background:var(--green2);color:var(--gold);font-weight:bold;font-size:1rem;line-height:1.2}
-    .nav-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .icon-btn{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:1.1rem;line-height:1;transition:background .2s}
-    .icon-btn:hover{background:rgba(255,255,255,.2)}
-    .language-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-    .language-switch label{color:#e5eee9;font-size:.85rem}
-    .language-switch select{padding:7px 10px;border-radius:10px;border:1px solid #b9a36a;background:var(--paper);color:var(--green);max-width:100%}
-    .language-status{display:block;color:#e5eee9;font-size:.72rem;min-height:1.2em;margin-top:3px;padding:0 20px 6px}
-    .hero{padding:48px 0 66px;display:grid;grid-template-columns:1.3fr .7fr;gap:35px;align-items:center;position:relative;z-index:1}
-    .eyebrow{color:var(--gold);font-size:.9rem;font-weight:bold}
-    .hero h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.3;margin:12px 0 18px;max-width:680px}
-    .hero p{color:#dbe6e0;max-width:620px;font-size:1.05rem;margin:0 0 26px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{border:0;border-radius:12px;padding:11px 18px;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px;cursor:pointer;font-weight:bold}
-    .btn-gold{background:var(--gold);color:#18372d}.btn-outline{border:1px solid rgba(255,255,255,.35);color:#fff;background:transparent}
-    .hero-card{background:var(--card-bg);color:var(--text);border-radius:22px;padding:25px;box-shadow:0 20px 45px rgba(0,0,0,.13);transform:rotate(-1deg)}
-    .hero-card .ornament{color:#a7833b;font-size:1.5rem}.hero-card h2{margin:8px 0;font-size:1.25rem}
-    .hero-card blockquote{margin:0;padding:14px;border-right:3px solid var(--gold);background:rgba(217,189,120,.12);border-radius:8px;font-size:1.12rem}
-    .hero-card small{display:block;color:var(--muted);margin-top:12px}
-    main{padding:42px 0 60px}.section{margin-bottom:46px}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:20px}
-    .section-head h2{margin:0;font-size:1.65rem;color:var(--green)}.section-head p{margin:4px 0 0;color:var(--text-muted)}
-    body.dark .section-head h2{color:var(--gold)}
-    .pill{display:inline-block;background:rgba(28,90,71,.12);color:var(--green);border-radius:999px;padding:4px 11px;font-size:.78rem;font-weight:bold}
-    body.dark .pill{background:rgba(217,189,120,.15);color:var(--gold)}
-    .daily-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--card-bg);border:1px solid var(--line);border-radius:18px;padding:21px;box-shadow:var(--shadow);min-width:0}
-    .card-icon{width:44px;height:44px;border-radius:14px;background:rgba(28,90,71,.1);color:var(--green);display:grid;place-items:center;font-size:1.35rem;margin-bottom:12px}
-    body.dark .card-icon{background:rgba(217,189,120,.12);color:var(--gold)}
-    .card h3{margin:0 0 8px;color:var(--green);font-size:1.1rem}body.dark .card h3{color:var(--gold)}
-    .card p{color:var(--text-muted);margin:0 0 14px}
-    .card a.text-link{color:var(--green2);font-weight:bold;text-decoration:none}body.dark .card a.text-link{color:var(--gold)}
-    /* ===== البحث الشامل ===== */
-    .global-search{position:relative;margin:0 0 30px}
-    .global-search input{width:100%;padding:14px 50px 14px 16px;border:2px solid var(--line);border-radius:14px;background:var(--card-bg);color:var(--text);font-size:1.05rem;outline:none;transition:border-color .2s}
-    .global-search input:focus{border-color:var(--green2)}
-    .global-search::before{content:"🔍";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.2rem;pointer-events:none}
-    .search-results{margin-top:12px;max-height:400px;overflow-y:auto;border:1px solid var(--line);border-radius:14px;background:var(--card-bg)}
-    .search-results:empty{display:none}
-    .search-result-item{padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s}
-    .search-result-item:last-child{border-bottom:0}
-    .search-result-item:hover{background:rgba(28,90,71,.08)}
-    body.dark .search-result-item:hover{background:rgba(217,189,120,.08)}
-    .search-result-item .type{display:inline-block;background:var(--green);color:#fff;padding:2px 8px;border-radius:6px;font-size:.7rem;margin-left:8px}
-    body.dark .search-result-item .type{background:var(--gold);color:#18372d}
-    .search-result-item .title{font-weight:bold;color:var(--green)}
-    body.dark .search-result-item .title{color:var(--gold)}
-    .search-result-item .snippet{color:var(--text-muted);font-size:.9rem;margin-top:4px}
-    .search-no-results{padding:20px;text-align:center;color:var(--text-muted)}
-    /* ===== الصفحة اليومية ===== */
-    .daily-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:20px}
-    .daily-card{background:var(--card-bg);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-    .daily-card::before{content:"";position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--green2))}
-    .daily-card h3{margin:0 0 10px;color:var(--green);font-size:1.05rem;display:flex;align-items:center;gap:8px}
-    body.dark .daily-card h3{color:var(--gold)}
-    .daily-card .big{font-size:1.15rem;line-height:2;margin:8px 0;color:var(--text)}
-    .daily-card .src{font-size:.8rem;color:var(--text-muted);margin-top:8px}
-    .prayer-times{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-    .prayer-times li{display:flex;justify-content:space-between;padding:8px 12px;background:rgba(28,90,71,.06);border-radius:10px;font-size:.95rem}
-    body.dark .prayer-times li{background:rgba(217,189,120,.08)}
-    .prayer-times li.active{background:var(--green);color:#fff;font-weight:bold}
-    body.dark .prayer-times li.active{background:var(--gold);color:#18372d}
-    .countdown{font-size:1.1rem;font-weight:bold;color:var(--green);text-align:center;margin:10px 0}
-    body.dark .countdown{color:var(--gold)}
-    .city-bar{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
-    .city-bar input{flex:1;min-width:120px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card-bg);color:var(--text)}
-    .city-bar button{border:0;border-radius:10px;padding:8px 14px;background:var(--green2);color:#fff;cursor:pointer;font-weight:bold}
-    /* ===== الأذكار ===== */
-    .adhkar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .dhikr-card{display:flex;flex-direction:column;scroll-margin-top:20px;transition:box-shadow .3s}
-    .dhikr-card.highlight{box-shadow:0 0 0 3px var(--gold)}
-    .dhikr-text{font-size:1.15rem;line-height:2.1;margin:10px 0;color:var(--text);white-space:pre-line}
-    .ref{font-size:.83rem;color:var(--text-muted)}
-    .dhikr-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:12px}
-    .dhikr-actions button{border:1px solid var(--line);background:rgba(28,90,71,.05);color:var(--green);border-radius:9px;padding:6px 10px;cursor:pointer;font-size:.88rem}
-    body.dark .dhikr-actions button{color:var(--gold);background:rgba(217,189,120,.08)}
-    .dhikr-actions button:hover{background:rgba(28,90,71,.15)}
-    .count-value{font-weight:bold;color:var(--green);min-width:60px;text-align:center;font-size:.9rem}
-    body.dark .count-value{color:var(--gold)}
-    .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-    .filter-btn{border:1px solid var(--line);background:var(--card-bg);color:var(--green);border-radius:999px;padding:7px 13px;cursor:pointer}
-    body.dark .filter-btn{color:var(--gold)}
-    .filter-btn[aria-pressed="true"]{background:var(--green);color:white;border-color:var(--green)}
-    body.dark .filter-btn[aria-pressed="true"]{background:var(--gold);color:#18372d;border-color:var(--gold)}
-    /* ===== أذكار الصباح/المساء ===== */
-    .azkar-block{background:var(--card-bg);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:14px 0}
-    .azkar-block summary{cursor:pointer;font-weight:bold;color:var(--green);font-size:1.1rem;padding:6px 0;list-style:none}
-    body.dark .azkar-block summary{color:var(--gold)}
-    .azkar-block summary::-webkit-details-marker{display:none}
-    .azkar-block summary::before{content:"▸ ";color:var(--gold);font-weight:bold}
-    .azkar-block[open] summary::before{content:"▾ "}
-    .azkar-item{padding:12px 0;border-top:1px solid var(--line)}
-    .azkar-item:first-of-type{border-top:0;margin-top:8px}
-    .azkar-item .dhikr-text{font-size:1.1rem;margin:6px 0}
-    .progress{background:var(--card-bg);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0;text-align:center;font-size:.9rem}
-    .progress-bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:8px}
-    .progress-fill{height:100%;background:linear-gradient(90deg,var(--green2),var(--gold));width:0%;transition:width .4s}
-    /* ===== قارئ القرآن ===== */
-    .quran-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-    .quran-controls select{flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card-bg);color:var(--text);font-size:1rem}
-    .quran-controls button{border:0;border-radius:10px;padding:10px 18px;background:var(--green2);color:#fff;cursor:pointer;font-weight:bold}
-    .quran-reader{background:var(--card-bg);border:1px solid var(--line);border-radius:16px;padding:24px;font-size:1.2rem;line-height:2.3;max-height:500px;overflow-y:auto;white-space:pre-line}
-    .quran-reader.loading{color:var(--text-muted);font-style:italic;text-align:center;padding:40px}
-    /* ===== المقالات ===== */
-    .articles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .article-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
-    .article-card h3{font-size:1.1rem;line-height:1.6}
-    .article-card .read-btn{border:0;border-radius:9px;padding:7px 12px;background:var(--green2);color:#fff;cursor:pointer;font-weight:bold;margin-top:8px}
-    body.dark .article-card .read-btn{background:var(--gold);color:#18372d}
-    .article-modal[hidden]{display:none!important}
-    .article-modal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px}
-    .article-dialog{background:var(--card-bg);color:var(--text);width:min(760px,100%);max-height:88vh;overflow:auto;border-radius:18px;padding:24px;box-shadow:0 20px 70px rgba(0,0,0,.3)}
-    .article-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px}
-    .article-dialog h2{margin:0;color:var(--green);font-size:1.3rem}body.dark .article-dialog h2{color:var(--gold)}
-    .article-dialog .close-btn{border:0;border-radius:9px;background:rgba(28,90,71,.1);color:var(--green);padding:7px 12px;cursor:pointer;font-weight:bold}
-    body.dark .article-dialog .close-btn{background:rgba(217,189,120,.15);color:var(--gold)}
-    .article-body p{margin:10px 0;line-height:2}
-    .article-body h3{color:var(--green);margin:18px 0 8px}body.dark .article-body h3{color:var(--gold)}
-    /* ===== مودال الحديث ===== */
-    .hadith-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .hadith-title-row{display:flex;align-items:center;gap:14px}
-    .zad-logo,.zad-hadith-logo{width:64px;height:64px;object-fit:contain;border-radius:12px;flex-shrink:0}
-    .hadith-card .hadith-preview{color:var(--text-muted);margin:8px 0 14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-    .hadith-open{border:0;border-radius:10px;padding:9px 14px;background:var(--green2);color:#fff;cursor:pointer;font-weight:bold}
-    body.dark .hadith-open{background:var(--gold);color:#18372d}
-    .hadith-status{color:var(--text-muted);padding:12px 0}
-    .hadith-modal[hidden]{display:none!important}
-    .hadith-modal{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px}
-    .hadith-dialog{background:var(--card-bg);color:var(--text);width:min(760px,100%);max-height:88vh;overflow:auto;border-radius:18px;padding:22px;box-shadow:0 20px 70px rgba(0,0,0,.3)}
-    .hadith-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px}
-    .hadith-dialog h3{margin:0;color:var(--green)}body.dark .hadith-dialog h3{color:var(--gold)}
-    .hadith-close{border:0;border-radius:9px;background:rgba(28,90,71,.1);color:var(--green);padding:7px 12px;cursor:pointer}
-    body.dark .hadith-close{background:rgba(217,189,120,.15);color:var(--gold)}
-    .hadith-full{font-size:1.1rem;line-height:2.15;white-space:pre-line;overflow-wrap:anywhere;margin:18px 0}
-    .hadith-source{color:var(--green2);font-weight:bold}body.dark .hadith-source{color:var(--gold)}
-    /* ===== Footer / Misc ===== */
-    .source-note{background:rgba(28,90,71,.06);border:1px solid var(--line);padding:18px 20px;border-radius:16px;color:var(--text)}
-    body.dark .source-note{background:rgba(217,189,120,.06)}
-    .source-note h3{margin:0 0 6px;color:var(--green)}body.dark .source-note h3{color:var(--gold)}
-    .source-note a{color:var(--green2);font-weight:bold}body.dark .source-note a{color:var(--gold)}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .about-box{background:var(--green);color:white;border-radius:18px;padding:25px}
-    .about-box h3{margin:0 0 8px;color:var(--gold)}.about-box p{margin:0;color:#e0e9e3}
-    .plain-box{background:var(--card-bg);border:1px solid var(--line);border-radius:18px;padding:25px}
-    .plain-box h3{margin:0 0 8px;color:var(--green)}body.dark .plain-box h3{color:var(--gold)}
-    .plain-box p{margin:0;color:var(--text-muted)}
-    .notice{font-size:.86rem;color:var(--text-muted);margin-top:13px}.hidden{display:none!important}
-    footer{background:#0d2e26;color:#dce7e0;padding:28px 0}
-    .footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-    .footer-inner p{margin:4px 0;font-size:.88rem}
-    .footer-links{display:flex;gap:15px;flex-wrap:wrap}
-    .footer-links a{color:#e9d59d;text-decoration:none;font-size:.88rem}
-    .tiny{font-size:.78rem!important;color:#b7c9bf}
-    .google-translate-hidden{position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden}
-    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--green);color:#fff;padding:12px 20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s ease;z-index:10000;font-size:.92rem;max-width:90vw}
-    .toast.show{transform:translateX(-50%) translateY(0)}
-    /* زر العودة للأعلى */
-    .back-to-top{position:fixed;bottom:20px;left:20px;width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;border:0;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:1.3rem;opacity:0;visibility:hidden;transform:translateY(20px);transition:all .3s;z-index:9998}
-    .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
-    .back-to-top:hover{background:var(--green2)}
-    body.dark .back-to-top{background:var(--gold);color:#18372d}
-    .loading{color:var(--text-muted);font-style:italic}
-    /* ===== Responsive ===== */
-    @media(max-width:800px){.hero{grid-template-columns:1fr;padding:35px 0 48px}.hero-card{max-width:520px;transform:none}.daily-grid,.articles{grid-template-columns:repeat(2,1fr)}.adhkar{grid-template-columns:1fr}}
-    @media(max-width:600px){.nav{align-items:flex-start;flex-direction:column}.language-switch{width:100%}.language-switch select{max-width:100%}.daily-grid,.articles,.about-grid,.hadith-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.hero h1{font-size:2.2rem}.hero-card{padding:19px}.wrap{width:min(100% - 28px,1100px)}.brand-logo,.brand .logo-fallback{width:44px;height:44px}.hadith-dialog,.article-dialog{padding:16px}.hadith-full{font-size:1rem}.daily-hero{grid-template-columns:1fr}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast{transition:none}body{transition:none}}
-  </style>
 </head>
 <body>
-<header id="home">
+
+<!-- ============ شريط التنقل ============ -->
+<nav class="navbar">
+  <div class="wrap nav-inner">
+    <a href="./index.html" class="brand" aria-label="زاد عبيدة - الرئيسية">
+      <img src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة">
+      <span>زاد عبيدة</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./index.html" class="active">الرئيسية</a>
+      <a href="./adhkar.html">الأذكار</a>
+      <a href="./azkar-morning.html">الصباح</a>
+      <a href="./azkar-evening.html">المساء</a>
+      <a href="./nawawi.html">الأحاديث</a>
+      <a href="./quran.html">القرآن</a>
+      <a href="./articles.html">المقالات</a>
+      <a href="./about.html">عن الموقع</a>
+    </div>
+    <div class="nav-tools">
+      <select id="siteLanguage" class="lang-select" aria-label="اللغة">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="الوضع الليلي">🌙</button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="القائمة">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
   <div class="wrap">
-    <div class="nav">
-      <a class="brand" href="#home" aria-label="زاد عبيدة - الرئيسية">
-        <img class="brand-logo" src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة">
-        <span><strong>زاد عبيدة</strong><small>ذكرٌ نافع، وعلمٌ موثّق</small></span>
+    <p class="bismillah">بسم الله الرحمن الرحيم</p>
+    <h1 class="hero-title">زادٌ لقلبك، ومعرفةٌ تثق بمصدرها</h1>
+    <p class="hero-subtitle">مساحة عربية هادئة للأذكار والقرآن ومواقيت الصلاة، مع مصادر واضحة وتثبّت قبل النشر.</p>
+    <div class="hero-actions">
+      <a href="./adhkar.html" class="btn-primary">ابدأ بالأذكار ←</a>
+      <a href="./quran.html" class="btn-secondary">تصفّح القرآن</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ لوحة اليوم ============ -->
+<div class="wrap">
+  <div class="dashboard">
+    <div class="dash-card">
+      <h3>🕌 مواقيت الصلاة</h3>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+        <input type="text" id="cityInput" placeholder="مدينتك (Algiers)" aria-label="المدينة"
+               style="flex:1;min-width:120px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-family:inherit">
+        <button type="button" id="cityBtn" class="action-btn primary" style="padding:8px 14px">تحديث</button>
+        <button type="button" id="geoBtn" class="action-btn" style="padding:8px 14px" title="استخدم موقعي">📍</button>
+      </div>
+      <div id="prayerTimes" style="text-align:center;color:var(--text-muted);padding:20px 0;font-style:italic">جارٍ تحديد موقعك…</div>
+      <div class="countdown" id="prayerCountdown"></div>
+    </div>
+
+    <div class="dash-card">
+      <h3>📖 آية اليوم</h3>
+      <div id="dailyAyah" class="daily-content">
+        <div class="big">جارٍ التحميل…</div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <h3>📜 حديث اليوم</h3>
+      <div id="dailyHadith" class="daily-content">
+        <div class="big">جارٍ التحميل…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- سورة الكهف يوم الجمعة -->
+  <div class="dash-card" id="kahfCard" style="display:none;margin-bottom:20px">
+    <h3>🌙 سورة الكهف (يوم الجمعة)</h3>
+    <p style="margin:8px 0 12px;color:var(--text-muted)">«من قرأ سورة الكهف يوم الجمعة أضاء له من النور ما بين الجمعتين» — رواه الحاكم والبيهقي.</p>
+    <a href="./quran.html" class="btn-primary" style="display:inline-flex">اقرأ الآن ←</a>
+  </div>
+</div>
+
+<!-- ============ أبواب الموقع ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>أبواب الموقع</h2>
+      <p>اختر ما يناسبك</p>
+    </div>
+    <div class="cards-grid">
+      <a href="./adhkar.html" class="nav-card">
+        <div class="emoji">📿</div>
+        <h3>الأذكار</h3>
+        <p>أذكار مختارة بمصادرها</p>
       </a>
-      <div class="nav-tools">
-        <button class="icon-btn" id="themeToggle" type="button" aria-label="تبديل الوضع الليلي" title="الوضع الليلي">🌙</button>
-        <div class="language-switch"><label for="siteLanguage">اللغة:</label>
-          <select id="siteLanguage" aria-label="اختر لغة الموقع">
-            <option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option>
-          </select>
-        </div>
-      </div>
+      <a href="./azkar-morning.html" class="nav-card">
+        <div class="emoji">🌅</div>
+        <h3>أذكار الصباح</h3>
+        <p>تبدأ يومك بذكر الله</p>
+      </a>
+      <a href="./azkar-evening.html" class="nav-card">
+        <div class="emoji">🌙</div>
+        <h3>أذكار المساء</h3>
+        <p>اختم يومك بذكر الله</p>
+      </a>
+      <a href="./nawawi.html" class="nav-card">
+        <div class="emoji">📜</div>
+        <h3>الأربعون النووية</h3>
+        <p>40 حديثاً في متناول يدك</p>
+      </a>
+      <a href="./quran.html" class="nav-card">
+        <div class="emoji">📖</div>
+        <h3>القرآن الكريم</h3>
+        <p>قارئ مصغّر لكل السور</p>
+      </a>
+      <a href="./articles.html" class="nav-card">
+        <div class="emoji">✍️</div>
+        <h3>مقالات</h3>
+        <p>مقالات في العبادة والأخلاق</p>
+      </a>
     </div>
-    <span id="languageStatus" class="language-status" aria-live="polite"></span>
-    <section class="hero">
-      <div><span class="eyebrow">بسم الله الرحمن الرحيم</span>
-        <h1>زادٌ لقلبك، ومعرفةٌ تثق بمصدرها</h1>
-        <p>مساحة عربية هادئة للأذكار والقرآن ومواقيت الصلاة، مع مصادر واضحة وتثبّت قبل النشر.</p>
-        <div class="actions"><a class="btn btn-gold" href="#daily">ابدأ بيومك ←</a><a class="btn btn-outline" href="#adhkar">تصفّح الأذكار</a></div>
-      </div>
-      <aside class="hero-card" aria-label="آية قرآنية"><div class="ornament">﴿ ﴾</div><h2>وقفة مع آية</h2><blockquote>فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ</blockquote><small>سورة البقرة، الآية 152</small></aside>
-    </section>
   </div>
-</header>
+</section>
 
-<div style="text-align:center;margin:24px auto"><img src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة" style="width:64px;height:64px;object-fit:contain;border-radius:12px"></div>
-
-<main class="wrap">
-  <!-- البحث الشامل -->
-  <div class="global-search">
-    <input type="search" id="globalSearchInput" placeholder="ابحث في الأذكار والأحاديث والمقالات..." aria-label="بحث شامل" autocomplete="off">
-    <div id="globalSearchResults" class="search-results" role="region" aria-live="polite"></div>
+<!-- ============ Footer ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <h4>زاد عبيدة</h4>
+        <p>محتوى إسلامي نافع، سهل القراءة، مع توضيح المصادر.</p>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <p>
+          <a href="./adhkar.html">الأذكار</a><br>
+          <a href="./quran.html">القرآن</a><br>
+          <a href="./nawawi.html">الأحاديث</a><br>
+          <a href="./articles.html">المقالات</a>
+        </p>
+      </div>
+      <div>
+        <h4>تواصل</h4>
+        <p>إنستغرام<br>البريد الإلكتروني</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> زاد عبيدة — جميع الحقوق محفوظة
+    </div>
   </div>
+</footer>
 
-  <!-- ============ لوحة اليوم ============ -->
-  <section class="section" id="daily" aria-labelledby="daily-title">
-    <div class="section-head"><div><span class="pill">يومك مع زاد عبيدة</span><h2 id="daily-title">لوحة اليوم</h2><p>تتحدّث تلقائياً حسب موقعك ووقتك وتاريخ اليوم.</p></div></div>
-    <div class="daily-hero">
-      <div class="daily-card">
-        <h3>🕌 مواقيت الصلاة</h3>
-        <div class="city-bar">
-          <input type="text" id="cityInput" placeholder="المدينة (مثال: Algiers)" aria-label="المدينة">
-          <button type="button" id="cityBtn">تحديث</button>
-          <button type="button" id="geoBtn" title="استخدام موقعي">📍</button>
-        </div>
-        <div id="prayerTimes" class="loading">جارٍ تحديد موقعك…</div>
-        <div class="countdown" id="prayerCountdown"></div>
-      </div>
-      <div class="daily-card">
-        <h3>📖 آية اليوم</h3>
-        <div id="dailyAyah" class="loading">جارٍ التحميل…</div>
-      </div>
-      <div class="daily-card">
-        <h3>📜 حديث اليوم</h3>
-        <div id="dailyHadith" class="loading">جارٍ التحميل…</div>
-      </div>
-    </div>
-    <div class="daily-card" id="kahfCard" style="margin-top:16px;display:none">
-      <h3>🌙 سورة الكهف (يوم الجمعة)</h3>
-      <p>«من قرأ سورة الكهف يوم الجمعة أضاء له من النور ما بين الجمعتين» — رواه الحاكم والبيهقي.</p>
-      <button type="button" class="read-btn" onclick="document.getElementById('quranSurahSelect').value='18';document.getElementById('loadSurahBtn').click();document.getElementById('quran').scrollIntoView({behavior:'smooth'})" style="border:0;border-radius:9px;padding:8px 14px;background:var(--green2);color:#fff;cursor:pointer;font-weight:bold">اقرأ الآن ←</button>
-    </div>
-  </section>
-
-  <!-- ============ أبواب الموقع ============ -->
-  <section class="section" aria-labelledby="start-title">
-    <div class="section-head"><div><span class="pill">ابدأ من هنا</span><h2 id="start-title">أبواب الموقع</h2></div></div>
-    <div class="daily-grid">
-      <article class="card"><div class="card-icon" aria-hidden="true">☀</div><h3>الأذكار</h3><p>أذكار مختارة مع النصوص والمراجع.</p><a class="text-link" href="#adhkar">اذهب ←</a></article>
-      <article class="card"><div class="card-icon" aria-hidden="true">📖</div><h3>القرآن الكريم</h3><p>قارئ مصغّر لسور مختارة.</p><a class="text-link" href="#quran">اقرأ ←</a></article>
-      <article class="card"><div class="card-icon" aria-hidden="true">✎</div><h3>مقالات</h3><p>موضوعات قصيرة عن العبادة والأخلاق.</p><a class="text-link" href="#articles">اقرأ ←</a></article>
-    </div>
-  </section>
-
-  <!-- ============ قارئ القرآن ============ -->
-  <section class="section" id="quran" aria-labelledby="quran-title">
-    <div class="section-head"><div><span class="pill">القرآن الكريم</span><h2 id="quran-title">قارئ مصغّر</h2><p>اختر سورة، واقرأها مباشرة.</p></div></div>
-    <div class="quran-controls">
-      <select id="quranSurahSelect" aria-label="اختر السورة"></select>
-      <button type="button" id="loadSurahBtn">اقرأ السورة</button>
-    </div>
-    <div class="quran-reader" id="quranReader">اختر سورة من القائمة أعلاه.</div>
-  </section>
-
-  <!-- ============ أذكار الصباح والمساء ============ -->
-  <section class="section" id="azkar-full" aria-labelledby="azkar-full-title">
-    <div class="section-head"><div><span class="pill">أذكار كاملة</span><h2 id="azkar-full-title">أذكار الصباح والمساء</h2><p>قوائم كاملة مع العدّادات، تُحفظ تلقائياً.</p></div></div>
-    <div class="progress">
-      <div>أكملت <strong id="azkarDoneCount">0</strong> من <strong id="azkarTotalCount">0</strong></div>
-      <div class="progress-bar"><div class="progress-fill" id="azkarProgressFill"></div></div>
-    </div>
-    <details class="azkar-block" open>
-      <summary>🌅 أذكار الصباح</summary>
-      <div id="azkarMorningList"></div>
-    </details>
-    <details class="azkar-block">
-      <summary>🌙 أذكار المساء</summary>
-      <div id="azkarEveningList"></div>
-    </details>
-  </section>
-
-  <!-- ============ الأربعون النووية ============ -->
-  <section class="section" id="nawawi" aria-labelledby="nawawi-title">
-    <div class="section-head"><div class="hadith-title-row"><img class="zad-hadith-logo" src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة"><div><span class="pill">السنة النبوية</span><h2 id="nawawi-title">الأربعون النووية</h2><p>اضغط على أي حديث لقراءة نصه كاملاً.</p></div></div></div>
-    <div id="hadithStatus" class="hadith-status" role="status" aria-live="polite">جارٍ التجهيز...</div>
-    <div class="hadith-grid" id="hadithGrid"></div>
-  </section>
-
-  <!-- ============ الأذكار المختارة ============ -->
-  <section class="section" id="adhkar" aria-labelledby="adhkar-title">
-    <div class="section-head"><div><span class="pill">مختارات</span><h2 id="adhkar-title">أذكار مختارة</h2></div></div>
-    <div class="filter-row" id="dhikrFilters">
-      <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">الكل</button>
-      <button class="filter-btn" type="button" data-filter="quran" aria-pressed="false">من القرآن</button>
-      <button class="filter-btn" type="button" data-filter="morning" aria-pressed="false">الصباح والمساء</button>
-      <button class="filter-btn" type="button" data-filter="prayer" aria-pressed="false">بعد الصلاة</button>
-      <button class="filter-btn" type="button" data-filter="daily" aria-pressed="false">أذكار يومية</button>
-    </div>
-    <div class="adhkar" id="adhkarList">
-      <article class="card dhikr-card" id="dhikr-ilm" data-id="ilm" data-category="quran" data-target="1"><h3>دعاء طلب العلم</h3><p class="dhikr-text">رَبِّ زِدْنِي عِلْمًا</p><div class="ref">سورة طه، الآية 114.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-hidaya" data-id="hidaya" data-category="quran" data-target="1"><h3>دعاء الهداية</h3><p class="dhikr-text">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ</p><div class="ref">سورة آل عمران، الآية 8.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-istighfar" data-id="istighfar" data-category="morning" data-target="3"><h3>سيد الاستغفار</h3><p class="dhikr-text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.</p><div class="ref">صحيح البخاري، حديث 6306.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 3</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-subhan" data-id="subhan100" data-category="morning" data-target="100"><h3>ذكر عظيم الأجر</h3><p class="dhikr-text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</p><div class="ref">صحيح البخاري (6405)، صحيح مسلم (2691).</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 100</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-tasbih33" data-id="tasbih33" data-category="prayer" data-target="33"><h3>التسبيح بعد الصلاة</h3><p class="dhikr-text">سُبْحَانَ اللَّهِ</p><div class="ref">صحيح مسلم، حديث 597.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 33</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-tahmid33" data-id="tahmid33" data-category="prayer" data-target="33"><h3>التحميد بعد الصلاة</h3><p class="dhikr-text">الْحَمْدُ لِلَّهِ</p><div class="ref">صحيح مسلم، حديث 597.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 33</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-takbir33" data-id="takbir33" data-category="prayer" data-target="33"><h3>التكبير بعد الصلاة</h3><p class="dhikr-text">اللَّهُ أَكْبَرُ</p><div class="ref">صحيح مسلم، حديث 597.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 33</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-istiana" data-id="istiana" data-category="daily" data-target="1"><h3>دعاء الاستعانة</h3><p class="dhikr-text">اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ</p><div class="ref">سنن أبي داود، حديث 1522.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-karb" data-id="karb" data-category="daily" data-target="1"><h3>دعاء الكرب</h3><p class="dhikr-text">لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ</p><div class="ref">البخاري 6346، مسلم 2730.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-huda" data-id="huda" data-category="daily" data-target="1"><h3>دعاء نافع</h3><p class="dhikr-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى</p><div class="ref">صحيح مسلم، حديث 2721.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-hawla" data-id="hawla" data-category="daily" data-target="1"><h3>ذكر جامع</h3><p class="dhikr-text">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</p><div class="ref">البخاري 6384، مسلم 2694.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
-      <article class="card dhikr-card" id="dhikr-salat" data-id="salat" data-category="daily" data-target="1"><h3>الصلاة على النبي ﷺ</h3><p class="dhikr-text">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</p><div class="ref">صيغة دعاء بالصلاة والسلام.</div><div class="dhikr-actions"><button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value" aria-live="polite">0 / 1</span><button class="reset-btn" type="button">إعادة</button></div></article>
-    </div>
-  </section>
-
-  <!-- ============ المقالات ============ -->
-  <section class="section" id="articles" aria-labelledby="articles-title">
-    <div class="section-head"><div><span class="pill">مكتبة</span><h2 id="articles-title">مقالات مختارة</h2><p>اضغط "اقرأ" لفتح المقال كاملاً.</p></div></div>
-    <div class="articles" id="articleList">
-      <article class="card article-card" data-search="الورد اليومي القرآن قراءة تدبر" data-article="ward"><div class="article-top"><span class="pill">القرآن</span></div><h3>كيف تبدأ وردًا يوميًا من القرآن؟</h3><p>دليل عملي لبناء ورد يومي مستمر.</p><button class="read-btn" type="button">اقرأ المقال ←</button></article>
-      <article class="card article-card" data-search="التثبت الحديث المصدر النشر" data-article="tathabbut"><div class="article-top"><span class="pill">طلب العلم</span></div><h3>لماذا نتثبت قبل نشر حديث؟</h3><p>منهج التحقق من صحة الأحاديث.</p><button class="read-btn" type="button">اقرأ المقال ←</button></article>
-      <article class="card article-card" data-search="الصدق الأخلاق التعامل" data-article="sidq"><div class="article-top"><span class="pill">الأخلاق</span></div><h3>الصدق في الحياة اليومية</h3><p>كيف يظهر الصدق في تعاملاتنا.</p><button class="read-btn" type="button">اقرأ المقال ←</button></article>
-    </div>
-  </section>
-
-  <!-- ============ المصادر ============ -->
-  <section class="section" id="sources" aria-labelledby="sources-title"><div class="section-head"><div><span class="pill">الأمانة العلمية</span><h2 id="sources-title">مصادر للمراجعة</h2></div></div><div class="source-note"><h3>روابط نافعة</h3><p>القرآن: <a href="https://quran.com/" target="_blank" rel="noopener noreferrer">Quran.com</a> · الأحاديث: <a href="https://dorar.net/hadith" target="_blank" rel="noopener noreferrer">الدرر السنية</a>.</p></div></section>
-
-  <!-- ============ عن الموقع ============ -->
-  <section class="section" id="about" aria-labelledby="about-title"><div class="section-head"><div><span class="pill">رسالتنا</span><h2 id="about-title">عن زاد عبيدة</h2></div></div><div class="about-grid"><div class="about-box"><h3>هدف الموقع</h3><p>نشر محتوى إسلامي عربي نافع، مع توضيح المصادر. الموقع مشروع تعليمي مستقل، وليس جهة إفتاء.</p></div><div class="plain-box"><h3>تواصل</h3><p>يمكنك التواصل عبر حسابي الرسمي على إنستغرام.</p></div></div></section>
-</main>
-
-<!-- مودال الحديث -->
-<div class="hadith-modal" id="hadithModal" hidden role="dialog" aria-modal="true"><div class="hadith-dialog"><div class="hadith-dialog-head"><h3 id="hadithModalTitle">نص الحديث</h3><button class="hadith-close" id="hadithClose" type="button">إغلاق ✕</button></div><div id="hadithModalText" class="hadith-full" dir="rtl"></div><a id="hadithSource" class="hadith-source" href="https://sunnah.com/nawawi40" target="_blank" rel="noopener noreferrer">المصدر ↗</a></div></div>
-
-<!-- مودال المقال -->
-<div class="article-modal" id="articleModal" hidden role="dialog" aria-modal="true"><div class="article-dialog"><div class="article-dialog-head"><h2 id="articleModalTitle">مقال</h2><button class="close-btn" id="articleClose" type="button">إغلاق ✕</button></div><div class="article-body" id="articleModalBody"></div></div></div>
-
-<div id="google_translate_element" class="google-translate-hidden" aria-hidden="true"></div>
+<!-- ============ عناصر مخفية (للترجمة) ============ -->
+<div id="google_translate_element" style="position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden" aria-hidden="true"></div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<button class="back-to-top" id="backToTop" type="button" aria-label="العودة للأعلى" title="العودة إلى الأعلى">↑</button>
+<button class="back-to-top" id="backToTop" type="button" aria-label="العودة للأعلى">↑</button>
 
-<footer><div class="wrap footer-inner"><div><strong>زاد عبيدة</strong><p>محتوى نافع، ومصادر واضحة.</p><p class="tiny">© <span id="year"></span> زاد عبيدة</p></div><div class="footer-links"><a href="#home">الرئيسية</a><a href="#daily">اليوم</a><a href="#quran">القرآن</a><a href="#adhkar">الأذكار</a><a href="#articles">المقالات</a></div></div></footer>
-
+<!-- ============ السكربتات ============ -->
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
 <script>
-'use strict';
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* ============ Toast ============ */
-const toastEl = document.getElementById('toast');
-let toastTimer;
-function showToast(msg){
-  toastEl.textContent = msg;
-  toastEl.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
-}
-
-/* ============ الوضع الليلي ============ */
-const themeToggle = document.getElementById('themeToggle');
-function applyTheme(dark){
-  document.body.classList.toggle('dark', dark);
-  themeToggle.textContent = dark ? '☀️' : '🌙';
-  themeToggle.setAttribute('aria-label', dark ? 'الوضع النهاري' : 'الوضع الليلي');
-  try { localStorage.setItem('zad_theme', dark ? 'dark' : 'light'); } catch {}
-}
-(function initTheme(){
-  let saved = null;
-  try { saved = localStorage.getItem('zad_theme'); } catch {}
-  if (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) saved = 'dark';
-  applyTheme(saved === 'dark');
-})();
-themeToggle.addEventListener('click', () => applyTheme(!document.body.classList.contains('dark')));
-
-/* ============ الشعار (بديل عند الفشل — لا حذف) ============ */
-document.querySelectorAll('.brand-logo,.zad-logo,.zad-hadith-logo').forEach(img=>{
-  img.addEventListener('error', function(){
-    if(this.dataset.fallbackShown==='true')return;
-    this.dataset.fallbackShown='true'; this.hidden=true;
-    const f = document.createElement('span');
-    f.className='logo-fallback'; f.setAttribute('role','img');
-    f.setAttribute('aria-label','شعار زاد عبيدة'); f.textContent='زاد';
-    this.insertAdjacentElement('afterend', f);
-  }, {once:true});
-});
-
-/* ============ نسخ / استماع / مشاركة ============ */
-async function copyText(text){
-  if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); return; }
-  const t = document.createElement('textarea'); t.value = text; t.style.position='fixed'; t.style.opacity='0';
-  document.body.appendChild(t); t.select();
-  const ok = document.execCommand('copy'); t.remove();
-  if(!ok) throw new Error('copy failed');
-}
-function speak(text){
-  if(!('speechSynthesis' in window)){ showToast('المتصفح لا يدعم النطق'); return; }
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'ar-SA'; u.rate = 0.9;
-  window.speechSynthesis.speak(u);
-  showToast('جارٍ الاستماع…');
-}
-async function shareContent(data){
-  if(navigator.share){
-    try { await navigator.share(data); } catch {}
-  } else {
-    try { await copyText(data.url || data.text || ''); showToast('تم نسخ الرابط ✓'); }
-    catch { showToast('تعذّرت المشاركة'); }
-  }
-}
-
-function bindDhikrActions(container){
-  container.querySelectorAll('.dhikr-card, .azkar-item').forEach(card=>{
-    const text = card.querySelector('.dhikr-text')?.textContent?.trim() || '';
-    const title = card.querySelector('h3, .item-title')?.textContent?.trim() || 'ذكر';
-    card.querySelectorAll('.copy-btn').forEach(b => b.addEventListener('click', async ()=>{
-      try { await copyText(text); showToast('تم النسخ ✓'); } catch { showToast('تعذّر النسخ'); }
-    }));
-    card.querySelectorAll('.speak-btn').forEach(b => b.addEventListener('click', ()=>speak(text)));
-    card.querySelectorAll('.share-btn').forEach(b => b.addEventListener('click', ()=>{
-      const url = location.origin + location.pathname + (card.id ? '#'+card.id : '');
-      shareContent({ title, text, url });
-    }));
-  });
-}
-
-/* ============ العدّادات (localStorage) ============ */
-const STORAGE_KEY = 'zad_counts_v2';
-function loadCounts(){ try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'); }catch{ return {}; } }
-function saveCounts(c){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(c)); }catch{} }
-let counts = loadCounts();
-
-function bindCounters(container){
-  container.querySelectorAll('.dhikr-card, .azkar-item').forEach(card=>{
-    const id = card.dataset.id;
-    if(!id) return;
-    const target = Math.max(1, Number(card.dataset.target)||1);
-    const value = card.querySelector('.count-value');
-    const countBtn = card.querySelector('.count-btn');
-    const resetBtn = card.querySelector('.reset-btn');
-    if(!value || !countBtn) return;
-    let count = Math.max(0, Math.min(target, Number(counts[id])||0));
-    const paint = ()=>{
-      value.textContent = count + ' / ' + target;
-      countBtn.setAttribute('aria-label','العدد الحالي '+count+' من '+target);
-      countBtn.textContent = count>=target ? 'اكتمل ✓' : '+ عدّ';
-    };
-    countBtn.addEventListener('click', ()=>{
-      if(count>=target) return;
-      count++; counts[id]=count; saveCounts(counts); paint();
-      if(typeof window.updateAzkarProgress === 'function') window.updateAzkarProgress();
-    });
-    if(resetBtn) resetBtn.addEventListener('click', ()=>{
-      count = 0; delete counts[id]; saveCounts(counts); paint();
-      if(typeof window.updateAzkarProgress === 'function') window.updateAzkarProgress();
-    });
-    paint();
-  });
-}
-
-/* ============ روابط مباشرة + تظليل ============ */
-function highlightFromHash(){
-  if(!location.hash) return;
-  const el = document.querySelector(location.hash);
-  if(!el) return;
-  setTimeout(()=>{
-    el.scrollIntoView({behavior:'smooth', block:'center'});
-    el.classList.add('highlight');
-    setTimeout(()=>el.classList.remove('highlight'), 2600);
-  }, 300);
-}
-window.addEventListener('load', highlightFromHash);
-window.addEventListener('hashchange', highlightFromHash);
-
-/* ============ تصنيف الأذكار ============ */
-document.querySelectorAll('#dhikrFilters [data-filter]').forEach(button=>{
-  button.addEventListener('click', ()=>{
-    const filter = button.dataset.filter;
-    document.querySelectorAll('#dhikrFilters [data-filter]').forEach(b=>b.setAttribute('aria-pressed', String(b===button)));
-    document.querySelectorAll('#adhkarList .dhikr-card').forEach(card=>card.classList.toggle('hidden', filter!=='all' && card.dataset.category!==filter));
-  });
-});
-
-/* ============ الأحاديث الأربعون ============ */
-const NAWAWI_HADITHS = [
-  { title:"الحديث الأول: الأعمال بالنيات", text:"عن أمير المؤمنين أبي حفص عمر بن الخطاب (رضي الله عنه) قال: سمعت رسول الله ﷺ يقول: \"إنما الأعمال بالنيات وإنما لكل امرئ ما نوى، فمن كانت هجرته إلى الله ورسوله، فهجرته إلى الله ورسوله، ومن كانت هجرته لدنيا يصيبها أو امرأة ينكحها، فهجرته إلى ما هاجر إليه.\" (رواه البخاري ومسلم)" },
-  { title:"الحديث الثاني: حديث جبريل", text:"عن عمر (رضي الله عنه) أيضاً قال: بينما نحن جلوس عند رسول الله ﷺ ذات يوم إذ طلع علينا رجل شديد بياض الثياب، شديد سواد الشعر، لا يرى عليه أثر السفر، ولا يعرفه منا أحد، حتى جلس إلى النبي ﷺ، فأسند ركبتيه إلى ركبتيه، ووضع كفيه على فخذيه، وقال: يا محمد أخبرني عن الإسلام... (رواه مسلم)" },
-  { title:"الحديث الثالث: أركان الإسلام", text:"عن أبي عبد الرحمن عبد الله بن عمر بن الخطاب رضي الله عنهما قال: سمعت رسول الله ﷺ يقول: \"بني الإسلام على خمسٍ؛ شهادة أن لا إله إلا الله وأن محمداً رسول الله، وإقام الصلاة، وإيتاء الزكاة، وحج البيت، وصوم رمضان.\" (رواه البخاري ومسلم)" },
-  { title:"الحديث الرابع: مراحل الخلق", text:"عن أبي عبد الرحمن عبد الله بن مسعود (رضي الله عنه) قال: حدّثنا رسول الله ﷺ وهو الصادق المصدوق: \"إن أحدكم يجمع خلقه في بطن أمه أربعين يوماً نطفةً ثم يكون علقةً مثل ذلك ثم يكون مضغةً مثل ذلك، ثم يُرسل إليه الملك فينفخ فيه الروح...\" (رواه البخاري ومسلم)" },
-  { title:"الحديث الخامس: من أحدث في الدين", text:"عن أم المؤمنين أم عبد الله عائشة رضي الله عنها قالت: قال رسول الله ﷺ: \"من أحدث في أمرنا هذا ما ليس منه فهو رد\". (رواه البخاري ومسلم)" },
-  { title:"الحديث السادس: الحلال والحرام", text:"عن أبي عبد الله النعمان بن بشير رضي الله عنهما قال: سمعت رسول الله ﷺ يقول: \"إن الحلال بيّن، وإن الحرام بيّن، وبينهما أمور مشتبهات لا يعلمهنّ كثير من الناس، فمن اتقى الشبهات، فقد استبرأ لدينه وعرضه...\" (رواه البخاري ومسلم)" },
-  { title:"الحديث السابع: الدين النصيحة", text:"عن أبي رقية تميم بن أوس الداري (رضي الله عنه) أن النبي ﷺ قال: \"الدين النصيحة\"، قلنا لمن؟ قال: \"لله ولكتابه ولرسوله ولأئمة المسلمين وعامتهم\". (رواه مسلم)" },
-  { title:"الحديث الثامن: حرمة الدم والمال", text:"عن ابن عمر رضي الله عنهما أن رسول الله ﷺ قال: \"أمرت أن أقاتل الناس حتى يشهدوا أن لا إله إلا الله وأن محمداً رسول الله، ويقيموا الصلاة، ويؤتوا الزكاة، فإذا فعلوا ذلك عصموا مني دماءهم وأموالهم إلا بحق الإسلام، وحسابهم على الله\". (رواه البخاري ومسلم)" },
-  { title:"الحديث التاسع: اجتناب النواهي", text:"عن أبي هريرة عبد الرحمن بن صخر رضي الله عنه قال: سمعت رسول الله ﷺ يقول: \"ما نهيتكم عنه فاجتنبوه، وما أمرتكم به فأتوا منه ما استطعتم، فإنما أهلك الذين من قبلكم كثرة مسائلهم واختلافهم على أنبيائهم\". (رواه البخاري ومسلم)" },
-  { title:"الحديث العاشر: الطيب لا يقبل إلا طيباً", text:"عن أبي هريرة (رضي الله عنه) قال: قال رسول الله ﷺ: \"إن الله تعالى طيب لا يقبل إلا طيباً، وإن الله أمر المؤمنين بما أمر به المرسلين فقال تعالى: (يا أيها الرسل كلوا من الطيبات واعملوا صالحاً)\". (رواه مسلم)" },
-  { title:"الحديث الحادي عشر: دع ما يريبك", text:"عن أبي محمد الحسن بن علي بن أبي طالب رضي الله عنهما قال: حفظت من رسول الله ﷺ: \"دع ما يريبك إلى ما لا يريبك\". (رواه الترمذي والنسائي)" },
-  { title:"الحديث الثاني عشر: ترك ما لا يعني", text:"عن أبي هريرة رضي الله تعالى عنه قال: قال رسول الله ﷺ: \"من حسن إسلام المرء تركه ما لا يعنيه\". (حديث حسن رواه الترمذي)" },
-  { title:"الحديث الثالث عشر: حب الخير للناس", text:"عن أبي حمزة أنس بن مالك رضي الله عنه عن النبي ﷺ قال: \"لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه\". (رواه البخاري ومسلم)" },
-  { title:"الحديث الرابع عشر: حرمة دم المسلم", text:"عن ابن مسعود رضي الله تعالى عنه قال: قال رسول الله ﷺ: \"لا يحل دم امرئ مسلم إلا بإحدى ثلاث: الثيب الزاني، والنفس بالنفس، والتارك لدينه المفارق للجماعة\". (رواه البخاري ومسلم)" },
-  { title:"الحديث الخامس عشر: إكرام الجار والضيف", text:"عن أبي هريرة رضي الله عنه أن رسول الله ﷺ قال: \"من كان يؤمن بالله واليوم الآخر فليقل خيراً أو ليصمت، ومن كان يؤمن بالله واليوم الآخر فليكرم جاره، ومن كان يؤمن بالله واليوم الآخر فليكرم ضيفه\". (رواه البخاري ومسلم)" },
-  { title:"الحديث السادس عشر: لا تغضب", text:"عن أبي هريرة رضي الله عنه: أن رجلاً قال للنبي ﷺ: أوصني، قال: \"لا تغضب\"، فردّد مراراً، قال: \"لا تغضب\". (رواه البخاري)" },
-  { title:"الحديث السابع عشر: الإحسان في القتل والذبح", text:"عن أبي يعلى شداد بن أوس رضي الله عنه عن رسول الله ﷺ قال: \"إن الله كتب الإحسان على كل شيء، فإذا قتلتم فأحسنوا القتلة، وإذا ذبحتم فأحسنوا الذبحة\". (رواه مسلم)" },
-  { title:"الحديث الثامن عشر: التقوى وحسن الخلق", text:"عن أبي ذر جندب بن جنادة وأبي عبد الرحمن معاذ بن جبل رضي الله عنهما عن رسول الله ﷺ قال: \"اتق الله حيثما كنت، وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن\". (رواه الترمذي)" },
-  { title:"الحديث التاسع عشر: احفظ الله يحفظك", text:"عن أبي العباس عبد الله بن عباس رضي الله عنهما قال: كنت خلف النبي ﷺ يوماً، فقال لي: \"يا غلام إني أعلّمك كلمات: احفظ الله يحفظك، احفظ الله تجده تجاهك، إذا سألت فاسأل الله، وإذا استعنت فاستعن بالله...\" (رواه الترمذي)" },
-  { title:"الحديث العشرون: الحياء", text:"عن أبي مسعود عقبة بن عمرو الأنصاري البدري رضي الله عنه قال: قال رسول الله ﷺ: \"إن مما أدرك الناس من كلام النبوة الأولى: إذا لم تستح فاصنع ما شئت\". (رواه البخاري)" },
-  { title:"الحديث الحادي والعشرون: الاستقامة", text:"عن أبي عمرو سفيان بن عبد الله رضي الله عنه قال: قلت: يا رسول الله قل لي في الإسلام قولاً لا أسأل عنه أحداً غيرك، قال: \"قل آمنت بالله ثم استقم\". (رواه مسلم)" },
-  { title:"الحديث الثاني والعشرون: الفرائض طريق الجنة", text:"عن أبي عبد الله جابر بن عبد الله الأنصاري رضي الله عنهما: أن رجلاً سأل رسول الله ﷺ فقال: أرأيت إذا صلّيت المكتوبات، وصمت رمضان وأحللت الحلال وحرّمت الحرام ولم أزد على ذلك شيئاً أدخل الجنة؟ قال: \"نعم\". (رواه مسلم)" },
-  { title:"الحديث الثالث والعشرون: الطهور شطر الإيمان", text:"عن أبي مالك الحارث بن عاصم الأشعري رضي الله عنه قال: قال رسول الله ﷺ: \"الطهور شطر الإيمان، والحمد لله تملأ الميزان، وسبحان الله والحمد لله تملآن أو تملأ بين السماء والأرض، والصلاة نور، والصدقة برهان، والصبر ضياء، والقرآن حجة لك أو عليك...\" (رواه مسلم)" },
-  { title:"الحديث الرابع والعشرون: تحريم الظلم", text:"عن أبي ذر الغفاري رضي الله عنه عن النبي ﷺ فيما يرويه عن ربه -عزّ وجلّ- أنه قال: \"يا عبادي إني حرّمت الظلم على نفسي، وجعلته بينكم محرّماً؛ فلا تظالموا...\" (رواه مسلم)" },
-  { title:"الحديث الخامس والعشرون: أبواب الخير", text:"عن أبي ذر رضي الله عنه أيضاً: أن ناساً من أصحاب رسول الله ﷺ قالوا للنبي ﷺ: يا رسول الله ذهب أهل الدثور بالأجور... قال: \"أو ليس قد جعل الله لكم ما تصدقون به؟ إن بكل تسبيحة صدقة، وكل تكبيرة صدقة، وكل تحميدة صدقة، وكل تهليلة صدقة...\" (رواه مسلم)" },
-  { title:"الحديث السادس والعشرون: كل سلامى صدقة", text:"عن أبي هريرة رضي الله تعالى عنه قال: قال رسول الله ﷺ: \"كل سلامى من الناس عليه صدقة، كل يوم تطلع فيه الشمس تعدل بين اثنين صدقة، وتعين الرجل في دابته فتحمله عليها أو ترفع له عليها متاعه صدقة، والكلمة الطيبة صدقة...\" (رواه البخاري ومسلم)" },
-  { title:"الحديث السابع والعشرون: البر والإثم", text:"عن النواس بن سمعان رضي الله عنهما عن النبي ﷺ قال: \"البر حسن الخلق، والإثم ما حاك في نفسك وكرهت أن يطلع عليه الناس\". (رواه مسلم)" },
-  { title:"الحديث الثامن والعشرون: لزوم السنة", text:"عن أبي نجيح العرباض بن سارية رضي الله عنه قال: وعظَنا رسول الله ﷺ موعظةً وجلت منها القلوب وذرفت منها العيون، فقلنا: يا رسول الله كأنها موعظة مودّع، فأوصِنا... قال: \"أوصيكم بتقوى الله عزّ وجلّ، والسمع والطاعة وإن تأمّر عليكم عبد...\" (رواه أبو داود والترمذي)" },
-  { title:"الحديث التاسع والعشرون: أبواب الجنة", text:"عن معاذ بن جبل رضي الله عنه قال: قلت يا رسول الله أخبرني بعمل يدخلني الجنة ويباعدني عن النار؟ قال: \"لقد سألت عن عظيم وإنه ليسير على من يسره الله تعالى عليه: تعبد الله لا تشرك به شيئاً، وتقيم الصلاة، وتؤتي الزكاة، وتصوم رمضان، وتحج البيت\". (رواه الترمذي)" },
-  { title:"الحديث الثلاثون: حدود الله", text:"عن أبي ثعلبة الخشني جرثوم بن ناشر رضي الله عنه عن رسول الله ﷺ قال: \"إن الله تعالى فرض فرائض فلا تضيعوها، وحد حدوداً فلا تعتدوها، وحرّم أشياء فلا تنتهكوها، وسكت عن أشياء رحمةً لكم غير نسيان فلا تبحثوا عنها\". (رواه الدارقطني)" },
-  { title:"الحديث الحادي والثلاثون: الزهد", text:"عن أبي العباس سهل بن سعد الساعدي رضي الله عنه قال: جاء رجل إلى النبي ﷺ فقال: يا رسول الله دلّني على عمل إذا عملته أحبني الله وأحبني الناس، فقال: \"ازهد في الدنيا يحبك الله، وازهد فيما عند الناس يحبك الناس\". (رواه ابن ماجه)" },
-  { title:"الحديث الثاني والثلاثون: لا ضرر ولا ضرار", text:"عن أبي سعيد سعد بن مالك بن سنان الخدري رضي الله عنه أن رسول الله ﷺ قال: \"لا ضرر ولا ضرار\". (حديث حسن رواه ابن ماجه والدارقطني)" },
-  { title:"الحديث الثالث والثلاثون: البينة على المدعي", text:"عن ابن عباس رضي الله عنهما أن رسول الله ﷺ قال: \"لو يعطى الناس بدعواهم، لادعى رجال أموال قوم ودماءهم، لكن البينة على المدعي واليمين على من أنكر\". (رواه البيهقي)" },
-  { title:"الحديث الرابع والثلاثون: تغيير المنكر", text:"عن أبي سعيد الخدري رضي الله عنه قال: سمعت رسول الله ﷺ يقول: \"من رأى منكم منكراً فليغيره بيده، فإن لم يستطع فبلسانه، فإن لم يستطع فبقلبه، وذلك أضعف الإيمان\". (رواه مسلم)" },
-  { title:"الحديث الخامس والثلاثون: أخوة الإسلام", text:"عن أبي هريرة رضي الله عنه قال: قال رسول الله ﷺ: \"لا تحاسدوا، ولا تناجشوا، ولا تباغضوا، ولا تدابروا، ولا يبع بعضكم على بيع بعض، وكونوا عباد الله إخواناً...\" (رواه مسلم)" },
-  { title:"الحديث السادس والثلاثون: تفريج الكرب", text:"عن أبي هريرة رضي الله عنه عن النبي ﷺ قال: \"من نفّس عن مؤمن كربةً من كرب الدنيا نفّس الله عنه كربةً من كرب يوم القيامة، ومن يسّر على معسر يسّر الله عليه في الدنيا والآخرة، ومن ستر مسلماً ستره الله في الدنيا والآخرة...\" (رواه مسلم)" },
-  { title:"الحديث السابع والثلاثون: كتابة الحسنات والسيئات", text:"عن ابن عباس رضي الله عنهما عن رسول الله ﷺ فيما يرويه عن ربه تبارك وتعالى قال: \"إن الله كتب الحسنات والسيئات، ثم بين ذلك، فمن همّ بحسنة فلم يعملها كتبها الله عنده حسنةً كاملةً، وإن همّ بها فعملها كتبها الله عنده عشر حسناتٍ...\" (رواه البخاري ومسلم)" },
-  { title:"الحديث الثامن والثلاثون: الولاية", text:"عن أبي هريرة رضي الله عنه قال: قال رسول الله ﷺ: \"إن الله تعالى قال: من عادى لي ولياً فقد آذنته في الحرب، وما تقرّب إليّ عبدي بشيء أحبّ إليّ مما افترضته عليه، ولا يزال عبدي يتقرب إليّ بالنوافل حتى أحبه...\" (رواه البخاري)" },
-  { title:"الحديث التاسع والثلاثون: العفو عن الخطأ", text:"عن ابن عباس رضي الله عنهما أن رسول الله ﷺ قال: \"إن الله تجاوز لي عن أمتي الخطأ والنسيان وما استكرهوا عليه\". (حديث حسن رواه ابن ماجه والبيهقي)" },
-  { title:"الحديث الأربعون: كن في الدنيا كغريب", text:"عن ابن عمر رضي الله عنهما قال: أخذ رسول الله ﷺ بمنكبي فقال: \"كن في الدنيا كأنك غريب أو عابر سبيل، وكان ابن عمر رضي الله عنهما يقول: إذا أمسيت فلا تنتظر الصباح، وإذا أصبحت فلا تنتظر المساء، وخذ من صحتك لسقمك، ومن حياتك لموتك\". (رواه البخاري)" }
-];
-
-const hadithGrid = document.getElementById('hadithGrid');
-const hadithStatus = document.getElementById('hadithStatus');
-const hadithModal = document.getElementById('hadithModal');
-const hadithModalTitle = document.getElementById('hadithModalTitle');
-const hadithModalText = document.getElementById('hadithModalText');
-const hadithSource = document.getElementById('hadithSource');
-const hadithClose = document.getElementById('hadithClose');
-let lastFocused = null;
-
-function renderHadithCards(){
-  hadithGrid.replaceChildren();
-  NAWAWI_HADITHS.forEach((item, i) => {
-    const card = document.createElement('article');
-    card.className = 'card hadith-card';
-    const badge = document.createElement('span'); badge.className='pill'; badge.textContent='الحديث ' + (i+1);
-    const h3 = document.createElement('h3'); h3.textContent = item.title;
-    const p = document.createElement('p'); p.className='hadith-preview';
-    p.textContent = item.text.slice(0, 190) + (item.text.length>190?'…':'');
-    const btn = document.createElement('button'); btn.type='button'; btn.className='hadith-open'; btn.textContent='اقرأ كاملاً';
-    btn.addEventListener('click', ()=>{
-      lastFocused = document.activeElement;
-      hadithModalTitle.textContent = item.title;
-      hadithModalText.textContent = item.text;
-      hadithSource.href = 'https://sunnah.com/nawawi40/' + (i+1);
-      hadithModal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      hadithClose.focus();
-    });
-    card.append(badge, h3, p, btn);
-    hadithGrid.appendChild(card);
-  });
-  hadithStatus.textContent = 'تم تحميل ' + NAWAWI_HADITHS.length + ' حديثًا.';
-}
-renderHadithCards();
-
-function closeHadith(){ hadithModal.hidden = true; document.body.style.overflow=''; if(lastFocused) lastFocused.focus(); }
-hadithClose.addEventListener('click', closeHadith);
-hadithModal.addEventListener('click', e => { if(e.target===hadithModal) closeHadith(); });
-document.addEventListener('keydown', e => {
-  if(hadithModal.hidden) return;
-  if(e.key==='Escape') closeHadith();
-  if(e.key==='Tab'){
-    const f = hadithModal.querySelectorAll('button, a');
-    if(!f.length) return;
-    const first=f[0], last=f[f.length-1];
-    if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
-    else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
-  }
-});
-
-/* ============ حديث اليوم ============ */
-(function(){
-  const el = document.getElementById('dailyHadith');
-  if(!el) return;
-  const now = new Date(), start = new Date(now.getFullYear(), 0, 0);
-  const day = Math.floor((now-start)/86400000);
-  const h = NAWAWI_HADITHS[day % NAWAWI_HADITHS.length];
-  el.innerHTML = '';
-  const p = document.createElement('div'); p.className='big';
-  p.textContent = h.text.length>220 ? h.text.slice(0,220)+'…' : h.text;
-  const s = document.createElement('div'); s.className='src'; s.textContent = h.title;
-  el.append(p, s);
-})();
-
-/* ============ آية اليوم ============ */
-const DAILY_AYAT = [
-  { text:"فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ", src:"البقرة: 152" },
-  { text:"وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ", src:"البقرة: 186" },
-  { text:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ", src:"الرعد: 28" },
-  { text:"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا", src:"الطلاق: 2" },
-  { text:"إِنَّ مَعَ الْعُسْرِ يُسْرًا", src:"الشرح: 6" },
-  { text:"وَقُل رَّبِّ زِدْنِي عِلْمًا", src:"طه: 114" },
-  { text:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ", src:"البقرة: 201" },
-  { text:"وَاصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ", src:"هود: 115" },
-  { text:"يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", src:"البقرة: 153" },
-  { text:"وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ", src:"البقرة: 216" }
-];
-(function(){
-  const el = document.getElementById('dailyAyah');
-  if(!el) return;
-  const now = new Date(), start = new Date(now.getFullYear(), 0, 0);
-  const day = Math.floor((now-start)/86400000);
-  const a = DAILY_AYAT[day % DAILY_AYAT.length];
-  el.innerHTML = '';
-  const p = document.createElement('div'); p.className='big'; p.textContent = a.text;
-  const s = document.createElement('div'); s.className='src'; s.textContent = a.src;
-  el.append(p, s);
-})();
-
-/* ============ سورة الكهف الجمعة ============ */
-if(new Date().getDay()===5){ document.getElementById('kahfCard').style.display = ''; }
-
-/* ============ مواقيت الصلاة ============ */
-const PLABELS = { Fajr:'الفجر', Dhuhr:'الظهر', Asr:'العصر', Maghrib:'المغرب', Isha:'العشاء' };
-let countdownInterval = null;
-function formatTime(t){
-  const clean = String(t).split(' ')[0];
-  const [h,m] = clean.split(':').map(Number);
-  const period = h>=12 ? 'م' : 'ص';
-  const hh = h%12 === 0 ? 12 : h%12;
-  return hh + ':' + String(m).padStart(2,'0') + ' ' + period;
-}
-async function fetchPrayerTimes(lat, lng, city){
-  const c = document.getElementById('prayerTimes');
-  c.className='loading'; c.textContent='جارٍ تحميل المواقيت…';
-  try{
-    const url = (lat!=null && lng!=null)
-      ? 'https://api.aladhan.com/v1/timings?latitude='+lat+'&longitude='+lng+'&method=3'
-      : 'https://api.aladhan.com/v1/timingsByCity?city='+encodeURIComponent(city||'Algiers')+'&country=Algeria&method=3';
-    const res = await fetch(url);
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const j = await res.json();
-    renderPrayerTimes(j.data.timings);
-    startCountdown(j.data.timings);
-  }catch(err){
-    c.className=''; c.textContent='تعذّر جلب المواقيت. تحقق من الاتصال.';
-    console.warn(err);
-  }
-}
-function renderPrayerTimes(t){
-  const c = document.getElementById('prayerTimes');
-  c.className=''; c.replaceChildren();
-  const ul = document.createElement('ul'); ul.className='prayer-times';
-  ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(k=>{
-    const li = document.createElement('li'); li.dataset.key = k;
-    const n = document.createElement('span'); n.textContent = PLABELS[k];
-    const v = document.createElement('strong'); v.textContent = formatTime(t[k]);
-    li.append(n,v); ul.appendChild(li);
-  });
-  c.appendChild(ul);
-}
-function startCountdown(t){
-  if(countdownInterval) clearInterval(countdownInterval);
-  const el = document.getElementById('prayerCountdown');
-  const now = new Date();
-  const arr = ['Fajr','Dhuhr','Asr','Maghrib','Isha'].map(k=>{
-    const [h,m] = String(t[k]).split(' ')[0].split(':').map(Number);
-    const d = new Date(now); d.setHours(h,m,0,0);
-    return {k, date:d};
-  });
-  const next = arr.find(p=>p.date>now);
-  document.querySelectorAll('.prayer-times li').forEach(li=>li.classList.remove('active'));
-  if(!next){ el.textContent='انتهت صلوات اليوم — تقبّل الله 🌙'; return; }
-  const activeLi = document.querySelector('.prayer-times li[data-key="'+next.k+'"]');
-  if(activeLi) activeLi.classList.add('active');
-  const tick = ()=>{
-    const diff = next.date - new Date();
-    if(diff<=0){ el.textContent='حان وقت '+PLABELS[next.k]+' 🕌'; clearInterval(countdownInterval); return; }
-    const hh = Math.floor(diff/3600000), mm = Math.floor((diff%3600000)/60000), ss = Math.floor((diff%60000)/1000);
-    el.textContent = 'متبقٍ لصلاة '+PLABELS[next.k]+': '+String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0')+':'+String(ss).padStart(2,'0');
-  };
-  tick(); countdownInterval = setInterval(tick, 1000);
-}
-function locateUser(){
-  const c = document.getElementById('prayerTimes');
-  if(!navigator.geolocation){ c.className=''; c.textContent='المتصفح لا يدعم الموقع — أدخل مدينتك.'; return; }
-  c.className='loading'; c.textContent='جارٍ تحديد موقعك…';
-  navigator.geolocation.getCurrentPosition(
-    p=>fetchPrayerTimes(p.coords.latitude, p.coords.longitude),
-    e=>{ c.className=''; c.textContent='تعذّر تحديد الموقع — أدخل مدينتك.'; },
-    { timeout: 8000 }
-  );
-}
-document.getElementById('cityBtn').addEventListener('click', ()=>{
-  const v = document.getElementById('cityInput').value.trim();
-  if(v) fetchPrayerTimes(null, null, v);
-});
-document.getElementById('geoBtn').addEventListener('click', locateUser);
-locateUser();
-
-/* ============ قارئ القرآن ============ */
-const SURAH_NAMES = ['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه','الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم','لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق','الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة','الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج','نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس','التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد','الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات','القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر','المسد','الإخلاص','الفلق','الناس'];
-const quranSelect = document.getElementById('quranSurahSelect');
-SURAH_NAMES.forEach((name, i)=>{
-  const opt = document.createElement('option');
-  opt.value = i+1; opt.textContent = (i+1) + '. ' + name;
-  quranSelect.appendChild(opt);
-});
-document.getElementById('loadSurahBtn').addEventListener('click', async ()=>{
-  const n = Number(quranSelect.value) || 1;
-  const reader = document.getElementById('quranReader');
-  reader.className = 'quran-reader loading'; reader.textContent = 'جارٍ تحميل السورة…';
-  try{
-    const res = await fetch('https://api.alquran.cloud/v1/surah/'+n+'/ar.alafasy');
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const j = await res.json();
-    const ayahs = j.data.ayahs;
-    reader.className = 'quran-reader';
-    reader.innerHTML = '';
-    const header = document.createElement('h3');
-    header.style.textAlign='center'; header.style.color='var(--green)';
-    header.textContent = 'سورة ' + j.data.name.replace('سُورَةُ ','') + ' — ' + ayahs.length + ' آية';
-    reader.appendChild(header);
-    ayahs.forEach(a=>{
-      const span = document.createElement('span');
-      span.textContent = a.text + ' ﴿' + a.numberInSurah + '﴾ ';
-      reader.appendChild(span);
-    });
-  }catch(err){
-    reader.className = 'quran-reader loading';
-    reader.textContent = 'تعذّر تحميل السورة. تحقق من الاتصال.';
-    console.warn(err);
-  }
-});
-
-/* ============ أذكار الصباح/المساء ============ */
-const AZKAR_MORNING = [
-  { id:'m1', title:'آية الكرسي', text:'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ...', ref:'البقرة 255', target:1 },
-  { id:'m2', title:'المعوذتان والإخلاص', text:'قُلْ هُوَ اللَّهُ أَحَدٌ... (ثلاث مرات)', ref:'أبو داود والترمذي', target:3 },
-  { id:'m3', title:'سيد الاستغفار', text:'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ...', ref:'البخاري 6306', target:1 },
-  { id:'m4', title:'دعاء العافية', text:'اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لَا إِلَهَ إِلَّا أَنْتَ', ref:'أبو داود 5090', target:3 },
-  { id:'m5', title:'دعاء الكفاية', text:'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ', ref:'أبو داود 5088', target:3 },
-  { id:'m6', title:'الرضا', text:'رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا', ref:'أبو داود 5072', target:3 },
-  { id:'m7', title:'العفو والعافية', text:'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ...', ref:'ابن ماجه 3871', target:1 },
-  { id:'m8', title:'التسبيح', text:'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ', ref:'مسلم 2691 — 100 مرة', target:100 }
-];
-const AZKAR_EVENING = AZKAR_MORNING.map(z => ({
-  ...z,
-  id: z.id.replace('m','e'),
-  title: z.title.replace('الصباح','المساء')
-}));
-
-function renderAzkarItem(z){
-  const div = document.createElement('div');
-  div.className = 'azkar-item'; div.dataset.id = z.id; div.dataset.target = z.target;
-  const title = document.createElement('h3'); title.className='item-title';
-  title.style.cssText='font-size:1rem;margin:0 0 6px;color:var(--green)';
-  title.textContent = z.title;
-  const text = document.createElement('p'); text.className='dhikr-text'; text.textContent = z.text;
-  const ref = document.createElement('div'); ref.className='ref'; ref.textContent = z.ref;
-  const actions = document.createElement('div'); actions.className='dhikr-actions';
-  actions.innerHTML = '<button class="copy-btn" type="button">نسخ</button><button class="speak-btn" type="button">🔊</button><button class="share-btn" type="button">📤</button><button class="count-btn" type="button">+ عدّ</button><span class="count-value">0 / '+z.target+'</span><button class="reset-btn" type="button">إعادة</button>';
-  div.append(title, text, ref, actions);
-  return div;
-}
-const mList = document.getElementById('azkarMorningList');
-const eList = document.getElementById('azkarEveningList');
-if(mList) AZKAR_MORNING.forEach(z => mList.appendChild(renderAzkarItem(z)));
-if(eList) AZKAR_EVENING.forEach(z => eList.appendChild(renderAzkarItem(z)));
-
-window.updateAzkarProgress = function(){
-  const total = AZKAR_MORNING.length + AZKAR_EVENING.length;
-  let done = 0;
-  document.querySelectorAll('.azkar-item').forEach(item=>{
-    const id = item.dataset.id;
-    const target = Number(item.dataset.target)||1;
-    if((counts[id]||0) >= target) done++;
-  });
-  const dc = document.getElementById('azkarDoneCount');
-  const tc = document.getElementById('azkarTotalCount');
-  const pf = document.getElementById('azkarProgressFill');
-  if(dc) dc.textContent = done;
-  if(tc) tc.textContent = total;
-  if(pf) pf.style.width = (total ? (done/total*100) : 0) + '%';
-};
-
-/* ربط العدّادات والأزرار */
-bindCounters(document);
-bindDhikrActions(document);
-if(typeof window.updateAzkarProgress === 'function') window.updateAzkarProgress();
-
-/* ============ المقالات (مودال) ============ */
-const ARTICLES = {
-  ward: {
-    title: 'كيف تبدأ وردًا يوميًا من القرآن؟',
-    body: `
-      <p>الورد اليومي من القرآن ليس مجرد عادة، بل هو صلة يومية بكلام الله تعالى. وقد كان النبي ﷺ يحرص على ورده من القرآن، وكان أصحابه يتسابقون في ذلك.</p>
-      <h3>1. ابدأ بالقليل المستمر</h3>
-      <p>قال النبي ﷺ: «أحب الأعمال إلى الله أدومها وإن قل» (متفق عليه). ابدأ بصفحة واحدة يوميًا، أو حتى بآية تتدبرها. الاستمرار أهم من الكثرة.</p>
-      <h3>2. اختر وقتًا ثابتًا</h3>
-      <p>أفضل الأوقات: بعد الفجر، أو قبل النوم. الوقت الثابت يتحول إلى عادة دون جهد.</p>
-      <h3>3. راجع التفسير</h3>
-      <p>لا تقرأ دون فهم. استعن بتفسير ميسّر مثل تفسير السعدي أو المختصر في التفسير.</p>
-      <h3>4. لا تقطع إذا فاتك يوم</h3>
-      <p>إذا فاتك يوم، لا تتوقف — استأنف من الغد. الشيطان يفرح إذا ترك العبد ورده.</p>
-      <p><strong>راجع الآيات وتفسيرها من مصادر موثوقة.</strong></p>
-    `
-  },
-  tathabbut: {
-    title: 'لماذا نتثبت قبل نشر حديث؟',
-    body: `
-      <p>نسبة الكلام إلى النبي ﷺ أمر عظيم. قال النبي ﷺ: «من كذب عليّ متعمدًا فليتبوأ مقعده من النار» (متفق عليه).</p>
-      <h3>1. خطر نشر الحديث الضعيف</h3>
-      <p>ليس كل ما يُتداول في وسائل التواصل صحيحًا. كثير من الأحاديث المشهورة ضعيفة أو موضوعة.</p>
-      <h3>2. كيف نتحقق؟</h3>
-      <p>الرجوع إلى كتب الحديث المعتمدة، أو المواقع الموثوقة مثل <a href="https://dorar.net/hadith" target="_blank" rel="noopener noreferrer">الدرر السنية</a>، أو سؤال أهل العلم.</p>
-      <h3>3. تحذير</h3>
-      <p>لا تكتفِ بصورة متداولة أو منشور مجهول. تحقق دائمًا.</p>
-    `
-  },
-  sidq: {
-    title: 'الصدق في الحياة اليومية',
-    body: `
-      <p>الصدق خلق عظيم، وهو أساس الإسلام. قال النبي ﷺ: «إن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة» (متفق عليه).</p>
-      <h3>مظاهر الصدق</h3>
-      <ul>
-        <li>الصدق في الحديث: لا تكذب ولو مازحًا.</li>
-        <li>الصدق في الوعد: إذا وعدت، أوفِ.</li>
-        <li>الصدق في الدراسة والعمل: لا تغش.</li>
-        <li>الصدق مع النفس: لا تخدع نفسك.</li>
-      </ul>
-      <p><strong>راجع النصوص الشرعية بعد التحقق من صحتها.</strong></p>
-    `
-  }
-};
-
-const articleModal = document.getElementById('articleModal');
-const articleModalTitle = document.getElementById('articleModalTitle');
-const articleModalBody = document.getElementById('articleModalBody');
-const articleClose = document.getElementById('articleClose');
-
-document.querySelectorAll('.read-btn[data-article], .article-card .read-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const card = btn.closest('.article-card');
-    const key = card?.dataset.article;
-    if(!key || !ARTICLES[key]) return;
-    articleModalTitle.textContent = ARTICLES[key].title;
-    articleModalBody.innerHTML = ARTICLES[key].body;
-    articleModal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    articleClose.focus();
-  });
-});
-function closeArticle(){ articleModal.hidden = true; document.body.style.overflow=''; }
-articleClose.addEventListener('click', closeArticle);
-articleModal.addEventListener('click', e => { if(e.target===articleModal) closeArticle(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape' && !articleModal.hidden) closeArticle(); });
-
-/* ============ البحث الشامل ============ */
-(function(){
-  const input = document.getElementById('globalSearchInput');
-  const results = document.getElementById('globalSearchResults');
-  if(!input || !results) return;
-  function buildIndex(){
-    const idx = [];
-    document.querySelectorAll('#adhkarList .dhikr-card').forEach(card=>{
-      idx.push({
-        type:'ذكر',
-        title: card.querySelector('h3')?.textContent || '',
-        text: card.querySelector('.dhikr-text')?.textContent || '',
-        action: ()=>{ location.hash = '#'+card.id; }
-      });
-    });
-    NAWAWI_HADITHS.forEach((h,i)=>{
-      idx.push({
-        type:'حديث', title: h.title, text: h.text,
-        action: ()=>{
-          const btns = document.querySelectorAll('.hadith-card .hadith-open');
-          if(btns[i]) btns[i].click();
-        }
-      });
-    });
-    Object.keys(ARTICLES).forEach(k=>{
-      idx.push({
-        type:'مقالة', title: ARTICLES[k].title, text: ARTICLES[k].body.replace(/<[^>]+>/g,' ').slice(0,200),
-        action: ()=>{
-          articleModalTitle.textContent = ARTICLES[k].title;
-          articleModalBody.innerHTML = ARTICLES[k].body;
-          articleModal.hidden = false;
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    });
-    return idx;
-  }
-  function norm(v){
-    return v.toLocaleLowerCase('ar').normalize('NFD').replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').trim();
-  }
-  const index = buildIndex();
-  let timer;
-  input.addEventListener('input', ()=>{
-    clearTimeout(timer);
-    timer = setTimeout(()=>{
-      const q = norm(input.value);
-      results.replaceChildren();
-      if(q.length < 2) return;
-      const m = index.filter(it => norm(it.title).includes(q) || norm(it.text).includes(q)).slice(0,10);
-      if(!m.length){
-        const em = document.createElement('div'); em.className='search-no-results';
-        em.textContent='لا توجد نتائج'; results.appendChild(em); return;
-      }
-      m.forEach(it=>{
-        const div = document.createElement('div'); div.className='search-result-item';
-        const t = document.createElement('div');
-        const type = document.createElement('span'); type.className='type'; type.textContent = it.type;
-        const title = document.createElement('span'); title.className='title'; title.textContent = ' '+it.title;
-        t.append(type,title);
-        const sn = document.createElement('div'); sn.className='snippet';
-        sn.textContent = it.text.length>120 ? it.text.slice(0,120)+'…' : it.text;
-        div.append(t,sn);
-        div.addEventListener('click', ()=>{ results.replaceChildren(); input.value=''; it.action(); });
-        results.appendChild(div);
-      });
-    }, 200);
-  });
-  document.addEventListener('click', e=>{ if(!e.target.closest('.global-search')) results.replaceChildren(); });
-})();
-
-/* ============ زر العودة للأعلى ============ */
-(function(){
-  const btn = document.getElementById('backToTop');
-  if(!btn) return;
-  window.addEventListener('scroll', ()=>{ btn.classList.toggle('show', window.scrollY>400); });
-  btn.addEventListener('click', ()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
-})();
-
-/* ============ الترجمة Google (تعمل) ============ */
-function googleTranslateElementInit(){
-  if (window.google?.translate && document.getElementById('google_translate_element')) {
-    new window.google.translate.TranslateElement({ pageLanguage:'ar', includedLanguages:'ar,en,fr', autoDisplay:false }, 'google_translate_element');
-  }
-}
-window.googleTranslateElementInit = googleTranslateElementInit;
-
-const siteLanguage = document.getElementById('siteLanguage');
-const languageStatus = document.getElementById('languageStatus');
-
-function loadGT(){
-  if(window._gtLoaded) return;
-  window._gtLoaded = true;
-  const s = document.createElement('script');
-  s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-  s.defer = true;
-  document.body.appendChild(s);
-}
-function setCookie(lang){
-  const v = lang==='ar' ? '/ar/ar' : '/ar/'+lang;
-  document.cookie = 'googtrans='+v+';path=/;max-age=31536000;SameSite=Lax';
-  document.cookie = 'googtrans='+v+';path=/;domain='+location.hostname+';max-age=31536000;SameSite=Lax';
-}
-(function syncLang(){
-  const m = document.cookie.match(/(?:^|;\s*)googtrans=\/ar\/(ar|en|fr)/);
-  if(m) siteLanguage.value = m[1];
-  document.documentElement.lang = siteLanguage.value;
-  document.documentElement.dir = siteLanguage.value==='ar' ? 'rtl' : 'ltr';
-  if(siteLanguage.value !== 'ar') loadGT();
-})();
-siteLanguage.addEventListener('change', ()=>{
-  const l = siteLanguage.value;
-  languageStatus.textContent = l==='ar' ? 'جارٍ الرجوع إلى العربية...' : 'جارٍ تطبيق الترجمة...';
-  if(l==='ar'){
-    document.cookie='googtrans=;path=/;max-age=0';
-    document.cookie='googtrans=;path=/;domain='+location.hostname+';max-age=0';
-  } else { loadGT(); setCookie(l); }
-  setTimeout(()=>location.reload(), 300);
-});
-
-/* ============ Service Worker ============ */
-if('serviceWorker' in navigator){
-  window.addEventListener('load', ()=>{
-    const sw = new URL('./sw.js', location.href).href;
-    navigator.serviceWorker.register(sw, { scope:'./' })
-      .then(r=>console.log('✅ SW:', r.scope))
-      .catch(e=>console.warn('⚠️ SW failed (الموقع يعمل):', e.message));
-  });
-}
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
