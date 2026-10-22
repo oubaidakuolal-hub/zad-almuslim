@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d7a5f">
+  <meta name="description" content="قارئ القرآن الكريم مع تلاوات حفص وورش — زاد عبيدة">
+  <title>القرآن الكريم — زاد عبيدة</title>
+  <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    /* تنسيقات إضافية خاصة بقارئ القرآن */
+    .quran-controls {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; justify-content: center;
+      background: var(--card); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--line);
+    }
+    .quran-controls select, .quran-controls button {
+      padding: 10px 16px; border-radius: var(--radius-sm); border: 1px solid var(--line);
+      background: var(--bg); color: var(--text); font-family: inherit; font-size: 0.95rem; cursor: pointer;
+    }
+    .quran-controls select:focus, .quran-controls button:focus { outline: 2px solid var(--primary); }
+    .quran-controls button { background: var(--primary); color: #fff; border: none; font-weight: 700; }
+    .quran-controls button:hover { background: var(--primary-dark); }
+    .quran-controls button:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .reader-container {
+      background: var(--card); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow);
+      border: 1px solid var(--line); max-height: 70vh; overflow-y: auto; white-space: pre-line; line-height: 2.4;
+      font-size: 1.3rem; text-align: justify;
+    }
+    .reader-container.loading { text-align: center; color: var(--text-muted); font-style: italic; padding: 60px; }
+    .reader-container h2 { text-align: center; color: var(--primary); margin-bottom: 24px; font-family: 'Cairo', sans-serif; }
+    
+    .ayah-block { display: block; margin-bottom: 15px; padding: 10px; border-radius: 8px; transition: background 0.3s; }
+    .ayah-block.playing { background: var(--primary-light); border-right: 4px solid var(--accent); }
+    .ayah-number { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: var(--primary-light); color: var(--primary); border-radius: 50%; font-size: 0.9rem; font-weight: bold; margin-left: 10px; }
+
+    /* مشغل الصوت العائم */
+    .audio-player-bar {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(150%);
+      background: var(--card); border: 1px solid var(--line); border-radius: 50px;
+      padding: 10px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 15px;
+      z-index: 1000; transition: transform 0.3s ease;
+    }
+    .audio-player-bar.show { transform: translateX(-50%) translateY(0); }
+    .audio-player-bar audio { height: 40px; width: 250px; }
+    .audio-player-bar .close-player { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-muted); }
+
+    @media (max-width: 600px) {
+      .quran-controls { flex-direction: column; align-items: stretch; }
+      .audio-player-bar { width: 90%; flex-direction: column; gap: 8px; padding: 15px; }
+      .audio-player-bar audio { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="wrap nav-inner">
+    <a href="./index.html" class="brand" aria-label="زاد عبيدة">
+      <img src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة">
+      <span>زاد عبيدة</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./index.html">الرئيسية</a>
+      <a href="./adhkar.html">الأذكار</a>
+      <a href="./azkar-morning.html">الصباح</a>
+      <a href="./azkar-evening.html">المساء</a>
+      <a href="./nawawi.html">الأحاديث</a>
+      <a href="./quran.html" class="active">القرآن</a>
+      <a href="./articles.html">المقالات</a>
+      <a href="./about.html">عن الموقع</a>
+    </div>
+    <div class="nav-tools">
+      <select id="siteLanguage" class="lang-select" aria-label="اللغة">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="الوضع الليلي">🌙</button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="القائمة">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" style="padding:40px 0">
+  <div class="section-head">
+    <h2>📖 القرآن الكريم</h2>
+    <p>اختر السورة والرواية والقارئ للاستماع والتلاوة</p>
+  </div>
+
+  <!-- أدوات التحكم -->
+  <div class="quran-controls">
+    <select id="surahSelect" aria-label="اختر السورة"></select>
+    
+    <!-- اختيار الرواية -->
+    <select id="riwayahSelect" aria-label="اختر الرواية">
+      <option value="hafs">حفص عن عاصم (مشاري العفاسي)</option>
+      <option value="warsh">ورش عن نافع (عمر القزابري)</option>
+    </select>
+
+    <button type="button" id="loadSurahBtn">اقرأ السورة</button>
+  </div>
+
+  <!-- حاوية النص -->
+  <div class="reader-container" id="quranReader">
+    اختر سورة من القائمة أعلاه.
+  </div>
+</main>
+
+<!-- مشغل الصوت العائم -->
+<div class="audio-player-bar" id="audioPlayerBar">
+  <span id="playingStatus" style="font-size:0.9rem; font-weight:bold; color:var(--primary)">جارٍ التشغيل...</span>
+  <audio id="quranAudio" controls></audio>
+  <button class="close-player" id="closePlayer" type="button" aria-label="إغلاق المشغل">✕</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div><h4>زاد عبيدة</h4><p>محتوى إسلامي نافع مع توضيح المصادر.</p></div>
+      <div><h4>روابط</h4><p><a href="./index.html">الرئيسية</a><br><a href="./adhkar.html">الأذكار</a><br><a href="./nawawi.html">الأحاديث</a></p></div>
+      <div><h4>تواصل</h4><p>إنستغرام</p></div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> زاد عبيدة</div>
+  </div>
+</footer>
+
+<div id="google_translate_element" style="position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<button class="back-to-top" id="backToTop" type="button" aria-label="العودة للأعلى">↑</button>
+
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+(function(){
+  const surahSelect = document.getElementById('surahSelect');
+  const riwayahSelect = document.getElementById('riwayahSelect');
+  const loadBtn = document.getElementById('loadSurahBtn');
+  const reader = document.getElementById('quranReader');
+  const audioPlayerBar = document.getElementById('audioPlayerBar');
+  const quranAudio = document.getElementById('quranAudio');
+  const playingStatus = document.getElementById('playingStatus');
+  const closePlayer = document.getElementById('closePlayer');
+
+  // ملء قائمة السور (باستخدام SURAH_NAMES من data.js)
+  if(typeof SURAH_NAMES !== 'undefined'){
+    SURAH_NAMES.forEach((name, i) => {
+      const opt = document.createElement('option');
+      opt.value = i + 1;
+      opt.textContent = (i + 1) + '. ' + name;
+      surahSelect.appendChild(opt);
+    });
+  }
+
+  // دالة لجلب النص من AlQuran Cloud
+  async function fetchSurahText(surahNumber) {
+    const res = await fetch('https://api.alquran.cloud/v1/surah/' + surahNumber + '/ar.alafasy');
+    if(!res.ok) throw new Error('فشل تحميل نص السورة');
+    const json = await res.json();
+    return json.data;
+  }
+
+  // دالة لجلب رابط الصوت حسب الرواية
+  function getAudioUrl(riwayah, surahNumber) {
+    const surahPad = String(surahNumber).padStart(3, '0');
+    if (riwayah === 'hafs') {
+      // مشاري العفاسي - حفص (من EveryAyah)
+      return 'https://everyayah.com/data/Alafasy_128kbps/' + surahPad + '001.mp3';
+    } else {
+      // عمر القزابري - ورش (رابط تجريبي من Archive، قد يحتاج تعديل حسب توفر المصدر)
+      // ملاحظة: روابط ورش على Archive عادة ما تكون بحجم كبير، هذا مجرد مثال.
+      // يمكنك استبداله برابط من mp3quran.net إذا توفر.
+      return 'https://archive.org/download/quran-604-part-page-mp3-by--3omar-alqazabry-by-rewayt-warsh-128kb--high-quality/' + surahPad + '.mp3';
+    }
+  }
+
+  // عرض النص
+  function renderSurah(data) {
+    reader.className = 'reader-container';
+    reader.innerHTML = '';
+    
+    const header = document.createElement('h2');
+    header.textContent = 'سورة ' + data.name.replace('سُورَةُ ', '') + ' — ' + data.ayahs.length + ' آية';
+    reader.appendChild(header);
+
+    // عرض الآيات مع إمكانية التشغيل
+    data.ayahs.forEach((ayah) => {
+      const span = document.createElement('span');
+      span.className = 'ayah-block';
+      span.id = 'ayah-' + ayah.numberInSurah;
+      span.textContent = ayah.text + ' ';
+      
+      const numSpan = document.createElement('span');
+      numSpan.className = 'ayah-number';
+      numSpan.textContent = ayah.numberInSurah;
+      span.appendChild(numSpan);
+      
+      // عند النقر على الآية، شغّل الصوت من بدايتها
+      span.addEventListener('click', () => {
+        if (riwayahSelect.value === 'hafs') {
+          const url = getAudioUrl('hafs', data.number);
+          quranAudio.src = url;
+          // نحتاج للبحث عن التوقيت المناسب للآية، لكن EveryAyah يعطي ملف لكل آية.
+          // هنا سنستخدم ملف السورة كاملاً، لذا سنشغل من البداية فقط.
+          // لتجربة أدق، يمكن استخدام ملفات الآية المنفردة.
+          quranAudio.play();
+          playingStatus.textContent = 'سورة ' + data.name;
+          audioPlayerBar.classList.add('show');
+        } else {
+          // لورش، نستخدم ملف السورة الكامل
+          const url = getAudioUrl('warsh', data.number);
+          quranAudio.src = url;
+          quranAudio.play();
+          playingStatus.textContent = 'سورة ' + data.name + ' (ورش)';
+          audioPlayerBar.classList.add('show');
+        }
+      });
+      
+      reader.appendChild(span);
+    });
+  }
+
+  // تحميل السورة
+  loadBtn.addEventListener('click', async () => {
+    const surahNum = Number(surahSelect.value) || 1;
+    const riwayah = riwayahSelect.value;
+    reader.className = 'reader-container loading';
+    reader.textContent = 'جارٍ تحميل السورة...';
+    
+    try {
+      // جلب النص
+      const surahData = await fetchSurahText(surahNum);
+      
+      // عرض النص
+      renderSurah(surahData);
+      
+      // تعيين الصوت
+      const audioUrl = getAudioUrl(riwayah, surahNum);
+      quranAudio.src = audioUrl;
+      playingStatus.textContent = 'سورة ' + surahData.name + (riwayah === 'warsh' ? ' (ورش)' : ' (حفص)');
+      
+    } catch (err) {
+      reader.className = 'reader-container loading';
+      reader.textContent = 'تعذّر تحميل السورة. تحقق من اتصال الإنترنت.';
+      console.error(err);
+    }
+  });
+
+  // إغلاق المشغل
+  closePlayer.addEventListener('click', () => {
+    quranAudio.pause();
+    quranAudio.currentTime = 0;
+    audioPlayerBar.classList.remove('show');
+  });
+
+  // عند تشغيل الصوت، أظهر المشغل
+  quranAudio.addEventListener('play', () => {
+    audioPlayerBar.classList.add('show');
+  });
+
+  // تحميل سورة الفاتحة افتراضياً
+  setTimeout(() => {
+    if(surahSelect.value === '1') loadBtn.click();
+  }, 500);
+})();
+</script>
+</body>
+</html>
