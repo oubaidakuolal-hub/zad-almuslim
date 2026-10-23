@@ -1,0 +1,26 @@
+{
+  "name": "زاد عبيدة",
+  "short_name": "زاد عبيدة",
+  "description": "أذكار ومواقيت الصلاة وقرآن من مصادر موثوقة.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f5ee",
+  "theme_color": "#0d7a5f",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "./logo-zad-almuslim.webp.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./logo-zad-almuslim.webp.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
