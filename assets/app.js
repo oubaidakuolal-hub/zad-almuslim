@@ -177,6 +177,7 @@ function saveCounts(c){
 /* ============ مواقيت الصلاة (مع التاريخ الهجري والميلادي) ============ */
 const PRAYER_LABELS = { Fajr:'الفجر', Dhuhr:'الظهر', Asr:'العصر', Maghrib:'المغرب', Isha:'العشاء' };
 let countdownInterval = null;
+let prayerNotificationTimeouts = []; // لتخزين مؤقتات إشعارات الصلوات
 
 function formatPrayerTime(t){
   const clean = String(t).split(' ')[0];
@@ -264,6 +265,60 @@ function startPrayerCountdown(timings){
   countdownInterval = setInterval(tick, 1000);
 }
 
+/* ============ جدولة إشعارات الصلوات ============ */
+function sendPrayerNotification(title, body) {
+  if (Notification.permission === 'granted' && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({
+      type: 'SCHEDULE_REMINDER',
+      title: title,
+      body: body
+    });
+  }
+}
+
+function schedulePrayerNotifications(timings) {
+  // مسح أي مؤقتات سابقة
+  prayerNotificationTimeouts.forEach(t => clearTimeout(t));
+  prayerNotificationTimeouts = [];
+
+  if (Notification.permission !== 'granted') return;
+
+  const now = new Date();
+  const prayers = [
+    { key: 'Fajr', name: 'الفجر', msg: 'أذكار الصباح 🌅' },
+    { key: 'Dhuhr', name: 'الظهر', msg: 'لا تنسَ أذكار ما بعد الصلاة' },
+    { key: 'Asr', name: 'العصر', msg: 'حان وقت أذكار المساء 🌙' },
+    { key: 'Maghrib', name: 'المغرب', msg: 'لا تنسَ أذكار المساء' },
+    { key: 'Isha', name: 'العشاء', msg: 'اختم يومك بذكر الله' }
+  ];
+
+  prayers.forEach(prayer => {
+    const [h, m] = String(timings[prayer.key]).split(' ')[0].split(':').map(Number);
+    const prayerTime = new Date();
+    prayerTime.setHours(h, m, 0, 0);
+
+    // إضافة 10 دقائق بعد الأذان (وقت كافٍ للصلاة)
+    const notifyTime = new Date(prayerTime.getTime() + 10 * 60000);
+
+    // إذا كان الوقت قد مضى اليوم، جدوله لليوم التالي
+    if (notifyTime <= now) {
+      notifyTime.setDate(notifyTime.getDate() + 1);
+    }
+
+    const delay = notifyTime - now;
+    
+    const timeout = setTimeout(() => {
+      sendPrayerNotification(
+        '🕌 انتهت صلاة ' + prayer.name,
+        'لا تنسَ ' + prayer.msg + ' — زاد عبيدة'
+      );
+    }, delay);
+    
+    prayerNotificationTimeouts.push(timeout);
+    console.log(`⏰ تم جدولة إشعار لصلاة ${prayer.name} بعد ${Math.round(delay/60000)} دقيقة`);
+  });
+}
+
 async function fetchPrayerTimes(lat, lng, city){
   const container = document.getElementById('prayerTimes');
   if(!container) return;
@@ -278,6 +333,12 @@ async function fetchPrayerTimes(lat, lng, city){
     const j = await res.json();
     renderPrayerTimes(j.data.timings);
     startPrayerCountdown(j.data.timings);
+    
+    // جدولة إشعارات الصلوات (إذا كانت الإشعارات مفعلة)
+    if (Notification.permission === 'granted') {
+      schedulePrayerNotifications(j.data.timings);
+    }
+
   } catch(err) {
     container.className = '';
     container.textContent = 'تعذّر جلب المواقيت. تحقق من الاتصال.';
@@ -465,5 +526,6 @@ window.ZadApp = {
   showToast, copyText, speak, shareContent,
   loadCounts, saveCounts,
   fetchPrayerTimes, locateUserForPrayer,
-  PRAYER_LABELS, formatPrayerTime, startPrayerCountdown
+  PRAYER_LABELS, formatPrayerTime, startPrayerCountdown,
+  schedulePrayerNotifications
 };
