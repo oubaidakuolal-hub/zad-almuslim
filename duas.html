@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d7a5f">
+  <meta name="description" content="أدعية مستجابة من القرآن والسنة الصحيحة — زاد عبيدة">
+  <title>أدعية مستجابة — زاد عبيدة</title>
+  <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    .duas-container { max-width: 900px; margin: 0 auto; }
+    .dua-category {
+      background: var(--card); border-radius: var(--radius); padding: 20px 24px;
+      box-shadow: var(--shadow); border: 1px solid var(--line); margin-bottom: 24px;
+    }
+    .dua-category h3 {
+      color: var(--primary); margin-bottom: 16px; font-family: 'Cairo', sans-serif;
+      font-size: 1.3rem; border-bottom: 2px solid var(--accent); padding-bottom: 10px;
+    }
+    .dua-item {
+      padding: 14px 0; border-bottom: 1px solid var(--line);
+    }
+    .dua-item:last-child { border-bottom: none; }
+    .dua-text {
+      font-size: 1.15rem; line-height: 2.2; color: var(--text); margin-bottom: 8px;
+      background: var(--primary-light); padding: 12px 16px; border-radius: 8px;
+      border-right: 3px solid var(--accent);
+    }
+    .dua-ref { font-size: 0.85rem; color: var(--text-muted); }
+    .dua-actions { margin-top: 8px; display: flex; gap: 8px; }
+    .dua-actions button {
+      padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line);
+      background: var(--bg); color: var(--primary); font-size: 0.8rem; cursor: pointer;
+      font-family: inherit;
+    }
+    .dua-actions button:hover { background: var(--primary); color: #fff; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="wrap nav-inner">
+    <a href="./index.html" class="brand" aria-label="زاد عبيدة">
+      <img src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة">
+      <span>زاد عبيدة</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./index.html">الرئيسية</a>
+      <a href="./wird.html">🌿 وردك اليومي</a>
+      <a href="./adhkar.html">الأذكار</a>
+      <a href="./azkar-morning.html">الصباح</a>
+      <a href="./azkar-evening.html">المساء</a>
+      <a href="./nawawi.html">الأحاديث</a>
+      <a href="./quran.html">القرآن</a>
+      <a href="./duas.html" class="active">أدعية</a>
+      <a href="./articles.html">المقالات</a>
+      <a href="./about.html">عن الموقع</a>
+    </div>
+    <div class="nav-tools">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="الوضع الليلي">🌙</button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="القائمة">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" style="padding:40px 0">
+  <div class="duas-container">
+    <div class="section-head">
+      <h2>🤲 أدعية مستجابة</h2>
+      <p>أدعية صحيحة من القرآن الكريم والسنة النبوية</p>
+    </div>
+
+    <!-- 1. الأدعية الجامعة -->
+    <div class="dua-category">
+      <h3>📿 الأدعية الجامعة (أفضل ما يُدعى به)</h3>
+      
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</div>
+        <div class="dua-ref">متفق عليه — كان أكثر دعاء النبي ﷺ [citation:3][citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ</div>
+        <div class="dua-ref">رواه أحمد وابن ماجه — علمه النبي ﷺ لعائشة [citation:3][citation:8]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي، وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي، وَأَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لِي فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لِي مِنْ كُلِّ شَرٍّ</div>
+        <div class="dua-ref">رواه مسلم عن أبي هريرة [citation:3][citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى</div>
+        <div class="dua-ref">رواه مسلم [citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 2. أدعية الهم والحزن -->
+    <div class="dua-category">
+      <h3>😔 أدعية الهم والحزن والكرب</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</div>
+        <div class="dua-ref">دعوة ذي النون (يونس) — قال النبي ﷺ: "لم يدعُ بها رجل مسلم في شيء قط إلا استجاب الله له" [citation:1][citation:2][citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي عَبْدُكَ، ابْنُ عَبْدِكَ، ابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ، سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجِلَاءَ حُزْنِي، وَذَهَابَ هَمِّي</div>
+        <div class="dua-ref">رواه أحمد — من قاله أذهب الله همه وأبدله فرحاً [citation:7][citation:12]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ رَحْمَتَكَ أَرْجُو، فَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ، وَأَصْلِحْ لِي شَأْنِي كُلَّهُ، لَا إِلَهَ إِلَّا أَنْتَ</div>
+        <div class="dua-ref">رواه أبو داود وأحمد — دعوات المكروب [citation:2][citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</div>
+        <div class="dua-ref">رواه النسائي — وصححه الألباني [citation:2]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 3. أدعية المغفرة والتوبة -->
+    <div class="dua-category">
+      <h3>🤲 أدعية المغفرة والتوبة</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</div>
+        <div class="dua-ref">سيد الاستغفار — رواه البخاري [citation:4]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا، وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ، فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ، وَارْحَمْنِي، إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ</div>
+        <div class="dua-ref">متفق عليه — علمه النبي ﷺ لأبي بكر للدعاء في الصلاة [citation:3][citation:13]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ، إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ</div>
+        <div class="dua-ref">رواه أبو داود والترمذي</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 4. أدعية الثبات والهداية -->
+    <div class="dua-category">
+      <h3>🛡️ أدعية الثبات والهداية</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ</div>
+        <div class="dua-ref">رواه الترمذي — كان أكثر دعاء النبي ﷺ [citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ مُصَرِّفَ الْقُلُوبِ صَرِّفْ قُلُوبَنَا عَلَى طَاعَتِكَ</div>
+        <div class="dua-ref">رواه مسلم [citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ</div>
+        <div class="dua-ref">سورة آل عمران: 8</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 5. أدعية العافية والشفاء -->
+    <div class="dua-category">
+      <h3>💚 أدعية العافية والشفاء</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لَا إِلَهَ إِلَّا أَنْتَ</div>
+        <div class="dua-ref">رواه أبو داود [citation:4]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي</div>
+        <div class="dua-ref">رواه ابن ماجه [citation:4]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">أَسْأَلُ اللَّهَ الْعَظِيمَ رَبَّ الْعَرْشِ الْعَظِيمِ أَنْ يَشْفِيَكَ</div>
+        <div class="dua-ref">رواه أبو داود والترمذي — تُقال سبع مرات عند المريض</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 6. أدعية الرزق -->
+    <div class="dua-category">
+      <h3>💰 أدعية الرزق والبركة</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ</div>
+        <div class="dua-ref">رواه الترمذي</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا</div>
+        <div class="dua-ref">رواه ابن ماجه</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 7. أدعية السفر -->
+    <div class="dua-category">
+      <h3>✈️ أدعية السفر</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ</div>
+        <div class="dua-ref">رواه مسلم</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 8. أدعية النوم والاستيقاظ -->
+    <div class="dua-category">
+      <h3>🌙 أدعية النوم والاستيقاظ</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا</div>
+        <div class="dua-ref">رواه البخاري</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ</div>
+        <div class="dua-ref">رواه البخاري</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 9. أدعية للمطر والرعد -->
+    <div class="dua-category">
+      <h3>🌧️ أدعية المطر والرعد</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ صَيِّبًا نَافِعًا</div>
+        <div class="dua-ref">رواه البخاري — عند نزول المطر</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">سُبْحَانَ الَّذِي يُسَبِّحُ الرَّعْدُ بِحَمْدِهِ وَالْمَلَائِكَةُ مِنْ خِيفَتِهِ</div>
+        <div class="dua-ref">رواه مالك — عند سماع الرعد</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+    <!-- 10. أدعية متنوعة -->
+    <div class="dua-category">
+      <h3>✨ أدعية متنوعة</h3>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ</div>
+        <div class="dua-ref">رواه أبو داود والنسائي — أوصى به النبي ﷺ لمعاذ [citation:4]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ، وَالْجُبْنِ وَالْبُخْلِ، وَالْهَرَمِ وَعَذَابِ الْقَبْرِ</div>
+        <div class="dua-ref">متفق عليه [citation:3][citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ جَهْدِ الْبَلَاءِ، وَدَرَكِ الشَّقَاءِ، وَسُوءِ الْقَضَاءِ، وَشَمَاتَةِ الْأَعْدَاءِ</div>
+        <div class="dua-ref">متفق عليه [citation:7]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+
+      <div class="dua-item">
+        <div class="dua-text">اللَّهُمَّ لَا سَهْلَ إِلَّا مَا جَعَلْتَهُ سَهْلًا، وَأَنْتَ تَجْعَلُ الْحَزْنَ سَهْلًا إِذَا شِئْتَ</div>
+        <div class="dua-ref">رواه ابن حبان — وصححه ابن حجر [citation:2]</div>
+        <div class="dua-actions"><button onclick="copyDua(this)">📋 نسخ</button></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div><h4>زاد عبيدة</h4><p>محتوى إسلامي نافع مع توضيح المصادر.</p></div>
+      <div><h4>روابط</h4><p><a href="./index.html">الرئيسية</a><br><a href="./adhkar.html">الأذكار</a><br><a href="./quran.html">القرآن</a></p></div>
+      <div><h4>تواصل</h4><p><a href="https://www.instagram.com/oubaida.muslim/" target="_blank" rel="noopener noreferrer">إنستغرام</a></p></div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> زاد عبيدة</div>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى الأعلى">↑</button>
+
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+function copyDua(btn) {
+  const item = btn.closest('.dua-item');
+  const text = item.querySelector('.dua-text').textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('تم نسخ الدعاء ✓');
+  }).catch(() => {
+    showToast('تعذّر النسخ');
+  });
+}
+</script>
+</body>
+</html>
