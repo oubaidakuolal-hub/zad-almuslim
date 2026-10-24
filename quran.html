@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d7a5f">
-  <meta name="description" content="القرآن الكريم كاملاً على شكل صفحات المصحف — زاد عبيدة">
+  <meta name="description" content="القرآن الكريم كاملاً مع بحث سريع — زاد عبيدة">
   <title>القرآن الكريم — زاد عبيدة</title>
   <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,70 +17,37 @@
       background: var(--card); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--line);
       position: sticky; top: 80px; z-index: 100;
     }
-    .quran-controls select, .quran-controls button {
-      padding: 10px 16px; border-radius: var(--radius-sm); border: 1px solid var(--line);
-      background: var(--bg); color: var(--text); font-family: inherit; font-size: 0.95rem; cursor: pointer;
+    .quran-controls input {
+      flex: 1; min-width: 200px; padding: 10px 14px; border-radius: var(--radius-sm);
+      border: 1px solid var(--line); background: var(--bg); color: var(--text); font-family: inherit; font-size: 1rem;
     }
-    .quran-controls button { background: var(--primary); color: #fff; border: none; font-weight: 700; }
+    .quran-controls button {
+      padding: 10px 16px; border-radius: var(--radius-sm); border: none;
+      background: var(--primary); color: #fff; font-family: inherit; font-weight: 700; cursor: pointer;
+    }
     .quran-controls button:hover { background: var(--primary-dark); }
-    .quran-controls button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .mushaf-container {
-      background: #fffdf5;
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      border: 1px solid #d4c9a8;
-      direction: rtl;
+    .surah-block {
+      background: var(--card); border-radius: var(--radius); padding: 24px;
+      box-shadow: var(--shadow); border: 1px solid var(--line); margin-bottom: 20px;
     }
-    .mushaf-page-block {
-      margin-bottom: 40px;
-      padding-bottom: 30px;
-      border-bottom: 2px dashed #d4c9a8;
+    .surah-block h3 {
+      text-align: center; color: var(--primary); font-family: 'Cairo', sans-serif;
+      font-size: 1.5rem; margin-bottom: 20px; border-bottom: 2px solid var(--accent); padding-bottom: 10px;
     }
-    .mushaf-page-block:last-child { border-bottom: none; }
-    .mushaf-page-header {
-      text-align: center;
-      font-family: 'Amiri', serif;
-      font-size: 1.3rem;
-      color: var(--primary);
-      margin-bottom: 15px;
-      padding: 8px;
-      background: #f7f4e9;
-      border-radius: 8px;
+    .ayah-text {
+      font-size: 1.3rem; line-height: 2.4; margin-bottom: 16px; color: var(--text);
+      text-align: justify;
     }
-    .mushaf-line {
-      display: flex;
-      justify-content: center;
-      gap: 4px;
-      margin-bottom: 6px;
-      flex-wrap: nowrap;
-      direction: rtl;
+    .ayah-text .ayah-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; background: var(--primary-light); color: var(--primary);
+      border-radius: 50%; font-size: 0.9rem; font-weight: bold; margin: 0 8px;
     }
-    .mushaf-word {
-      font-size: 26px;
-      line-height: 1.6;
-      color: #1a1a1a;
-    }
-    .mushaf-word.end-marker {
-      font-size: 22px;
-      color: var(--primary);
-    }
-    .loading-indicator {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-muted);
-      font-style: italic;
-    }
+    .loading-indicator { text-align: center; padding: 40px; color: var(--text-muted); font-style: italic; }
     .note-box {
-      background: var(--accent-light);
-      border: 1px solid var(--accent);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      margin-bottom: 20px;
-      font-size: 0.9rem;
-      color: #856404;
-      text-align: center;
+      background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-sm);
+      padding: 12px 16px; margin-bottom: 20px; font-size: 0.9rem; color: #856404; text-align: center;
     }
   </style>
 </head>
@@ -113,20 +80,20 @@
 <main class="wrap" style="padding:20px 0">
   <div class="section-head" style="margin-bottom: 20px;">
     <h2>📖 القرآن الكريم</h2>
-    <p>القرآن كاملاً على شكل صفحات المصحف الشريف (رواية حفص)</p>
+    <p>ابحث عن أي سورة للانتقال إليها فوراً</p>
   </div>
 
   <div class="note-box">
-    ⚠️ هذه الصفحة تعرض القرآن كاملاً. قد يستغرق التحميل الأول بعض الوقت، لكنه سيعمل بسلاسة بعد ذلك.
+    ℹ️ هذه الصفحة تعرض نص القرآن كاملاً. اكتب اسم السورة في البحث للانتقال إليها.
   </div>
 
   <div class="quran-controls">
-    <button type="button" id="loadAllBtn">📥 تحميل القرآن كاملاً</button>
-    <span id="progressDisplay" style="font-weight: bold; color: var(--primary);">لم يبدأ التحميل</span>
+    <input type="text" id="searchInput" placeholder="اكتب اسم السورة (مثال: الكهف، يس، البقرة)..." aria-label="بحث">
+    <button type="button" id="searchBtn">🔍 بحث</button>
   </div>
 
-  <div class="mushaf-container" id="mushafContainer">
-    <div class="loading-indicator">اضغط على "تحميل القرآن كاملاً" للبدء.</div>
+  <div id="quranContainer">
+    <div class="loading-indicator">جارٍ تحميل بيانات القرآن...</div>
   </div>
 </main>
 
@@ -150,106 +117,93 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 (function(){
-  const BASE_URL = 'https://raw.githubusercontent.com/MohamadHajjRabee/quran-qcf4/main';
-  const FONT_CDN = 'https://cdn.jsdelivr.net/gh/MohamadHajjRabee/quran-qcf4@main/fonts-woff2';
-  const TOTAL_PAGES = 604;
+  const container = document.getElementById('quranContainer');
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  
+  let allAyahs = []; 
+  let surahsMap = {}; 
 
-  const container = document.getElementById('mushafContainer');
-  const loadBtn = document.getElementById('loadAllBtn');
-  const progressDisplay = document.getElementById('progressDisplay');
-
-  let loadedFonts = new Set();
-
-  // تحميل خط الصفحة
-  async function loadPageFont(fontName) {
-    if (loadedFonts.has(fontName)) return;
-    const fontUrl = `${FONT_CDN}/${fontName}_W.woff2`;
-    const style = document.createElement('style');
-    style.textContent = `
-      @font-face {
-        font-family: "${fontName}";
-        src: url("${fontUrl}");
-        font-display: swap;
-      }
-    `;
-    document.head.appendChild(style);
-    loadedFonts.add(fontName);
-    // انتظر قليلاً لتحميل الخط
-    await new Promise(r => setTimeout(r, 100));
+  function getSurahName(surahId) {
+    if (typeof SURAH_NAMES !== 'undefined' && SURAH_NAMES[surahId - 1]) {
+      return SURAH_NAMES[surahId - 1];
+    }
+    return 'سورة ' + surahId;
   }
 
-  // عرض صفحة واحدة
-  async function renderPage(pageNum) {
-    const paddedNum = String(pageNum).padStart(3, '0');
-    const url = `${BASE_URL}/pages/${paddedNum}.json`;
+  function renderSurah(surahId) {
+    const surahAyahs = allAyahs.filter(a => a.surah_id === surahId);
     
+    if (surahAyahs.length === 0) {
+      container.innerHTML = '<div class="loading-indicator">لم يتم العثور على السورة.</div>';
+      return;
+    }
+
+    const surahName = getSurahName(surahId);
+    
+    let html = '<div class="surah-block">';
+    html += `<h3>سورة ${surahName}</h3>`;
+    
+    surahAyahs.forEach(ayah => {
+      html += `<div class="ayah-text">${ayah.text_uthmani} <span class="ayah-number">${ayah.ayah_number}</span></div>`;
+    });
+    
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  function searchSurah() {
+    const query = searchInput.value.trim();
+    if (!query) return;
+
+    if (allAyahs.length === 0) {
+      alert('جارٍ تحميل البيانات، انتظر قليلاً...');
+      return;
+    }
+
+    let foundSurahId = null;
+    for (let i = 1; i <= 114; i++) {
+      const name = getSurahName(i);
+      if (name.includes(query)) {
+        foundSurahId = i;
+        break;
+      }
+    }
+
+    if (foundSurahId) {
+      renderSurah(foundSurahId);
+    } else {
+      alert('لم يتم العثور على السورة. تأكد من الاسم.');
+    }
+  }
+
+  searchBtn.addEventListener('click', searchSurah);
+  searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') searchSurah(); });
+
+  async function init() {
     try {
-      const response = await fetch(url);
+      const response = await fetch('./quran.json');
       if (!response.ok) throw new Error('HTTP ' + response.status);
-      const page = await response.json();
+      const data = await response.json();
       
-      await loadPageFont(page.font);
-      
-      const pageBlock = document.createElement('div');
-      pageBlock.className = 'mushaf-page-block';
-      pageBlock.id = `page-${pageNum}`;
-      
-      // عنوان الصفحة (اسم السورة)
-      if (page.surahs && page.surahs.length > 0) {
-        const header = document.createElement('div');
-        header.className = 'mushaf-page-header';
-        header.textContent = `صفحة ${pageNum} — ${page.surahs.map(s => s.name).join('، ')}`;
-        pageBlock.appendChild(header);
+      if (Array.isArray(data)) {
+        allAyahs = data;
+      } else {
+        throw new Error('تنسيق البيانات غير متوقع');
       }
       
-      // السطور
-      page.lines.forEach(line => {
-        const lineDiv = document.createElement('div');
-        lineDiv.className = 'mushaf-line';
-        
-        line.words.forEach(word => {
-          const span = document.createElement('span');
-          span.className = 'mushaf-word';
-          if (word.type === 'end') {
-            span.classList.add('end-marker');
-          }
-          span.style.fontFamily = word.font;
-          span.textContent = word.char;
-          lineDiv.appendChild(span);
-        });
-        
-        pageBlock.appendChild(lineDiv);
-      });
+      container.innerHTML = '<div class="loading-indicator">اكتب اسم السورة في البحث للبدء.</div>';
       
-      container.appendChild(pageBlock);
+      searchInput.value = 'الفاتحة';
+      searchSurah();
       
     } catch (err) {
-      console.error(`فشل تحميل الصفحة ${pageNum}:`, err);
-      const errorBlock = document.createElement('div');
-      errorBlock.className = 'loading-indicator';
-      errorBlock.textContent = `تعذّر تحميل الصفحة ${pageNum}`;
-      container.appendChild(errorBlock);
+      container.innerHTML = '<div class="loading-indicator" style="color:red">تعذّر تحميل بيانات القرآن. تأكد من رفع ملف quran.json.</div>';
+      console.error(err);
     }
   }
 
-  // تحميل القرآن كاملاً
-  loadBtn.addEventListener('click', async () => {
-    loadBtn.disabled = true;
-    container.innerHTML = '';
-    progressDisplay.textContent = 'جارٍ التحميل... 0 / 604';
-    
-    for (let i = 1; i <= TOTAL_PAGES; i++) {
-      await renderPage(i);
-      progressDisplay.textContent = `جارٍ التحميل... ${i} / ${TOTAL_PAGES}`;
-      // تأخير بسيط لتجنب حظر الشبكة
-      if (i % 10 === 0) {
-        await new Promise(r => setTimeout(r, 50));
-      }
-    }
-    
-    progressDisplay.textContent = '✅ تم تحميل القرآن كاملاً!';
-    loadBtn.textContent = '✅ تم التحميل';
-  });
+  init();
 })();
 </script>
 </body>
