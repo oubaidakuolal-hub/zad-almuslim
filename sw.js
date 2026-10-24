@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'zad-obaidah-v10';
+const CACHE_NAME = 'zad-obaidah-v12';
 const ASSETS = [
   './',
   './index.html',
@@ -16,9 +16,11 @@ const ASSETS = [
   './assets/data.js',
   './assets/app.js',
   './logo-zad-almuslim.webp.png',
-  './manifest.json'
+  './manifest.json',
+  './quran.json'
 ];
 
+// تثبيت Service Worker وتخزين الملفات
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -29,6 +31,7 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 
+// تنشيط Service Worker وحذف الكاش القديم
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
@@ -37,6 +40,7 @@ self.addEventListener('activate', event => {
   );
 });
 
+// استراتيجية الجلب (Fetch)
 self.addEventListener('fetch', event => {
   const req = event.request;
   if (req.method !== 'GET') return;
@@ -58,4 +62,33 @@ self.addEventListener('fetch', event => {
       });
     })
   );
+});
+
+// ============ دعم الإشعارات ============
+self.addEventListener('push', event => {
+  const data = event.data ? event.data.json() : { title: 'زاد عبيدة', body: 'تذكير بوردك اليومي' };
+  const options = {
+    body: data.body,
+    icon: './logo-zad-almuslim.webp.png',
+    badge: './logo-zad-almuslim.webp.png',
+    vibrate: [200, 100, 200],
+    data: { url: data.url || './' }
+  };
+  event.waitUntil(self.registration.showNotification(data.title, options));
+});
+
+// فتح الرابط عند النقر على الإشعار
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+  event.waitUntil(clients.openWindow(event.notification.data.url || './'));
+});
+
+// استقبال رسائل من الصفحة الرئيسية (لإرسال إشعار تجريبي)
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SCHEDULE_REMINDER') {
+    self.registration.showNotification(event.data.title, {
+      body: event.data.body,
+      icon: './logo-zad-almuslim.webp.png'
+    });
+  }
 });
