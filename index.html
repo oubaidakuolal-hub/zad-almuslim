@@ -186,6 +186,42 @@ document.getElementById('shareAppBtn').addEventListener('click', async () => {
     }
   }
 });
+
+// ============ تفعيل الإشعارات ============
+document.getElementById('enableNotifBtn').addEventListener('click', async () => {
+  if (!('Notification' in window)) {
+    alert('متصفحك لا يدعم الإشعارات');
+    return;
+  }
+  
+  try {
+    const permission = await Notification.requestPermission();
+    if (permission === 'granted') {
+      showToast('تم تفعيل الإشعارات ✓');
+      document.getElementById('enableNotifBtn').textContent = '✅ الإشعارات مفعلة';
+      document.getElementById('enableNotifBtn').disabled = true;
+      
+      // إرسال إشعار تجريبي فوري
+      if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({
+          type: 'SCHEDULE_REMINDER',
+          title: 'زاد عبيدة',
+          body: 'تم تفعيل الإشعارات بنجاح! سنذكرك بعد كل صلاة. 🕌'
+        });
+      }
+      
+      // إعادة جدولة الإشعارات إذا كانت المواقيت متوفرة
+      if (window.prayerTimings) {
+        schedulePrayerNotifications(window.prayerTimings);
+      }
+    } else {
+      showToast('تم رفض الإشعارات');
+    }
+  } catch (err) {
+    console.error('خطأ في طلب الإشعارات:', err);
+    alert('حدث خطأ. تأكد من أن الموقع يعمل على HTTPS.');
+  }
+});
 </script>
 </body>
 </html>
