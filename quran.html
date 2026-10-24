@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d7a5f">
-  <meta name="description" content="القرآن الكريم كاملاً مع بحث سريع — زاد عبيدة">
+  <meta name="description" content="القرآن الكريم كاملاً مع فهرس السور والبحث السريع — زاد عبيدة">
   <title>القرآن الكريم — زاد عبيدة</title>
   <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
       background: var(--card); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--line);
       position: sticky; top: 80px; z-index: 100;
     }
-    .quran-controls input {
+    .quran-controls select, .quran-controls input {
       flex: 1; min-width: 200px; padding: 10px 14px; border-radius: var(--radius-sm);
       border: 1px solid var(--line); background: var(--bg); color: var(--text); font-family: inherit; font-size: 1rem;
     }
@@ -80,15 +80,18 @@
 <main class="wrap" style="padding:20px 0">
   <div class="section-head" style="margin-bottom: 20px;">
     <h2>📖 القرآن الكريم</h2>
-    <p>ابحث عن أي سورة للانتقال إليها فوراً</p>
+    <p>اختر السورة من القائمة أو ابحث عنها</p>
   </div>
 
   <div class="note-box">
-    ℹ️ هذه الصفحة تعرض نص القرآن كاملاً. اكتب اسم السورة في البحث للانتقال إليها.
+    ℹ️ هذه الصفحة تعرض نص القرآن كاملاً. اختر السورة من القائمة للانتقال إليها.
   </div>
 
   <div class="quran-controls">
-    <input type="text" id="searchInput" placeholder="اكتب اسم السورة (مثال: الكهف، يس، البقرة)..." aria-label="بحث">
+    <select id="surahSelect" aria-label="اختر السورة">
+      <option value="">-- اختر سورة --</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="أو اكتب اسم السورة (مثال: الكهف)..." aria-label="بحث">
     <button type="button" id="searchBtn">🔍 بحث</button>
   </div>
 
@@ -120,10 +123,11 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const container = document.getElementById('quranContainer');
   const searchInput = document.getElementById('searchInput');
   const searchBtn = document.getElementById('searchBtn');
+  const surahSelect = document.getElementById('surahSelect');
   
   let allAyahs = []; 
-  let surahsMap = {}; 
 
+  // دالة لجلب اسم السورة
   function getSurahName(surahId) {
     if (typeof SURAH_NAMES !== 'undefined' && SURAH_NAMES[surahId - 1]) {
       return SURAH_NAMES[surahId - 1];
@@ -131,6 +135,18 @@ document.getElementById('year').textContent = new Date().getFullYear();
     return 'سورة ' + surahId;
   }
 
+  // ملء قائمة السور
+  function populateSurahSelect() {
+    if (typeof SURAH_NAMES === 'undefined') return;
+    SURAH_NAMES.forEach((name, index) => {
+      const option = document.createElement('option');
+      option.value = index + 1; // رقم السورة
+      option.textContent = (index + 1) + '. ' + name;
+      surahSelect.appendChild(option);
+    });
+  }
+
+  // عرض سورة محددة
   function renderSurah(surahId) {
     const surahAyahs = allAyahs.filter(a => a.surah_id === surahId);
     
@@ -150,8 +166,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
     
     html += '</div>';
     container.innerHTML = html;
+    
+    // تحديث القائمة المنسدلة لتطابق السورة المعروضة
+    surahSelect.value = surahId;
   }
 
+  // البحث والانتقال
   function searchSurah() {
     const query = searchInput.value.trim();
     if (!query) return;
@@ -177,11 +197,23 @@ document.getElementById('year').textContent = new Date().getFullYear();
     }
   }
 
+  // أحداث
   searchBtn.addEventListener('click', searchSurah);
   searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') searchSurah(); });
+  
+  surahSelect.addEventListener('change', (e) => {
+    const surahId = Number(e.target.value);
+    if (surahId > 0) {
+      renderSurah(surahId);
+    }
+  });
 
+  // تحميل ملف quran.json
   async function init() {
     try {
+      // ملء القائمة أولاً
+      populateSurahSelect();
+      
       const response = await fetch('./quran.json');
       if (!response.ok) throw new Error('HTTP ' + response.status);
       const data = await response.json();
@@ -192,10 +224,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
         throw new Error('تنسيق البيانات غير متوقع');
       }
       
-      container.innerHTML = '<div class="loading-indicator">اكتب اسم السورة في البحث للبدء.</div>';
+      container.innerHTML = '<div class="loading-indicator">اختر سورة من القائمة أو اكتب اسمها للبدء.</div>';
       
-      searchInput.value = 'الفاتحة';
-      searchSurah();
+      // عرض سورة الفاتحة افتراضياً
+      renderSurah(1);
       
     } catch (err) {
       container.innerHTML = '<div class="loading-indicator" style="color:red">تعذّر تحميل بيانات القرآن. تأكد من رفع ملف quran.json.</div>';
