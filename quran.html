@@ -49,6 +49,14 @@
       background: var(--accent-light); border: 1px solid var(--accent); border-radius: var(--radius-sm);
       padding: 12px 16px; margin-bottom: 20px; font-size: 0.9rem; color: #856404; text-align: center;
     }
+    /* زر العودة لآخر سورة */
+    .resume-btn {
+      display: inline-block; margin-bottom: 16px; padding: 10px 18px;
+      background: var(--accent); color: #1a1a1a; border: none;
+      border-radius: var(--radius-sm); font-weight: bold; cursor: pointer;
+      font-family: inherit; font-size: 0.95rem;
+    }
+    .resume-btn:hover { background: var(--accent-light); }
   </style>
 </head>
 <body>
@@ -67,6 +75,7 @@
       <a href="./azkar-evening.html">المساء</a>
       <a href="./nawawi.html">الأحاديث</a>
       <a href="./quran.html" class="active">القرآن</a>
+      <a href="./duas.html">🤲 أدعية</a>
       <a href="./articles.html">المقالات</a>
       <a href="./about.html">عن الموقع</a>
     </div>
@@ -86,6 +95,8 @@
   <div class="note-box">
     ℹ️ هذه الصفحة تعرض نص القرآن كاملاً. اختر السورة من القائمة للانتقال إليها.
   </div>
+
+  <button class="resume-btn" id="resumeBtn" style="display:none;">🔖 العودة إلى آخر سورة قرأتها</button>
 
   <div class="quran-controls">
     <select id="surahSelect" aria-label="اختر السورة">
@@ -124,8 +135,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const searchInput = document.getElementById('searchInput');
   const searchBtn = document.getElementById('searchBtn');
   const surahSelect = document.getElementById('surahSelect');
+  const resumeBtn = document.getElementById('resumeBtn');
   
   let allAyahs = []; 
+  const LAST_SURAH_KEY = 'zad_last_surah';
 
   // دالة لجلب اسم السورة
   function getSurahName(surahId) {
@@ -140,7 +153,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     if (typeof SURAH_NAMES === 'undefined') return;
     SURAH_NAMES.forEach((name, index) => {
       const option = document.createElement('option');
-      option.value = index + 1; // رقم السورة
+      option.value = index + 1;
       option.textContent = (index + 1) + '. ' + name;
       surahSelect.appendChild(option);
     });
@@ -167,8 +180,18 @@ document.getElementById('year').textContent = new Date().getFullYear();
     html += '</div>';
     container.innerHTML = html;
     
-    // تحديث القائمة المنسدلة لتطابق السورة المعروضة
+    // تحديث القائمة المنسدلة
     surahSelect.value = surahId;
+    
+    // حفظ آخر سورة في localStorage
+    try {
+      localStorage.setItem(LAST_SURAH_KEY, surahId);
+    } catch (e) {
+      console.warn('لم يتم حفظ آخر سورة:', e);
+    }
+    
+    // إخفاء زر العودة بعد العرض (لأننا بالفعل في السورة)
+    resumeBtn.style.display = 'none';
   }
 
   // البحث والانتقال
@@ -208,11 +231,26 @@ document.getElementById('year').textContent = new Date().getFullYear();
     }
   });
 
+  // زر العودة لآخر سورة
+  resumeBtn.addEventListener('click', () => {
+    const lastSurah = localStorage.getItem(LAST_SURAH_KEY);
+    if (lastSurah) {
+      renderSurah(Number(lastSurah));
+    }
+  });
+
   // تحميل ملف quran.json
   async function init() {
     try {
       // ملء القائمة أولاً
       populateSurahSelect();
+      
+      // التحقق من وجود آخر سورة محفوظة
+      const lastSurah = localStorage.getItem(LAST_SURAH_KEY);
+      if (lastSurah && Number(lastSurah) >= 1 && Number(lastSurah) <= 114) {
+        resumeBtn.textContent = `🔖 العودة إلى سورة ${getSurahName(Number(lastSurah))}`;
+        resumeBtn.style.display = 'inline-block';
+      }
       
       const response = await fetch('./quran.json');
       if (!response.ok) throw new Error('HTTP ' + response.status);
@@ -226,8 +264,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
       
       container.innerHTML = '<div class="loading-indicator">اختر سورة من القائمة أو اكتب اسمها للبدء.</div>';
       
-      // عرض سورة الفاتحة افتراضياً
-      renderSurah(1);
+      // عرض سورة الفاتحة افتراضياً (إذا لم تكن هناك سورة محفوظة)
+      if (!lastSurah) {
+        renderSurah(1);
+      }
       
     } catch (err) {
       container.innerHTML = '<div class="loading-indicator" style="color:red">تعذّر تحميل بيانات القرآن. تأكد من رفع ملف quran.json.</div>';
