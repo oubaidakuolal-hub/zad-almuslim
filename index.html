@@ -1,26 +1,232 @@
-{
-  "name": "زاد عبيدة",
-  "short_name": "زاد عبيدة",
-  "description": "أذكار ومواقيت الصلاة وقرآن من مصادر موثوقة.",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "background_color": "#0d7a5f",
-  "theme_color": "#0d7a5f",
-  "lang": "ar",
-  "dir": "rtl",
-  "icons": [
-    {
-      "src": "./logo-zad-almuslim.webp.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "./logo-zad-almuslim.webp.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d7a5f">
+  <meta name="description" content="زاد عبيدة: أذكار، أحاديث، مواقيت الصلاة، قرآن، ومقالات موثوقة.">
+  <meta name="robots" content="index,follow">
+  <meta name="google-site-verification" content="vu1Grx9Kn0mioZbtk1KvI9SMEc0w1ELpfju5QRV_ULs">
+  <meta name="author" content="زاد عبيدة">
+  <link rel="canonical" href="https://zad-oubaida.github.io/zad-almuslim/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="زاد عبيدة">
+  <meta property="og:title" content="زاد عبيدة | أذكار ومواقيت الصلاة وقرآن">
+  <meta property="og:description" content="مساحة عربية هادئة: أذكار، مواقيت الصلاة، قرآن، آية وحديث اليوم.">
+  <meta property="og:image" content="https://zad-oubaida.github.io/zad-almuslim/logo-zad-almuslim.webp.png">
+  <meta property="og:url" content="https://zad-oubaida.github.io/zad-almuslim/">
+  <meta property="og:locale" content="ar_AR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
+  <link rel="apple-touch-icon" href="./logo-zad-almuslim.webp.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/style.css">
+
+  <title>زاد عبيدة | أذكار ومواقيت الصلاة وقرآن</title>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"زاد عبيدة","url":"https://zad-oubaida.github.io/zad-almuslim/","inLanguage":"ar","description":"أذكار ومواقيت الصلاة وقرآن من مصادر موثوقة."}
+  </script>
+
+  <style>
+    /* زر المشاركة العائم */
+    .share-fab {
+      position: fixed; bottom: 80px; left: 20px; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--primary); color: #fff; border: none;
+      box-shadow: 0 4px 15px rgba(13, 122, 95, 0.4);
+      font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s;
     }
-  ]
+    .share-fab:hover { transform: scale(1.1); background: var(--primary-dark); }
+
+    /* زر تفعيل الإشعارات */
+    .notif-btn {
+      display: block; margin: 20px auto; padding: 12px 24px;
+      background: var(--accent); color: #1a1a1a; border: none;
+      border-radius: var(--radius-sm); font-weight: bold; cursor: pointer; font-family: inherit;
+    }
+    .notif-btn:hover { background: var(--accent-light); }
+    .notif-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="wrap nav-inner">
+    <a href="./index.html" class="brand" aria-label="زاد عبيدة - الرئيسية">
+      <img src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة">
+      <span>زاد عبيدة</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./index.html" class="active">الرئيسية</a>
+      <a href="./wird.html">🌿 وردك اليومي</a>
+      <a href="./adhkar.html">الأذكار</a>
+      <a href="./azkar-morning.html">الصباح</a>
+      <a href="./azkar-evening.html">المساء</a>
+      <a href="./nawawi.html">الأحاديث</a>
+      <a href="./quran.html">القرآن</a>
+      <a href="./articles.html">المقالات</a>
+      <a href="./about.html">عن الموقع</a>
+    </div>
+    <div class="nav-tools">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="الوضع الليلي">🌙</button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="القائمة">☰</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="bismillah">بسم الله الرحمن الرحيم</p>
+    <h1 class="hero-title">زادٌ لقلبك، ومعرفةٌ تثق بمصدرها</h1>
+    <p class="hero-subtitle">مساحة عربية هادئة للأذكار والقرآن ومواقيت الصلاة، مع مصادر واضحة وتثبّت قبل النشر.</p>
+    <div class="hero-actions">
+      <a href="./adhkar.html" class="btn-primary">ابدأ بالأذكار ←</a>
+      <a href="./quran.html" class="btn-secondary">تصفّح القرآن</a>
+    </div>
+    <button class="notif-btn" id="enableNotifBtn">🔔 فعّل تذكير وردك اليومي</button>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="dashboard">
+    <div class="dash-card">
+      <h3>🕌 مواقيت الصلاة</h3>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+        <input type="text" id="cityInput" placeholder="مدينتك (Algiers)" aria-label="المدينة"
+               style="flex:1;min-width:120px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-family:inherit">
+        <button type="button" id="cityBtn" class="action-btn primary" style="padding:8px 14px">تحديث</button>
+        <button type="button" id="geoBtn" class="action-btn" style="padding:8px 14px" title="استخدم موقعي">📍</button>
+      </div>
+      <div id="prayerTimes" style="text-align:center;color:var(--text-muted);padding:20px 0;font-style:italic">جارٍ تحديد موقعك…</div>
+      <div class="countdown" id="prayerCountdown"></div>
+    </div>
+
+    <div class="dash-card">
+      <h3>📖 آية اليوم</h3>
+      <div id="dailyAyah" class="daily-content"><div class="big">جارٍ التحميل…</div></div>
+    </div>
+
+    <div class="dash-card">
+      <h3>📜 حديث اليوم</h3>
+      <div id="dailyHadith" class="daily-content"><div class="big">جارٍ التحميل…</div></div>
+    </div>
+  </div>
+
+  <div class="dash-card" id="kahfCard" style="display:none;margin-bottom:20px">
+    <h3>🌙 سورة الكهف (يوم الجمعة)</h3>
+    <p style="margin:8px 0 12px;color:var(--text-muted)">«من قرأ سورة الكهف يوم الجمعة أضاء له من النور ما بين الجمعتين» — رواه الحاكم والبيهقي.</p>
+    <a href="./quran.html" class="btn-primary" style="display:inline-flex">اقرأ الآن ←</a>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>أبواب الموقع</h2>
+      <p>اختر ما يناسبك</p>
+    </div>
+    <div class="cards-grid">
+      <a href="./wird.html" class="nav-card"><div class="emoji">🌿</div><h3>وردك اليومي</h3><p>نظّم أذكارك وقراءتك للقرآن</p></a>
+      <a href="./adhkar.html" class="nav-card"><div class="emoji">📿</div><h3>الأذكار</h3><p>أذكار مختارة بمصادرها</p></a>
+      <a href="./azkar-morning.html" class="nav-card"><div class="emoji">🌅</div><h3>أذكار الصباح</h3><p>تبدأ يومك بذكر الله</p></a>
+      <a href="./azkar-evening.html" class="nav-card"><div class="emoji">🌙</div><h3>أذكار المساء</h3><p>اختم يومك بذكر الله</p></a>
+      <a href="./nawawi.html" class="nav-card"><div class="emoji">📜</div><h3>الأربعون النووية</h3><p>40 حديثاً في متناول يدك</p></a>
+      <a href="./quran.html" class="nav-card"><div class="emoji">📖</div><h3>القرآن الكريم</h3><p>قارئ مصغّر لكل السور</p></a>
+      <a href="./articles.html" class="nav-card"><div class="emoji">✍️</div><h3>مقالات</h3><p>مقالات في العبادة والأخلاق</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div><h4>زاد عبيدة</h4><p>محتوى إسلامي نافع، سهل القراءة، مع توضيح المصادر.</p></div>
+      <div><h4>روابط سريعة</h4><p><a href="./adhkar.html">الأذكار</a><br><a href="./quran.html">القرآن</a><br><a href="./nawawi.html">الأحاديث</a><br><a href="./articles.html">المقالات</a><br><a href="./wird.html">🌿 وردك اليومي</a></p></div>
+      <div><h4>تواصل</h4><p>إنستغرام<br>البريد الإلكتروني</p></div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> زاد عبيدة — جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<button class="share-fab" id="shareAppBtn" title="شارك التطبيق">📤</button>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<button class="back-to-top" id="backToTop" type="button" aria-label="العودة للأعلى">↑</button>
+
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ============ زر المشاركة ============
+document.getElementById('shareAppBtn').addEventListener('click', async () => {
+  const shareData = {
+    title: 'زاد عبيدة',
+    text: 'مساحة عربية هادئة للأذكار والقرآن ومواقيت الصلاة.',
+    url: 'https://zad-oubaida.github.io/zad-almuslim/'
+  };
+  if (navigator.share) {
+    try { await navigator.share(shareData); } catch {}
+  } else {
+    try {
+      await navigator.clipboard.writeText(shareData.url);
+      showToast('تم نسخ الرابط للمشاركة ✓');
+    } catch {
+      showToast('تعذّرت المشاركة');
+    }
+  }
+});
+
+// ============ إشعارات التذكير ============
+const notifBtn = document.getElementById('enableNotifBtn');
+if (notifBtn) {
+  if (!('Notification' in window)) {
+    notifBtn.style.display = 'none';
+  } else if (Notification.permission === 'granted') {
+    notifBtn.textContent = '✅ الإشعارات مفعلة';
+    notifBtn.disabled = true;
+  }
+
+  notifBtn.addEventListener('click', async () => {
+    if (!('Notification' in window)) return;
+    const permission = await Notification.requestPermission();
+    if (permission === 'granted') {
+      showToast('تم تفعيل الإشعارات ✓');
+      notifBtn.textContent = '✅ الإشعارات مفعلة';
+      notifBtn.disabled = true;
+      
+      // إرسال إشعار تجريبي
+      if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({
+          type: 'SCHEDULE_REMINDER',
+          title: 'زاد عبيدة',
+          body: 'لا تنسَ وردك اليومي من الأذكار والقرآن.'
+        });
+      }
+    } else {
+      showToast('تم رفض الإشعارات');
+    }
+  });
 }
+
+// ============ تسجيل Service Worker ============
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      console.log('✅ SW registered:', reg.scope);
+    }).catch(err => {
+      console.warn('⚠️ SW failed:', err.message);
+    });
+  });
+}
+</script>
+</body>
+</html>
