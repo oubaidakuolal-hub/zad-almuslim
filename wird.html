@@ -1,502 +1,195 @@
-
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#123d32">
-  <meta name="description" content="وردك اليومي من زاد عبيدة: الأذكار والقرآن والأحاديث مع متابعة الإنجاز اليومي.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://zad-oubaida.github.io/zad-almuslim/wird.html">
-  <link rel="icon" href="./logo-zad-almuslim.webp.png">
+  <meta name="theme-color" content="#0d7a5f">
+  <meta name="description" content="تتبع وردك اليومي من الأذكار والقرآن — زاد عبيدة">
+  <title>وردك اليومي — زاد عبيدة</title>
+  <link rel="icon" type="image/png" href="./logo-zad-almuslim.webp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style.css">
-
-  <title>وردك اليومي | زاد عبيدة</title>
-
   <style>
-    :root {
-      --wird-green: #123d32;
-      --wird-accent: #0d7a5f;
-      --wird-gold: #d9bd78;
+    /* تنسيقات خاصة بصفحة الورد */
+    .wird-container { max-width: 800px; margin: 0 auto; }
+    .wird-card {
+      background: var(--card); border-radius: var(--radius); padding: 24px;
+      box-shadow: var(--shadow); border: 1px solid var(--line); margin-bottom: 20px;
     }
-
-    body {
-      margin: 0;
-      font-family: "Cairo", Tahoma, Arial, sans-serif;
-    }
-
-    .wird-wrap {
-      width: min(920px, 92%);
-      margin: 32px auto;
-    }
-
-    .wird-hero {
-      background: var(--wird-green);
-      color: white;
-      padding: 28px 22px;
-      border-radius: 20px;
-      text-align: center;
-    }
-
-    .wird-hero h1 {
-      margin: 0 0 10px;
-      color: white;
-    }
-
-    .wird-hero p {
-      margin: 0;
-      color: #e6eee9;
-      line-height: 1.9;
-    }
-
-    .wird-panel {
-      margin-top: 20px;
-      padding: 20px;
-      border: 1px solid var(--line, #ddd);
-      border-radius: 18px;
-      background: var(--bg, #fff);
-      color: var(--text, #222);
-    }
-
-    .wird-progress-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .wird-progress-track {
-      height: 9px;
-      overflow: hidden;
-      background: var(--line, #ddd);
-      border-radius: 20px;
-    }
-
-    #wirdProgressBar {
-      height: 100%;
-      width: 0;
-      background: var(--wird-accent);
-      transition: width .25s ease;
-    }
-
-    .wird-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 20px;
-    }
-
+    .wird-card h3 { color: var(--primary); margin-bottom: 16px; font-family: 'Cairo', sans-serif; display: flex; align-items: center; gap: 10px; }
     .wird-item {
-      padding: 19px;
-      border: 1px solid var(--line, #ddd);
-      border-radius: 15px;
-      background: var(--bg, white);
-      color: var(--text, #222);
-      text-align: right;
-      font: inherit;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      min-height: 130px;
+      display: flex; align-items: center; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid var(--line);
     }
-
-    .wird-item:hover {
-      border-color: var(--wird-accent);
+    .wird-item:last-child { border-bottom: none; }
+    .wird-item input[type="checkbox"] {
+      width: 22px; height: 22px; accent-color: var(--primary); cursor: pointer;
     }
-
-    .wird-item.is-done {
-      border-color: var(--wird-accent);
-      background: var(--wird-done-bg, #f0f8f3);
+    .wird-item label { flex: 1; cursor: pointer; font-size: 1.05rem; }
+    .wird-item.completed label { text-decoration: line-through; color: var(--text-muted); }
+    .progress-box { text-align: center; margin-bottom: 30px; }
+    .progress-circle {
+      width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 12px;
+      background: conic-gradient(var(--primary) 0%, var(--line) 0%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: bold; color: var(--primary);
     }
-
-    .wird-emoji {
-      font-size: 27px;
+    .progress-circle::before {
+      content: ""; width: 100px; height: 100px; border-radius: 50%;
+      background: var(--card); position: absolute;
     }
-
-    .wird-item small {
-      color: var(--text-muted, #777);
-      line-height: 1.8;
+    .progress-circle span { position: relative; z-index: 1; }
+    .reset-wird {
+      display: block; margin: 20px auto 0; padding: 10px 20px; border-radius: 8px;
+      background: var(--accent-light); color: var(--primary); border: 1px solid var(--accent);
+      cursor: pointer; font-family: inherit; font-weight: bold;
     }
-
-    .wird-status {
-      color: var(--wird-accent);
-      font-weight: 700;
-      margin-top: auto;
-    }
-
-    .wird-reader {
-      margin-top: 20px;
-      padding: 22px;
-      border: 1px solid var(--line, #ddd);
-      border-radius: 18px;
-      background: var(--bg, white);
-      color: var(--text, #222);
-    }
-
-    .wird-reader h2 {
-      line-height: 1.8;
-    }
-
-    .wird-reading-text {
-      font-family: "Amiri", "Noto Naskh Arabic", serif;
-      font-size: 1.45rem;
-      line-height: 2.3;
-      overflow-wrap: anywhere;
-    }
-
-    .wird-source {
-      font-size: .9rem;
-      line-height: 2;
-      color: var(--text-muted, #777);
-      border-top: 1px solid var(--line, #ddd);
-      padding-top: 12px;
-    }
-
-    .wird-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .wird-btn {
-      border: 0;
-      border-radius: 10px;
-      padding: 12px 17px;
-      font: inherit;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .wird-btn-primary {
-      background: var(--wird-accent);
-      color: white;
-    }
-
-    .wird-btn-secondary {
-      background: var(--line, #eee);
-      color: var(--text, #222);
-    }
-
-    .wird-message {
-      padding: 16px;
-      margin-top: 18px;
-      border: 1px solid var(--wird-accent);
-      border-radius: 12px;
-      line-height: 1.9;
-      text-align: center;
-    }
-
-    .wird-note {
-      color: var(--text-muted, #777);
-      font-size: .88rem;
-      line-height: 1.9;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    @media (max-width: 560px) {
-      .wird-list {
-        grid-template-columns: 1fr;
-      }
-
-      .wird-wrap {
-        width: 94%;
-        margin: 18px auto;
-      }
-
-      .wird-panel,
-      .wird-reader {
-        padding: 15px;
-      }
-
-      .wird-actions {
-        flex-direction: column;
-      }
-
-      .wird-btn {
-        width: 100%;
-        box-sizing: border-box;
-      }
-    }
+    .reset-wird:hover { background: var(--accent); color: #fff; }
   </style>
 </head>
-
 <body>
 
-<header class="wird-wrap">
-  <div class="wird-hero">
-    <p>بسم الله الرحمن الرحيم</p>
-    <h1>🌿 وردك اليومي</h1>
-    <p>اقرأ بهدوء، وأتمّ وردك، وتابع إنجازك كل يوم.</p>
-  </div>
-
-  <div class="wird-actions">
-    <a class="wird-btn wird-btn-secondary" href="./index.html">
-      ← الصفحة الرئيسية
+<nav class="navbar">
+  <div class="wrap nav-inner">
+    <a href="./index.html" class="brand" aria-label="زاد عبيدة">
+      <img src="./logo-zad-almuslim.webp.png" alt="شعار زاد عبيدة">
+      <span>زاد عبيدة</span>
     </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./index.html">الرئيسية</a>
+      <a href="./wird.html" class="active">🌿 وردك اليومي</a>
+      <a href="./adhkar.html">الأذكار</a>
+      <a href="./azkar-morning.html">الصباح</a>
+      <a href="./azkar-evening.html">المساء</a>
+      <a href="./nawawi.html">الأحاديث</a>
+      <a href="./quran.html">القرآن</a>
+      <a href="./articles.html">المقالات</a>
+      <a href="./about.html">عن الموقع</a>
+    </div>
+    <div class="nav-tools">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="الوضع الليلي">🌙</button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="القائمة">☰</button>
+    </div>
   </div>
-</header>
+</nav>
 
-<main class="wird-wrap">
-
-  <section id="wirdHome" class="wird-panel">
-    <h2>مهام اليوم</h2>
-
-    <div class="wird-progress-head">
-      <span>إنجازك اليوم</span>
-      <span id="wirdProgressText">0 من 4</span>
+<main class="wrap" style="padding:40px 0">
+  <div class="wird-container">
+    <div class="section-head">
+      <h2>🌿 وردك اليومي</h2>
+      <p>حدد ما أنجزته اليوم، وسيتم حفظ تقدمك تلقائياً</p>
     </div>
 
-    <div class="wird-progress-track"
-         role="progressbar"
-         aria-label="إنجاز الورد اليومي"
-         aria-valuemin="0"
-         aria-valuemax="4"
-         aria-valuenow="0"
-         id="wirdProgress">
-      <div id="wirdProgressBar"></div>
+    <!-- دائرة التقدم -->
+    <div class="progress-box">
+      <div class="progress-circle" id="progressCircle"><span id="progressText">0%</span></div>
+      <p style="color:var(--text-muted)">أكملت <span id="completedCount">0</span> من <span id="totalCount">0</span> مهام</p>
+      <button class="reset-wird" id="resetWird">إعادة تعيين الورد لليوم</button>
     </div>
 
-    <div class="wird-list">
-      <button type="button" class="wird-item" data-wird="morning">
-        <span class="wird-emoji">🌅</span>
-        <strong>أذكار الصباح</strong>
-        <small>أذكار الصباح من السنة النبوية</small>
-        <span class="wird-status">اضغط للقراءة ←</span>
-      </button>
-
-      <button type="button" class="wird-item" data-wird="quran">
-        <span class="wird-emoji">📖</span>
-        <strong>ورد القرآن</strong>
-        <small>اقرأ ما تيسّر لك من كتاب الله</small>
-        <span class="wird-status">اضغط للقراءة ←</span>
-      </button>
-
-      <button type="button" class="wird-item" data-wird="evening">
-        <span class="wird-emoji">🌙</span>
-        <strong>أذكار المساء</strong>
-        <small>أذكار المساء من السنة النبوية</small>
-        <span class="wird-status">اضغط للقراءة ←</span>
-      </button>
-
-      <button type="button" class="wird-item" data-wird="hadith">
-        <span class="wird-emoji">📜</span>
-        <strong>حديث اليوم</strong>
-        <small>اقرأ حديثًا من مجموعة الأحاديث</small>
-        <span class="wird-status">اضغط للقراءة ←</span>
-      </button>
+    <!-- المهام -->
+    <div class="wird-card">
+      <h3>📿 الأذكار اليومية</h3>
+      <div id="wirdTasksList"></div>
     </div>
-
-    <div id="wirdCompleteMessage" class="wird-message" hidden>
-      <strong>الحمد لله! أكملت مهام وردك اليومي.</strong>
-      <p>تقبّل الله منك، ووفّقك للاستمرار على الخير.</p>
-    </div>
-
-    <p class="wird-note">
-      يُحفظ إنجاز اليوم على هذا الجهاز والمتصفح. مسح بيانات المتصفح
-      قد يؤدي إلى فقدان التقدم المحفوظ.
-    </p>
-  </section>
-
-  <section id="wirdReader" class="wird-reader" hidden>
-    <button type="button" class="wird-btn wird-btn-secondary"
-            id="wirdBack">
-      ← العودة إلى الورد اليومي
-    </button>
-
-    <h2 id="wirdReaderTitle"></h2>
-
-    <div id="wirdReaderContent"></div>
-
-    <div class="wird-actions">
-      <a id="wirdOpenPage" class="wird-btn wird-btn-secondary"
-         href="./adhkar.html">
-        فتح الصفحة الكاملة
-      </a>
-
-      <button type="button" class="wird-btn wird-btn-primary"
-              id="wirdDone">
-        ✓ تمّت القراءة والعودة إلى الورد
-      </button>
-    </div>
-  </section>
-
+  </div>
 </main>
 
-<footer class="wird-wrap">
-  <p class="wird-note">
-    زاد عبيدة — محتوى إسلامي نافع، مع الحرص على توثيق المصادر.
-  </p>
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div><h4>زاد عبيدة</h4><p>محتوى إسلامي نافع مع توضيح المصادر.</p></div>
+      <div><h4>روابط</h4><p><a href="./index.html">الرئيسية</a><br><a href="./adhkar.html">الأذكار</a><br><a href="./quran.html">القرآن</a></p></div>
+      <div><h4>تواصل</h4><p><a href="https://www.instagram.com/oubaida.muslim/" target="_blank" rel="noopener noreferrer">إنستغرام</a></p></div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> زاد عبيدة</div>
+  </div>
 </footer>
 
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<button class="back-to-top" id="backToTop" type="button" aria-label="العودة إلى الأعلى">↑</button>
+
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
 <script>
-(() => {
-  "use strict";
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  const $ = id => document.getElementById(id);
+(function(){
+  // المهام اليومية الافتراضية
+  const TASKS = [
+    { id: 'morning', title: 'أذكار الصباح', link: './azkar-morning.html' },
+    { id: 'evening', title: 'أذكار المساء', link: './azkar-evening.html' },
+    { id: 'quran', title: 'قراءة ورد من القرآن', link: './quran.html' },
+    { id: 'hadith', title: 'قراءة حديث من الأربعين', link: './nawawi.html' },
+    { id: 'salawat', title: 'الصلاة على النبي ﷺ (10 مرات)', link: './adhkar.html' },
+    { id: 'istighfar', title: 'الاستغفار (100 مرة)', link: './adhkar.html' },
+  ];
 
-  const home = $("wirdHome");
-  const reader = $("wirdReader");
-  const title = $("wirdReaderTitle");
-  const content = $("wirdReaderContent");
-  const back = $("wirdBack");
-  const done = $("wirdDone");
-  const openPage = $("wirdOpenPage");
-  const progressText = $("wirdProgressText");
-  const progressBar = $("wirdProgressBar");
-  const progress = $("wirdProgress");
-  const completeMessage = $("wirdCompleteMessage");
+  const STORAGE_KEY = 'zad_wird_' + new Date().toISOString().slice(0,10); // مفتاح لكل يوم
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch {}
 
-  const tasks = {
-    morning: {
-      title: "أذكار الصباح",
-      href: "./azkar-morning.html",
-      description: "اقرأ أذكار الصباح من الصفحة المخصصة لها في الموقع.",
-      source: "الصفحة المخصصة لأذكار الصباح في زاد عبيدة."
-    },
-    quran: {
-      title: "ورد القرآن",
-      href: "./quran.html",
-      description: "افتح المصحف، واختر السورة التي تريد قراءتها، ثم عد إلى هذه الصفحة بعد إتمام وردك.",
-      source: "القرآن الكريم."
-    },
-    evening: {
-      title: "أذكار المساء",
-      href: "./azkar-evening.html",
-      description: "اقرأ أذكار المساء من الصفحة المخصصة لها في الموقع.",
-      source: "الصفحة المخصصة لأذكار المساء في زاد عبيدة."
-    },
-    hadith: {
-      title: "حديث اليوم",
-      href: "./nawawi.html",
-      description: "افتح مجموعة الأحاديث، واقرأ الحديث مع التحقق من مصدره.",
-      source: "مجموعة الأحاديث في زاد عبيدة."
-    }
-  };
-
-  const ids = Object.keys(tasks);
-  let active = null;
-
-  function dateKey() {
-    const now = new Date();
-    const date = [
-      now.getFullYear(),
-      String(now.getMonth() + 1).padStart(2, "0"),
-      String(now.getDate()).padStart(2, "0")
-    ].join("-");
-
-    return "zad-oubaida-wird-" + date;
-  }
-
-  function loadProgress() {
-    try {
-      const value = JSON.parse(localStorage.getItem(dateKey()) || "[]");
-      return Array.isArray(value)
-        ? value.filter(id => ids.includes(id))
-        : [];
-    } catch {
-      return [];
-    }
-  }
-
-  let completed = loadProgress();
-
-  function saveProgress() {
-    try {
-      localStorage.setItem(dateKey(), JSON.stringify(completed));
-    } catch (error) {
-      console.warn("تعذّر حفظ التقدم على هذا الجهاز.", error);
-    }
-  }
+  const list = document.getElementById('wirdTasksList');
+  const progressCircle = document.getElementById('progressCircle');
+  const progressText = document.getElementById('progressText');
+  const completedCount = document.getElementById('completedCount');
+  const totalCount = document.getElementById('totalCount');
 
   function updateProgress() {
-    const count = completed.length;
-    const percent = count / ids.length * 100;
+    const completed = TASKS.filter(t => state[t.id]).length;
+    const percent = Math.round((completed / TASKS.length) * 100);
+    
+    progressText.textContent = percent + '%';
+    completedCount.textContent = completed;
+    totalCount.textContent = TASKS.length;
+    
+    // تحديث الدائرة (باستخدام conic-gradient)
+    progressCircle.style.background = `conic-gradient(var(--primary) ${percent}%, var(--line) ${percent}%)`;
+  }
 
-    progressText.textContent = count + " من " + ids.length;
-    progressBar.style.width = percent + "%";
-    progress.setAttribute("aria-valuenow", String(count));
-
-    home.querySelectorAll("[data-wird]").forEach(card => {
-      const finished = completed.includes(card.dataset.wird);
-      card.classList.toggle("is-done", finished);
-
-      const status = card.querySelector(".wird-status");
-      if (status) {
-        status.textContent = finished
-          ? "✓ تمّت القراءة"
-          : "اضغط للقراءة ←";
-      }
+  // بناء القائمة
+  TASKS.forEach(task => {
+    const item = document.createElement('div');
+    item.className = 'wird-item' + (state[task.id] ? ' completed' : '');
+    
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.id = 'task_' + task.id;
+    cb.checked = !!state[task.id];
+    
+    const label = document.createElement('label');
+    label.htmlFor = 'task_' + task.id;
+    label.innerHTML = `${task.title} — <a href="${task.link}" style="font-size:0.85rem;color:var(--primary);text-decoration:underline" target="_blank">اذهب</a>`;
+    
+    cb.addEventListener('change', () => {
+      state[task.id] = cb.checked;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      item.classList.toggle('completed', cb.checked);
+      updateProgress();
     });
-
-    completeMessage.hidden = count !== ids.length;
-  }
-
-  function showHome() {
-    active = null;
-    reader.hidden = true;
-    home.hidden = false;
-    updateProgress();
-    home.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function showReader(id) {
-    const task = tasks[id];
-    if (!task) return;
-
-    active = id;
-    title.textContent = task.title;
-
-    content.replaceChildren();
-
-    const paragraph = document.createElement("p");
-    paragraph.textContent = task.description;
-    paragraph.className = "wird-reading-text";
-
-    const source = document.createElement("p");
-    source.textContent = "المصدر: " + task.source;
-    source.className = "wird-source";
-
-    content.append(paragraph, source);
-
-    openPage.href = task.href;
-    reader.hidden = false;
-    home.hidden = true;
-
-    reader.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  home.addEventListener("click", event => {
-    const card = event.target.closest("[data-wird]");
-    if (card) showReader(card.dataset.wird);
+    
+    item.append(cb, label);
+    list.appendChild(item);
   });
 
-  back.addEventListener("click", showHome);
-
-  done.addEventListener("click", () => {
-    if (!active) return;
-
-    if (!completed.includes(active)) {
-      completed.push(active);
-      saveProgress();
+  // إعادة تعيين
+  document.getElementById('resetWird').addEventListener('click', () => {
+    if(confirm('هل أنت متأكد من إعادة تعيين ورد اليوم؟')) {
+      state = {};
+      localStorage.removeItem(STORAGE_KEY);
+      document.querySelectorAll('.wird-item').forEach(item => {
+        item.classList.remove('completed');
+        item.querySelector('input').checked = false;
+      });
+      updateProgress();
+      if(typeof showToast === 'function') showToast('تم إعادة تعيين الورد ✓');
     }
-
-    showHome();
   });
 
   updateProgress();
 })();
 </script>
-
 </body>
 </html>
