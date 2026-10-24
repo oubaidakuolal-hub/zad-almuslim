@@ -1,9 +1,10 @@
 'use strict';
 
-const CACHE_NAME = 'zad-obaidah-v3';
+const CACHE_NAME = 'zad-obaidah-v4'; // تم التحديث لإجبار المتصفح على التحديث
 const ASSETS = [
   './',
   './index.html',
+  './wird.html',      // أضفنا صفحة الورد
   './adhkar.html',
   './azkar-morning.html',
   './azkar-evening.html',
