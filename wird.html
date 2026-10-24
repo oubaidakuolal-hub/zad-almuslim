@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style.css">
   <style>
-    /* تنسيقات خاصة بصفحة الورد */
     .wird-container { max-width: 800px; margin: 0 auto; }
     .wird-card {
       background: var(--card); border-radius: var(--radius); padding: 24px;
@@ -29,18 +28,57 @@
     }
     .wird-item label { flex: 1; cursor: pointer; font-size: 1.05rem; }
     .wird-item.completed label { text-decoration: line-through; color: var(--text-muted); }
+    
+    /* دائرة التقدم */
     .progress-box { text-align: center; margin-bottom: 30px; }
     .progress-circle {
       width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 12px;
       background: conic-gradient(var(--primary) 0%, var(--line) 0%);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem; font-weight: bold; color: var(--primary);
+      position: relative;
     }
     .progress-circle::before {
       content: ""; width: 100px; height: 100px; border-radius: 50%;
       background: var(--card); position: absolute;
     }
     .progress-circle span { position: relative; z-index: 1; }
+    
+    /* السلسلة */
+    .streak-box {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, #fef3d7, #f0b429);
+      border-radius: var(--radius); padding: 16px; margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(240, 180, 41, 0.3);
+    }
+    .streak-box .fire { font-size: 2rem; }
+    .streak-box .streak-text { font-size: 1.2rem; font-weight: bold; color: #856404; }
+    .streak-box .streak-days { font-size: 1.8rem; font-weight: bold; color: #1a1a1a; }
+
+    /* تحدي 7 أيام */
+    .challenge-box {
+      background: var(--card); border: 2px dashed var(--accent); border-radius: var(--radius);
+      padding: 20px; margin-bottom: 20px; text-align: center;
+    }
+    .challenge-box h3 { color: var(--primary); margin-bottom: 12px; }
+    .challenge-days {
+      display: flex; justify-content: center; gap: 8px; margin: 16px 0;
+    }
+    .challenge-day {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; border: 2px solid var(--line);
+      background: var(--bg); color: var(--text-muted);
+    }
+    .challenge-day.completed { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .challenge-day.current { border-color: var(--accent); border-width: 3px; box-shadow: 0 0 10px rgba(240, 180, 41, 0.5); }
+    .challenge-start-btn {
+      background: var(--primary); color: #fff; border: none; padding: 12px 24px;
+      border-radius: var(--radius-sm); font-weight: bold; cursor: pointer; font-family: inherit;
+      font-size: 1rem;
+    }
+    .challenge-start-btn:hover { background: var(--primary-dark); }
+    
     .reset-wird {
       display: block; margin: 20px auto 0; padding: 10px 20px; border-radius: 8px;
       background: var(--accent-light); color: var(--primary); border: 1px solid var(--accent);
@@ -82,6 +120,24 @@
       <p>حدد ما أنجزته اليوم، وسيتم حفظ تقدمك تلقائياً</p>
     </div>
 
+    <!-- السلسلة (Streak) -->
+    <div class="streak-box">
+      <span class="fire">🔥</span>
+      <div>
+        <div class="streak-text">سلسلتك الحالية</div>
+        <div class="streak-days" id="streakCount">0</div>
+        <div class="streak-text">أيام متتالية</div>
+      </div>
+    </div>
+
+    <!-- تحدي 7 أيام -->
+    <div class="challenge-box">
+      <h3>🏆 تحدي 7 أيام</h3>
+      <p style="color:var(--text-muted);font-size:0.9rem">أكمل وردك 7 أيام متتالية لتحصل على وسام الإنجاز</p>
+      <div class="challenge-days" id="challengeDays"></div>
+      <button class="challenge-start-btn" id="challengeBtn">ابدأ التحدي</button>
+    </div>
+
     <!-- دائرة التقدم -->
     <div class="progress-box">
       <div class="progress-circle" id="progressCircle"><span id="progressText">0%</span></div>
@@ -117,7 +173,6 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 (function(){
-  // المهام اليومية الافتراضية
   const TASKS = [
     { id: 'morning', title: 'أذكار الصباح', link: './azkar-morning.html' },
     { id: 'evening', title: 'أذكار المساء', link: './azkar-evening.html' },
@@ -127,16 +182,108 @@ document.getElementById('year').textContent = new Date().getFullYear();
     { id: 'istighfar', title: 'الاستغفار (100 مرة)', link: './adhkar.html' },
   ];
 
-  const STORAGE_KEY = 'zad_wird_' + new Date().toISOString().slice(0,10); // مفتاح لكل يوم
+  const STORAGE_KEY = 'zad_wird_' + new Date().toISOString().slice(0,10);
+  const STREAK_KEY = 'zad_streak_data';
+  const CHALLENGE_KEY = 'zad_challenge_data';
+
   let state = {};
   try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch {}
+
+  let streakData = { count: 0, lastDate: null };
+  try { streakData = JSON.parse(localStorage.getItem(STREAK_KEY) || '{"count":0,"lastDate":null}'); } catch {}
+
+  let challengeData = { startDate: null, days: [] };
+  try { challengeData = JSON.parse(localStorage.getItem(CHALLENGE_KEY) || '{"startDate":null,"days":[]}'); } catch {}
 
   const list = document.getElementById('wirdTasksList');
   const progressCircle = document.getElementById('progressCircle');
   const progressText = document.getElementById('progressText');
   const completedCount = document.getElementById('completedCount');
   const totalCount = document.getElementById('totalCount');
+  const streakCount = document.getElementById('streakCount');
+  const challengeDays = document.getElementById('challengeDays');
+  const challengeBtn = document.getElementById('challengeBtn');
 
+  const today = new Date().toISOString().slice(0,10);
+
+  // ============ السلسلة ============
+  function updateStreak() {
+    const allCompleted = TASKS.every(t => state[t.id]);
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().slice(0,10);
+
+    if (allCompleted) {
+      if (streakData.lastDate === yesterdayStr) {
+        // استمرار السلسلة
+        streakData.count += 1;
+        streakData.lastDate = today;
+        localStorage.setItem(STREAK_KEY, JSON.stringify(streakData));
+      } else if (streakData.lastDate !== today) {
+        // بداية سلسلة جديدة
+        streakData.count = 1;
+        streakData.lastDate = today;
+        localStorage.setItem(STREAK_KEY, JSON.stringify(streakData));
+      }
+    }
+
+    // إذا فات يوم، تصفر السلسلة (اختياري: يمكنك تعديل هذا السلوك)
+    if (streakData.lastDate && streakData.lastDate !== today && streakData.lastDate !== yesterdayStr) {
+      streakData.count = 0;
+      localStorage.setItem(STREAK_KEY, JSON.stringify(streakData));
+    }
+
+    streakCount.textContent = streakData.count;
+  }
+
+  // ============ تحدي 7 أيام ============
+  function renderChallenge() {
+    challengeDays.innerHTML = '';
+    for (let i = 1; i <= 7; i++) {
+      const day = document.createElement('div');
+      day.className = 'challenge-day';
+      if (challengeData.days.includes(i)) {
+        day.classList.add('completed');
+      }
+      if (challengeData.startDate && !challengeData.days.includes(i) && 
+          challengeData.days.length === i - 1) {
+        day.classList.add('current');
+      }
+      day.textContent = challengeData.days.includes(i) ? '✓' : i;
+      challengeDays.appendChild(day);
+    }
+
+    if (challengeData.days.length === 7) {
+      challengeBtn.textContent = '🎉 أكملت التحدي!';
+      challengeBtn.disabled = true;
+      challengeBtn.style.opacity = '0.6';
+    }
+  }
+
+  function checkChallengeProgress() {
+    if (!challengeData.startDate) return;
+    const allCompleted = TASKS.every(t => state[t.id]);
+    if (allCompleted) {
+      const dayIndex = challengeData.days.length + 1;
+      if (dayIndex <= 7 && !challengeData.days.includes(dayIndex)) {
+        challengeData.days.push(dayIndex);
+        localStorage.setItem(CHALLENGE_KEY, JSON.stringify(challengeData));
+        renderChallenge();
+      }
+    }
+  }
+
+  challengeBtn.addEventListener('click', () => {
+    if (challengeData.startDate) return; // بدأ بالفعل
+    challengeData = { startDate: today, days: [] };
+    localStorage.setItem(CHALLENGE_KEY, JSON.stringify(challengeData));
+    challengeBtn.textContent = 'التحدي جارٍ...';
+    challengeBtn.disabled = true;
+    renderChallenge();
+    if (typeof showToast === 'function') showToast('بدأ التحدي! 🏆');
+  });
+
+  // ============ المهام ============
   function updateProgress() {
     const completed = TASKS.filter(t => state[t.id]).length;
     const percent = Math.round((completed / TASKS.length) * 100);
@@ -144,12 +291,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
     progressText.textContent = percent + '%';
     completedCount.textContent = completed;
     totalCount.textContent = TASKS.length;
-    
-    // تحديث الدائرة (باستخدام conic-gradient)
     progressCircle.style.background = `conic-gradient(var(--primary) ${percent}%, var(--line) ${percent}%)`;
+
+    updateStreak();
+    checkChallengeProgress();
   }
 
-  // بناء القائمة
   TASKS.forEach(task => {
     const item = document.createElement('div');
     item.className = 'wird-item' + (state[task.id] ? ' completed' : '');
@@ -188,6 +335,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     }
   });
 
+  renderChallenge();
   updateProgress();
 })();
 </script>
