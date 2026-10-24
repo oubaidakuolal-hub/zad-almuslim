@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'zad-obaidah-v15';
+const CACHE_NAME = 'zad-obaidah-v16';
 const ASSETS = [
   './',
   './index.html',
