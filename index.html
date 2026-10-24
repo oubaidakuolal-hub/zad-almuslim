@@ -187,6 +187,63 @@ document.getElementById('shareAppBtn').addEventListener('click', async () => {
 
 // ============ إشعارات التذكير ============
 const notifBtn = document.getElementById('enableNotifBtn');
+let prayerNotificationTimeouts = []; // لتخزين مؤقتات الصلوات
+
+// دالة لإرسال إشعار
+function sendNotification(title, body) {
+  if (Notification.permission === 'granted' && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({
+      type: 'SCHEDULE_REMINDER',
+      title: title,
+      body: body
+    });
+  }
+}
+
+// دالة لجدولة الإشعارات بعد الصلوات
+function schedulePrayerNotifications(timings) {
+  // مسح أي مؤقتات سابقة
+  prayerNotificationTimeouts.forEach(t => clearTimeout(t));
+  prayerNotificationTimeouts = [];
+
+  if (Notification.permission !== 'granted') return;
+
+  const now = new Date();
+  const prayers = [
+    { key: 'Fajr', name: 'الفجر', msg: 'أذكار الصباح 🌅' },
+    { key: 'Dhuhr', name: 'الظهر', msg: 'لا تنسَ أذكار ما بعد الصلاة' },
+    { key: 'Asr', name: 'العصر', msg: 'حان وقت أذكار المساء 🌙' },
+    { key: 'Maghrib', name: 'المغرب', msg: 'لا تنسَ أذكار المساء' },
+    { key: 'Isha', name: 'العشاء', msg: 'اختم يومك بذكر الله' }
+  ];
+
+  prayers.forEach(prayer => {
+    const [h, m] = String(timings[prayer.key]).split(' ')[0].split(':').map(Number);
+    const prayerTime = new Date();
+    prayerTime.setHours(h, m, 0, 0);
+
+    // إضافة 10 دقائق بعد الأذان (وقت كافٍ للصلاة)
+    const notifyTime = new Date(prayerTime.getTime() + 10 * 60000);
+
+    // إذا كان الوقت قد مضى اليوم، جدوله لليوم التالي
+    if (notifyTime <= now) {
+      notifyTime.setDate(notifyTime.getDate() + 1);
+    }
+
+    const delay = notifyTime - now;
+    
+    const timeout = setTimeout(() => {
+      sendNotification(
+        '🕌 انتهت صلاة ' + prayer.name,
+        'لا تنسَ ' + prayer.msg + ' — زاد عبيدة'
+      );
+    }, delay);
+    
+    prayerNotificationTimeouts.push(timeout);
+    console.log(`⏰ تم جدولة إشعار لصلاة ${prayer.name} بعد ${Math.round(delay/60000)} دقيقة`);
+  });
+}
+
 if (notifBtn) {
   if (!('Notification' in window)) {
     notifBtn.style.display = 'none';
@@ -203,13 +260,12 @@ if (notifBtn) {
       notifBtn.textContent = '✅ الإشعارات مفعلة';
       notifBtn.disabled = true;
       
-      // إرسال إشعار تجريبي
-      if (navigator.serviceWorker.controller) {
-        navigator.serviceWorker.controller.postMessage({
-          type: 'SCHEDULE_REMINDER',
-          title: 'زاد عبيدة',
-          body: 'لا تنسَ وردك اليومي من الأذكار والقرآن.'
-        });
+      // إرسال إشعار تجريبي للتأكيد
+      sendNotification('زاد عبيدة', 'تم تفعيل الإشعارات بنجاح! سنذكرك بعد كل صلاة. 🕌');
+      
+      // إعادة جدولة الإشعارات بناءً على المواقيت الحالية (إذا كانت متوفرة)
+      if (window.prayerTimings) {
+        schedulePrayerNotifications(window.prayerTimings);
       }
     } else {
       showToast('تم رفض الإشعارات');
